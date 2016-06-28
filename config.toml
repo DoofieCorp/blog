@@ -1,4 +1,4 @@
-baseurl = "http://blog.ianduffy.ie/"
+baseurl = "https://doofiecorp.github.io/blog/"
 title = "Ian Duffy"
 languageCode = "en-us"
 disqusShortname = "ianduffy" # Optional, enable Disqus integration
