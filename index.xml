@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ian Duffy</title>
-    <link>https://ianduffy.ie/</link>
+    <link>http://ianduffy.ie/</link>
     <description>Recent content on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Jun 2016 17:10:58 +0100</lastBuildDate>
-    <atom:link href="https://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hello World</title>
-      <link>https://ianduffy.ie/blog/2016/06/28/hello-world/</link>
+      <link>http://ianduffy.ie/blog/2016/06/28/hello-world/</link>
       <pubDate>Tue, 28 Jun 2016 17:10:58 +0100</pubDate>
       
-      <guid>https://ianduffy.ie/blog/2016/06/28/hello-world/</guid>
+      <guid>http://ianduffy.ie/blog/2016/06/28/hello-world/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;resource &amp;quot;null_resource&amp;quot; &amp;quot;hello_world&amp;quot; {
     provisioner &amp;quot;local-exec&amp;quot; {
         command = &amp;quot;echo &#39;Hello World&#39;&amp;quot;
