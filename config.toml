@@ -50,7 +50,7 @@ pygmentsuseclasses = true
 
     # Displays under the author name in the sidebar, keep it short.
     # You can use markdown here.
-    tagline = "Rants of a platform engineer"
+    tagline = "Rants of a software engineer"
 
     # Text for the top menu link, which goes the root URL for the site.
     # Default (if omitted) is "Blog".
@@ -61,13 +61,12 @@ pygmentsuseclasses = true
     gravatarHash = "fda265e7910b191285e57e9e303963eb"
 
     # Sidebar social links, these must be full URLs.
-    github = "http://github.com/doofiecorp"
+    github = "http://github.com/imduffy15"
     bitbucket = ""
     stackOverflow = ""
     linkedin = "https://ie.linkedin.com/in/imduffy15"
     googleplus = ""
     facebook = ""
-    twitter = "http://github.com/imduffy15"
     youtube = "https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"
 
     # Other social-like sidebar links
