@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ian Duffy</title>
-    <link>http://ianduffy.ie/index.xml</link>
+    <link>http://ianduffy.ie/categories/security/index.xml</link>
     <description>Recent content on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Nov 2016 10:29:32 +0000</lastBuildDate>
-    <atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ianduffy.ie/categories/security/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Azure bug bounty Pwning Red Hat Enterprise Linux</title>
@@ -141,28 +140,6 @@ sslcacert=/etc/pki/rhui/ca.crt
 &lt;p&gt;[3] &lt;a href=&#34;https://github.com/Azure/azure-linux-extensions/blob/master/Common/WALinuxAgent-2.0.16/waagent#L2891&#34;&gt;https://github.com/Azure/azure-linux-extensions/blob/master/Common/WALinuxAgent-2.0.16/waagent#L2891&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;[4] &lt;a href=&#34;https://fedorahosted.org/pulp/wiki/Certificates&#34;&gt;https://fedorahosted.org/pulp/wiki/Certificates&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>http://ianduffy.ie/blog/2016/06/28/hello-world/</link>
-      <pubDate>Tue, 28 Jun 2016 17:10:58 +0100</pubDate>
-      
-      <guid>http://ianduffy.ie/blog/2016/06/28/hello-world/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;resource &amp;quot;null_resource&amp;quot; &amp;quot;hello_world&amp;quot; {
-    provisioner &amp;quot;local-exec&amp;quot; {
-        command = &amp;quot;echo &#39;Hello World&#39;&amp;quot;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Interested in automation and the HashiCorp suite of tools? If so you&amp;rsquo;ll love this blog.
-Through different posts we will explore lots different automation tasks utilising both
-public and private cloud with the HashiCorp toolset.&lt;/p&gt;
-
-&lt;p&gt;Thanks,
-Ian.&lt;/p&gt;
 </description>
     </item>
     
