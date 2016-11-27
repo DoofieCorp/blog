@@ -136,7 +136,7 @@ sslcacert=/etc/pki/rhui/ca.crt
 
 Given no gpgcheck is enabled, with full administrative access to the [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) Appliance REST API one could have uploaded packages that would be acquired by client virtual machines on their next yum update.
 
-The issue was reported in accordance to the [Microsoft Online Services Bug Bounty terms](https://technet.microsoft.com/en-us/library/dn800983.aspx). Microsoft agreed it was a vulnerability in their systems. Immediate action was taken to prevent public access to `rhui-monitor.cloudapp.net`. Additionally, they eventually prevented public access to the Red Hat Update Appliances and they claim to of rotated all secrets.
+The issue was reported in accordance to the [Microsoft Online Services Bug Bounty terms](https://technet.microsoft.com/en-us/library/dn800983.aspx). Microsoft agreed it was a vulnerability in their systems. Immediate action was taken to prevent public access to `rhui-monitor.cloudapp.net`. Additionally, they eventually prevented public access to the Red Hat Update Appliances and they claim to have rotated all secrets.
 
 [1] https://azure.microsoft.com/en-in/pricing/details/virtual-machines/red-hat/
 
