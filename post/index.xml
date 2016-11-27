@@ -6,8 +6,33 @@
     <description>Recent content in Post-rsses on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Nov 2016 10:29:32 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Nov 2016 02:47:11 +0000</lastBuildDate>
     <atom:link href="http://ianduffy.ie/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Azure bug bounty Root to storage account administrator</title>
+      <link>http://ianduffy.ie/blog/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</link>
+      <pubDate>Sun, 27 Nov 2016 02:47:11 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/blog/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</guid>
+      <description>&lt;p&gt;In my previous blog post &lt;a href=&#34;http://ianduffy.ie/blog/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/&#34;&gt;Azure bug bounty Pwning Red Hat Enterprise Linux&lt;/a&gt; I detailed how it was possible to get administrative access to the Red Hat Update Infrastructure consumed by &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; virtual machines booted from the &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; Marketplace image. In theory, if exploited one could have gained root access to all virtual machines consuming the repositories by releasing an updated version of a common package and waiting for virtual machines to execute &lt;code&gt;yum update&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;As an attacker, this would have granted access to every piece of data on the compromised virtual machines. Sadly, the attack vector is actually much more widespread than this. Given some poor implementation within the mandatory &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; Linux Agent (WaLinuxAgent) one is able to obtain the administrator API keys to the storage account used by the virtual machine for debug log shipping purposes, at the time of research this storage account defaulted to one shared by multiple virtual machines.&lt;/p&gt;
+
+&lt;p&gt;At the time of research, the &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; image available on the &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; Marketplace came with WaLinuxAgent 2.0.16. When a virtual machine was created with the &amp;ldquo;Linux diagnostic extension&amp;rdquo; enabled the API key for access to the specified storage account was written to &lt;code&gt;/var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9007/xmlCfg.xml&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once acquired one can simply use the &lt;a href=&#34;https://github.com/Azure/azure-xplat-cli&#34;&gt;Azure Xplat-CLI&lt;/a&gt; to interact the storage account:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export AZURE_STORAGE_ACCOUNT=&amp;quot;storage_account_name_as_per_xmlcfg&amp;quot;
+export AZURE_STORAGE_ACCESS_KEY=&amp;quot;storage_account_access_key_as_per_xmlcfg&amp;quot;
+azure storage container list # acquire some container name
+azure storage blob list # provide the container name
+# Copy, download, upload, delete any blobs available across any containers you can access.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the storage account was used by multiple virtual machines there is potential to download their virtual hard disks.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Azure bug bounty Pwning Red Hat Enterprise Linux</title>
