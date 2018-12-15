@@ -1,7 +1,6 @@
 baseurl = "http://ianduffy.ie/"
 title = "Ian Duffy"
 languageCode = "en-us"
-disqusShortname = "ianduffy" # Optional, enable Disqus integration
 MetaDataFormat = "toml"
 theme = "hyde-x"
 paginate = 10
