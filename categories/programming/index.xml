@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ian Duffy</title>
-    <link>http://ianduffy.ie/categories/programming/index.xml</link>
-    <description>Recent content on Ian Duffy</description>
+    <title>Programming on Ian Duffy</title>
+    <link>http://ianduffy.ie/categories/programming/</link>
+    <description>Recent content in Programming on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://ianduffy.ie/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Feb 2017 18:06:45 +0000</lastBuildDate>
+    
+	<atom:link href="http://ianduffy.ie/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Scala and AWS managed ElasticSearch</title>
@@ -14,61 +17,9 @@
       <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
       
       <guid>http://ianduffy.ie/blog/2017/02/26/scala-and-aws-managed-elasticsearch/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/&#34;&gt;AWS&lt;/a&gt; offer a &lt;a href=&#34;https://aws.amazon.com/elasticsearch-service/&#34;&gt;managed ElasticSearch service&lt;/a&gt;. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via &lt;a href=&#34;https://aws.amazon.com/documentation/iam/&#34;&gt;AWS Identity Access Management&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sksamuel/elastic4s&#34;&gt;Elastic4s&lt;/a&gt; offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;AWS&amp;rsquo;s&lt;/a&gt; &lt;a href=&#34;https://aws.amazon.com/elasticsearch-service/&#34;&gt;managed ElasticSearch service&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;creating-a-request-signer&#34;&gt;Creating a request signer&lt;/h2&gt;
-
-&lt;p&gt;Using the &lt;a href=&#34;https://github.com/inreachventures/aws-signing-request-interceptor&#34;&gt;aws-signing-request-interceptor&lt;/a&gt; library its easy to create an &lt;a href=&#34;https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpRequestInterceptor.html&#34;&gt;HttpRequestInterceptor&lt;/a&gt; which can be later added to the HttpClient used by &lt;a href=&#34;https://github.com/sksamuel/elastic4s&#34;&gt;Elastic4s&lt;/a&gt; for making the calls to ElasticSearch&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;private def createAwsSigner(config: Config): AWSSigner = {
-  import com.gilt.gfc.guava.GuavaConversions._
-
-  val awsCredentialsProvider = new DefaultAWSCredentialsProviderChain
-  val service = config.getString(&amp;quot;service&amp;quot;)
-  val region = config.getString(&amp;quot;region&amp;quot;)
-  val clock: Supplier[LocalDateTime] = () =&amp;gt; LocalDateTime.now(ZoneId.of(&amp;quot;UTC&amp;quot;))
-  new AWSSigner(awsCredentialsProvider, region, service, clock)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;creating-an-http-client-and-intercepting-the-requests&#34;&gt;Creating an HTTP Client and intercepting the requests&lt;/h2&gt;
-
-&lt;p&gt;The ElasticSearch &lt;a href=&#34;https://github.com/elastic/elasticsearch/blob/master/client/rest/src/main/java/org/elasticsearch/client/RestClientBuilder.java#L230&#34;&gt;RestClientBuilder&lt;/a&gt; allows for registering a callback to modify the customise the &lt;a href=&#34;http://hc.apache.org/httpcomponents-asyncclient-dev/httpasyncclient/apidocs/org/apache/http/impl/nio/client/HttpAsyncClientBuilder.html#addInterceptorLast(org.apache.http.HttpResponseInterceptor)&#34;&gt;HttpAsyncClientBuilder&lt;/a&gt; enabling registering the interceptor to sign the requests.&lt;/p&gt;
-
-&lt;p&gt;The callback can be created by implementing the HttpClientConfigCallback interface as follows:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;private val esConfig = config.getConfig(&amp;quot;elasticsearch&amp;quot;)
-
-private class AWSSignerInteceptor extends HttpClientConfigCallback {
-  override def customizeHttpClient(httpClientBuilder: HttpAsyncClientBuilder): HttpAsyncClientBuilder = {
-    httpClientBuilder.addInterceptorLast(new AWSSigningRequestInterceptor(createAwsSigner(esConfig)))
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Finally, an &lt;a href=&#34;https://github.com/sksamuel/elastic4s&#34;&gt;Elastic4s&lt;/a&gt; client can be created with the interceptor registered:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;private def createEsHttpClient(config: Config): HttpClient = {
-  val hosts = ElasticsearchClientUri(config.getString(&amp;quot;uri&amp;quot;)).hosts.map {
-    case (host, port) =&amp;gt;
-      new HttpHost(host, port, &amp;quot;http&amp;quot;)
-  }
-
-  log.info(s&amp;quot;Creating HTTP client on ${hosts.mkString(&amp;quot;,&amp;quot;)}&amp;quot;)
-
-  val client = RestClient.builder(hosts: _*)
-    .setHttpClientConfigCallback(new AWSSignerInteceptor)
-    .build()
-  HttpClient.fromRestClient(client)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Full Example on &lt;a href=&#34;https://github.com/imduffy15/scala-aws-hosted-es/blob/master/src/main/scala/Run.scala&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>AWS offer a managed ElasticSearch service. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via AWS Identity Access Management.
+Elastic4s offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with AWS&amp;rsquo;s managed ElasticSearch service.
+Creating a request signer Using the aws-signing-request-interceptor library its easy to create an HttpRequestInterceptor which can be later added to the HttpClient used by Elastic4s for making the calls to ElasticSearch</description>
     </item>
     
   </channel>

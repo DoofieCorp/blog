@@ -2,12 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ian Duffy</title>
-    <link>http://ianduffy.ie/index.xml</link>
+    <link>http://ianduffy.ie/</link>
     <description>Recent content on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Feb 2017 18:06:45 +0000</lastBuildDate>
-    <atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Dec 2018 14:18:32 +0000</lastBuildDate>
+    
+	<atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Managing access to multiple AWS Accounts with OpenID</title>
+      <link>http://ianduffy.ie/blog/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</link>
+      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/blog/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</guid>
+      <description>Many organisations look towards a multiple account strategy with Amazon Web Services (AWS) to provide administrative isolation between workloads, limited visibility and discoverability of workloads, isolation to minimize blast radius, management of AWS limits and cost categorisation. However, this comes at a large complexity cost, specifically around Identity Access Management (IAM).
+Starting off with a single AWS account, and using a handful of IAM users and groups for access management, is usually the norm.</description>
+    </item>
     
     <item>
       <title>Scala and AWS managed ElasticSearch</title>
@@ -15,61 +27,9 @@
       <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
       
       <guid>http://ianduffy.ie/blog/2017/02/26/scala-and-aws-managed-elasticsearch/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/&#34;&gt;AWS&lt;/a&gt; offer a &lt;a href=&#34;https://aws.amazon.com/elasticsearch-service/&#34;&gt;managed ElasticSearch service&lt;/a&gt;. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via &lt;a href=&#34;https://aws.amazon.com/documentation/iam/&#34;&gt;AWS Identity Access Management&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sksamuel/elastic4s&#34;&gt;Elastic4s&lt;/a&gt; offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;AWS&amp;rsquo;s&lt;/a&gt; &lt;a href=&#34;https://aws.amazon.com/elasticsearch-service/&#34;&gt;managed ElasticSearch service&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;creating-a-request-signer&#34;&gt;Creating a request signer&lt;/h2&gt;
-
-&lt;p&gt;Using the &lt;a href=&#34;https://github.com/inreachventures/aws-signing-request-interceptor&#34;&gt;aws-signing-request-interceptor&lt;/a&gt; library its easy to create an &lt;a href=&#34;https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpRequestInterceptor.html&#34;&gt;HttpRequestInterceptor&lt;/a&gt; which can be later added to the HttpClient used by &lt;a href=&#34;https://github.com/sksamuel/elastic4s&#34;&gt;Elastic4s&lt;/a&gt; for making the calls to ElasticSearch&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;private def createAwsSigner(config: Config): AWSSigner = {
-  import com.gilt.gfc.guava.GuavaConversions._
-
-  val awsCredentialsProvider = new DefaultAWSCredentialsProviderChain
-  val service = config.getString(&amp;quot;service&amp;quot;)
-  val region = config.getString(&amp;quot;region&amp;quot;)
-  val clock: Supplier[LocalDateTime] = () =&amp;gt; LocalDateTime.now(ZoneId.of(&amp;quot;UTC&amp;quot;))
-  new AWSSigner(awsCredentialsProvider, region, service, clock)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;creating-an-http-client-and-intercepting-the-requests&#34;&gt;Creating an HTTP Client and intercepting the requests&lt;/h2&gt;
-
-&lt;p&gt;The ElasticSearch &lt;a href=&#34;https://github.com/elastic/elasticsearch/blob/master/client/rest/src/main/java/org/elasticsearch/client/RestClientBuilder.java#L230&#34;&gt;RestClientBuilder&lt;/a&gt; allows for registering a callback to modify the customise the &lt;a href=&#34;http://hc.apache.org/httpcomponents-asyncclient-dev/httpasyncclient/apidocs/org/apache/http/impl/nio/client/HttpAsyncClientBuilder.html#addInterceptorLast(org.apache.http.HttpResponseInterceptor)&#34;&gt;HttpAsyncClientBuilder&lt;/a&gt; enabling registering the interceptor to sign the requests.&lt;/p&gt;
-
-&lt;p&gt;The callback can be created by implementing the HttpClientConfigCallback interface as follows:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;private val esConfig = config.getConfig(&amp;quot;elasticsearch&amp;quot;)
-
-private class AWSSignerInteceptor extends HttpClientConfigCallback {
-  override def customizeHttpClient(httpClientBuilder: HttpAsyncClientBuilder): HttpAsyncClientBuilder = {
-    httpClientBuilder.addInterceptorLast(new AWSSigningRequestInterceptor(createAwsSigner(esConfig)))
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Finally, an &lt;a href=&#34;https://github.com/sksamuel/elastic4s&#34;&gt;Elastic4s&lt;/a&gt; client can be created with the interceptor registered:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;private def createEsHttpClient(config: Config): HttpClient = {
-  val hosts = ElasticsearchClientUri(config.getString(&amp;quot;uri&amp;quot;)).hosts.map {
-    case (host, port) =&amp;gt;
-      new HttpHost(host, port, &amp;quot;http&amp;quot;)
-  }
-
-  log.info(s&amp;quot;Creating HTTP client on ${hosts.mkString(&amp;quot;,&amp;quot;)}&amp;quot;)
-
-  val client = RestClient.builder(hosts: _*)
-    .setHttpClientConfigCallback(new AWSSignerInteceptor)
-    .build()
-  HttpClient.fromRestClient(client)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Full Example on &lt;a href=&#34;https://github.com/imduffy15/scala-aws-hosted-es/blob/master/src/main/scala/Run.scala&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>AWS offer a managed ElasticSearch service. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via AWS Identity Access Management.
+Elastic4s offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with AWS&amp;rsquo;s managed ElasticSearch service.
+Creating a request signer Using the aws-signing-request-interceptor library its easy to create an HttpRequestInterceptor which can be later added to the HttpClient used by Elastic4s for making the calls to ElasticSearch</description>
     </item>
     
     <item>
@@ -78,23 +38,7 @@ private class AWSSignerInteceptor extends HttpClientConfigCallback {
       <pubDate>Sun, 27 Nov 2016 02:47:11 +0000</pubDate>
       
       <guid>http://ianduffy.ie/blog/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</guid>
-      <description>&lt;p&gt;In my previous blog post &lt;a href=&#34;http://ianduffy.ie/blog/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/&#34;&gt;Azure bug bounty Pwning Red Hat Enterprise Linux&lt;/a&gt; I detailed how it was possible to get administrative access to the Red Hat Update Infrastructure consumed by &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; virtual machines booted from the &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; Marketplace image. In theory, if exploited one could have gained root access to all virtual machines consuming the repositories by releasing an updated version of a common package and waiting for virtual machines to execute &lt;code&gt;yum update&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;As an attacker, this would have granted access to every piece of data on the compromised virtual machines. Sadly, the attack vector is actually much more widespread than this. Given some poor implementation within the mandatory &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; Linux Agent (WaLinuxAgent) one is able to obtain the administrator API keys to the storage account used by the virtual machine for debug log shipping purposes, at the time of research this storage account defaulted to one shared by multiple virtual machines.&lt;/p&gt;
-
-&lt;p&gt;At the time of research, the &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; image available on the &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; Marketplace came with WaLinuxAgent 2.0.16. When a virtual machine was created with the &amp;ldquo;Linux diagnostic extension&amp;rdquo; enabled the API key for access to the specified storage account was written to &lt;code&gt;/var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9007/xmlCfg.xml&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Once acquired one can simply use the &lt;a href=&#34;https://github.com/Azure/azure-xplat-cli&#34;&gt;Azure Xplat-CLI&lt;/a&gt; to interact the storage account:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;export AZURE_STORAGE_ACCOUNT=&amp;quot;storage_account_name_as_per_xmlcfg&amp;quot;
-export AZURE_STORAGE_ACCESS_KEY=&amp;quot;storage_account_access_key_as_per_xmlcfg&amp;quot;
-azure storage container list # acquire some container name
-azure storage blob list # provide the container name
-# Copy, download, upload, delete any blobs available across any containers you can access.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If the storage account was used by multiple virtual machines there is potential to download their virtual hard disks.&lt;/p&gt;
-</description>
+      <description>In my previous blog post Azure bug bounty Pwning Red Hat Enterprise Linux I detailed how it was possible to get administrative access to the Red Hat Update Infrastructure consumed by Red Hat Enterprise Linux virtual machines booted from the Microsoft Azure Marketplace image. In theory, if exploited one could have gained root access to all virtual machines consuming the repositories by releasing an updated version of a common package and waiting for virtual machines to execute yum update.</description>
     </item>
     
     <item>
@@ -103,133 +47,9 @@ azure storage blob list # provide the container name
       <pubDate>Sat, 26 Nov 2016 10:29:32 +0000</pubDate>
       
       <guid>http://ianduffy.ie/blog/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</guid>
-      <description>
-
-&lt;p&gt;&lt;em&gt;TL;DR Acquired administrator level access to all of the &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; managed &lt;a href=&#34;https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure&#34;&gt;Red Hat Update Infrastructure&lt;/a&gt; that supplies all the packages for all &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; instances booted from the Azure marketplace.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I was tasked with creating a machine image of &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; that was compliant to the &lt;a href=&#34;https://www.stigviewer.com/stig/red_hat_enterprise_linux_6/&#34;&gt;Security Technical Implementation guide defined by the Department of Defense&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This machine image was to be used for both &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;Amazon Web Services&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt;. Both of which offer marketplace images which had a metered billing pricing model[1][2]. Ideally, I wanted my custom image to be billed under the same mechanism, as such the virtual machines would be able to consume software updates from a local &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; repository owned and managed by the cloud provider.&lt;/p&gt;
-
-&lt;p&gt;Both &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;Amazon Web Services&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; utilise a deployment of &lt;a href=&#34;https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure&#34;&gt;Red Hat Update Infrastructure&lt;/a&gt; for supplying this functionality.&lt;/p&gt;
-
-&lt;p&gt;This setup requires two main parts:&lt;/p&gt;
-
-&lt;h3 id=&#34;red-hat-update-appliance&#34;&gt;Red Hat Update Appliance&lt;/h3&gt;
-
-&lt;p&gt;There is only one Red Hat Update Appliance per &lt;a href=&#34;https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure&#34;&gt;Red Hat Update Infrastructure&lt;/a&gt; installation, however, both &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;Amazon Web Services&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; create one per region.&lt;/p&gt;
-
-&lt;p&gt;The Red Hat Update Appliance is responsible for:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Downloading new packages from the Red Hat CDN. It is the only component that requires a connection back to Red Hat.&lt;/li&gt;
-&lt;li&gt;Copying new packages to each content delivery server&lt;/li&gt;
-&lt;li&gt;Supplying a &lt;a href=&#34;http://pulpproject.org/&#34;&gt;REST API and command line interface for management of software repositories&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;The Red Hat Update Appliance does not need to be exposed to the repository clients.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;content-delivery-server&#34;&gt;Content Delivery server&lt;/h3&gt;
-
-&lt;p&gt;The content delivery server(s) provide the yum repositories that clients connect to for updated packages.&lt;/p&gt;
-
-&lt;h2 id=&#34;achieving-metered-billing&#34;&gt;Achieving metered billing&lt;/h2&gt;
-
-&lt;p&gt;Both &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;Amazon Web Services&lt;/a&gt; and &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt; use SSL certifications for authentication against the repositories.&lt;/p&gt;
-
-&lt;p&gt;However, these are the same SSL certificates for every instance.&lt;/p&gt;
-
-&lt;p&gt;On &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;Amazon Web Services&lt;/a&gt; having the SSL certificates is not enough, you must have booted your instance from an AMI that had an associated billing code. It is this billing code that ensures you pay the extra premium for running &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;On Azure it remains undefined how they manage to track billing. At the time of research, it was possible to copy the SSL certificates from one instance to another and successfully authenticate. Additionally, if you duplicated a &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; virtual hard disk and created a new instance from it all billing association seemed to be lost but repository access was still available.&lt;/p&gt;
-
-&lt;h2 id=&#34;where-azure-failed&#34;&gt;Where Azure Failed&lt;/h2&gt;
-
-&lt;p&gt;On Azure to setup repository connectivity, they provide an RPM with the necessary configuration. In the older version of their agent, it is responsible for this task [3].  The installation script it references comes from the following &lt;a href=&#34;http://rhuirpm.blob.core.windows.net/script/rhui.tar.gz&#34;&gt;archive&lt;/a&gt;. If you expand this archive you will find the client configuration for each region.&lt;/p&gt;
-
-&lt;p&gt;By browsing the metadata of the RPMs we can discover some interesting information:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ rpm -qip RHEL6-2.0-1.noarch.rpm
-Name        : RHEL6                        Relocations: (not relocatable)
-Version     : 2.0                               Vendor: (none)
-Release     : 1                             Build Date: Sun 14 Feb 2016 06:40:54 AM UTC
-Install Date: (not installed)               Build Host: westeurope-rhua.cloudapp.net
-Group       : Applications/Internet         Source RPM: RHEL6-2.0-1.src.rpm
-Size        : 20833                            License: GPLv2
-Signature   : (none)
-URL         : http://redhat.com
-Summary     : Custom configuration for a cloud client instance
-Description :
-Configurations for a client to connect to the RHUI infrastructure
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see, the build host enables us to discover all of the Red Hat Update Appliances:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ host westeurope-rhua.cloudapp.net
-westeurope-rhua.cloudapp.net has address 104.40.209.83
-
-$ host eastus2-rhua.cloudapp.net
-eastus2-rhua.cloudapp.net has address 13.68.20.161
-
-$ host southcentralus-rhua.cloudapp.net
-southcentralus-rhua.cloudapp.net has address 23.101.178.51
-
-$ host southeastasia-rhua.cloudapp.net
-southeastasia-rhua.cloudapp.net has address 137.116.129.134
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;At the time of research, all of servers were exposing their REST APIs over HTTPs.&lt;/p&gt;
-
-&lt;p&gt;The URL to the archive containing these RPMs was discovered a package labeled PrepareRHUI on available on any &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; Box running on &lt;a href=&#34;https://azure.microsoft.com&#34;&gt;Microsoft Azure&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ yumdownloader PrepareRHUI
-$ rpm -qip PrepareRHUI-1.0.0-1.noarch.rpm
-Name        : PrepareRHUI                  Relocations: (not relocatable)
-Version     : 1.0.0                             Vendor: Microsoft Corporation
-Release     : 1                             Build Date: Mon 16 Nov 2015 06:13:21 AM UTC
-Install Date: (not installed)               Build Host: rhui-monitor.cloudapp.net
-Group       : Unspecified                   Source RPM: PrepareRHUI-1.0.0-1.src.rpm
-Size        : 770                              License: GPL
-Signature   : (none)
-Packager    : Microsoft Corporation &amp;lt;xiazhang@microsoft.com&amp;gt;
-Summary     : Prepare RHUI installation for Redhat client
-Description :
-PrepareRHUI is used to prepare RHUI installation for before making a Redhat image.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The build host is interesting &lt;code&gt;rhui-monitor.cloudapp.net&lt;/code&gt;, at the time of research running a port scan revealed an application running on port 8080.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ianduffy.ie/monitor.png&#34; alt=&#34;Microsoft Azure RHUI Monitoring tool&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Despite the application requiring username and password based authentication, It was possible to execute a run of their &amp;ldquo;backend log collector&amp;rdquo; on a specified content delivery server. When the collector service completed the application supplied URLs to archives which contain multiple logs and configuration files from the servers.&lt;/p&gt;
-
-&lt;p&gt;Included within these archives was an SSL certificate that would grant full administrative access to the Red Hat Update Appliances [4].&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ianduffy.ie/directory.png&#34; alt=&#34;Pulp admin keys for Microsoft Azure&#39;s RHUI&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At the time of research all &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; virtual machines booted from the Azure Marketplace image had the following additional repository configured:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[rhui-PA]
-name=Packages for Azure
-mirrorlist=https://eastus2-cds1.cloudapp.net/pulp/mirror/PA
-enabled=1
-gpgcheck=0
-sslverify=1
-sslcacert=/etc/pki/rhui/ca.crt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Given no gpgcheck is enabled, with full administrative access to the &lt;a href=&#34;https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux&#34;&gt;Red Hat Enterprise Linux&lt;/a&gt; Appliance REST API one could have uploaded packages that would be acquired by client virtual machines on their next yum update.&lt;/p&gt;
-
-&lt;p&gt;The issue was reported in accordance to the &lt;a href=&#34;https://technet.microsoft.com/en-us/library/dn800983.aspx&#34;&gt;Microsoft Online Services Bug Bounty terms&lt;/a&gt;. Microsoft agreed it was a vulnerability in their systems. Immediate action was taken to prevent public access to &lt;code&gt;rhui-monitor.cloudapp.net&lt;/code&gt;. Additionally, they eventually prevented public access to the Red Hat Update Appliances and they claim to have rotated all secrets.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://azure.microsoft.com/en-in/pricing/details/virtual-machines/red-hat/&#34;&gt;https://azure.microsoft.com/en-in/pricing/details/virtual-machines/red-hat/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;https://aws.amazon.com/partners/redhat/&#34;&gt;https://aws.amazon.com/partners/redhat/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[3] &lt;a href=&#34;https://github.com/Azure/azure-linux-extensions/blob/master/Common/WALinuxAgent-2.0.16/waagent#L2891&#34;&gt;https://github.com/Azure/azure-linux-extensions/blob/master/Common/WALinuxAgent-2.0.16/waagent#L2891&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[4] &lt;a href=&#34;https://fedorahosted.org/pulp/wiki/Certificates&#34;&gt;https://fedorahosted.org/pulp/wiki/Certificates&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>TL;DR Acquired administrator level access to all of the Microsoft Azure managed Red Hat Update Infrastructure that supplies all the packages for all Red Hat Enterprise Linux instances booted from the Azure marketplace.
+I was tasked with creating a machine image of Red Hat Enterprise Linux that was compliant to the Security Technical Implementation guide defined by the Department of Defense.
+This machine image was to be used for both Amazon Web Services and Microsoft Azure.</description>
     </item>
     
     <item>
@@ -238,20 +58,8 @@ sslcacert=/etc/pki/rhui/ca.crt
       <pubDate>Tue, 28 Jun 2016 17:10:58 +0100</pubDate>
       
       <guid>http://ianduffy.ie/blog/2016/06/28/hello-world/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;resource &amp;quot;null_resource&amp;quot; &amp;quot;hello_world&amp;quot; {
-    provisioner &amp;quot;local-exec&amp;quot; {
-        command = &amp;quot;echo &#39;Hello World&#39;&amp;quot;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Interested in automation and the HashiCorp suite of tools? If so you&amp;rsquo;ll love this blog.
-Through different posts we will explore lots different automation tasks utilising both
-public and private cloud with the HashiCorp toolset.&lt;/p&gt;
-
-&lt;p&gt;Thanks,
-Ian.&lt;/p&gt;
-</description>
+      <description>resource &amp;quot;null_resource&amp;quot; &amp;quot;hello_world&amp;quot; { provisioner &amp;quot;local-exec&amp;quot; { command = &amp;quot;echo &#39;Hello World&#39;&amp;quot; } }  Interested in automation and the HashiCorp suite of tools? If so you&amp;rsquo;ll love this blog. Through different posts we will explore lots different automation tasks utilising both public and private cloud with the HashiCorp toolset.
+Thanks, Ian.</description>
     </item>
     
   </channel>
