@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.52" />
+	<meta name="generator" content="Hugo 0.54.0" />
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -79,6 +79,158 @@
 <div class="content container">
   <div class="posts">
     
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/">Local development with virtual hosts and HTTPS</a>
+      </h1>
+      <span class="post-date">Feb 22, 2019 &middot; 4 minute read
+      
+      <br/>
+      <a class="label" href="http://ianduffy.ie/categories/development">Development</a><a class="label" href="http://ianduffy.ie/categories/web">Web</a><a class="label" href="http://ianduffy.ie/categories/docker">Docker</a>
+      </span>
+      
+      
+
+<p><center><img src="/images/local-development-with-virtual-hosts-and-https/diagram.png" alt="" /></center></p>
+
+<p>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.</p>
+
+<h2 id="domain-name-systems-dns">Domain Name Systems (DNS)</h2>
+
+<p>Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.ie’. DNS is responsible for translating a domain name to an IP address.</p>
+
+<p>When an HTTP resource is accessed using DNS, an additional header containing the domain name is provided to the HTTP server. The HTTP server uses this for routing the request to the correct vhost.</p>
+
+<p>In order to have functioning vhosts, DNS is required. <a href="http://www.thekelleys.org.uk/dnsmasq/doc.html">Dnsmasq</a> is a popular DNS server, it can be configured to resolve a set of specified domains to a specified IP address. Using docker a dnsmasq server can easily be created:</p>
+
+<pre><code>$ docker run -it -p 53:53/udp --cap-add=NET_ADMIN andyshinn/dnsmasq:latest --log-queries --log-facility=- --address=/dev.ianduffy.ie/127.0.0.1
+</code></pre>
+
+<p>The provided command line arguments instruct dnsmasq to resolve all requests for dev.ianduffy.ie and *.dev.ianduffy.ie to 127.0.0.1. Using dig - a DNS lookup utility this configuration can be validated:</p>
+
+<pre><code>$ dig @127.0.0.1 dev.ianduffy.ie +short
+127.0.0.1
+</code></pre>
+
+<p>Additionally, all wildcards of dev.ianduffy.ie also resolve:</p>
+
+<pre><code>$ dig @127.0.0.1 random-string.dev.ianduffy.ie +short
+127.0.0.1
+</code></pre>
+
+<p>While this works, the OSX is not configured to use this DNS server for it’s lookups so attempting to resolve dev.ianduffy.ie in the browser will fail. It&rsquo;s possible to specify nameservers for a specific domain name, this can be achieved by creating a file within /etc/resolver with a filename that matches the domain.</p>
+
+<p>For example, if /etc/resolver/dev.ianduffy.ie is created with the following contents:</p>
+
+<pre><code>nameserver 127.0.0.1
+</code></pre>
+
+<p>Now all queries to dev.ianduffy.ie will be resolved by doing a lookup against the DNS server at 127.0.0.1.</p>
+
+<h2 id="http">HTTP</h2>
+
+<p>A HTTP server will be required for routing the requests based on a vhost and supplying HTTPS. Nginx is a good fit for this, even-more-so as <a href="https://www.linkedin.com/in/jason-wilder-94549/">Jason Wilder</a> from Microsoft has created a  <a href="https://github.com/jwilder/nginx-proxy">container image</a> that exposes the nginx reverse proxy functionality via environment variables.</p>
+
+<p><a href="https://github.com/jwilder/nginx-proxy">nginx-proxy</a> can be started using the following:</p>
+
+<pre><code>$ docker run -it -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+</code></pre>
+
+<p><a href="https://github.com/jwilder/nginx-proxy">nginx-proxy</a> will look for <code>VIRTUAL_HOST</code> environment variables on other docker containers and route to them accordingly. To demonstrate this, a container running <a href="https://httpbin.org">httpbin</a> which provides data for debugging HTTP requests can be created, with a VIRTUAL_HOST environment variable specified.</p>
+
+<pre><code>$ docker run -e VIRTUAL_HOST=httpbin.dev.ianduffy.ie kennethreitz/httpbin
+</code></pre>
+
+<p>This service can now be accessed via httpbin.dev.ianduffy.ie. Alternatively, if you do not have the dnsmasq service from earlier running, the service can be accessed by passing the header &ldquo;host&rdquo; with value &ldquo;httpbin.dev.ianduffy.ie&rdquo;. This can be tested with an HTTP client like <a href="https://curl.haxx.se/">curl</a></p>
+
+<pre><code>$ curl http://httpbin.dev.ianduffy.ie/headers
+{
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Connection&quot;: &quot;close&quot;,
+    &quot;Host&quot;: &quot;httpbin.dev.ianduffy.ie&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.54.0&quot;
+  }
+}
+</code></pre>
+
+<pre><code>$ curl -H &quot;host: httpbin.dev.ianduffy.ie&quot; http://127.0.0.1/headers
+{
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Connection&quot;: &quot;close&quot;,
+    &quot;Host&quot;: &quot;httpbin.dev.ianduffy.ie&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.54.0&quot;
+  }
+}
+</code></pre>
+
+<h2 id="https">HTTPS</h2>
+
+<p>In some scenarios, HTTPS might be required. <a href="https://github.com/FiloSottile/mkcert">mkcert</a> provides locally trusted SSL certificates and automatically OSX, Linux, and Windows system stores along with Firefox, Chrome and Java.</p>
+
+<p>With <a href="https://github.com/FiloSottile/mkcert">mkcert</a> installed, certificates can be generated with the following command:</p>
+
+<pre><code>$ mkdir certs
+$ mkcert -cert-file certs/dev.ianduffy.ie.crt -key-file certs/dev.ianduffy.ie.key -install dev.ianduffy.ie *.dev.ianduffy.ie
+</code></pre>
+
+<p>By mounting these certificates, as a volume on a container running nginx-proxy HTTPS will be enabled.</p>
+
+<pre><code>$ docker run -it -p 80:80 -p 443:443 -v $(pwd)/certs:/etc/nginx/certs -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+</code></pre>
+
+<p>Executing <code>curl</code> to <a href="https://httpbin.dev.ianduffy.ie">https://httpbin.dev.ianduffy.ie</a> will now respond successfully. Additionally, the <code>-v</code> flag can be specified to tell curl to be verbose and it will display information about the SSL certificate.</p>
+
+<pre><code>$ curl -v https://httpbin.dev.ianduffy.ie/headers
+</code></pre>
+
+<h2 id="placing-a-vhost-in-front-of-a-local-application">Placing a vhost in front of a local application</h2>
+
+<p>Most developers will want to run their application on the host and continue with the standard development workflow. To accommodate for this, a container that forwards traffic to a host port can be created.</p>
+
+<p><a href="http://www.dest-unreach.org/socat/doc/README">socat</a> is perfect for this use case, it enables us to specify a source IP address and port and a destination IP address and port. In the example below, all traffic for test.dev.ianduffy.ie will be forwarded to the docker host on port 9000.</p>
+
+<pre><code>$ docker run -it --expose 80 -e VIRTUAL_HOST=test.dev.ianduffy.ie alpine/socat tcp-listen:80,fork,reuseaddr tcp-connect:host.docker.internal:9000
+</code></pre>
+
+<h2 id="bring-it-all-together-with-docker-compose">Bring it all together with docker-compose</h2>
+
+<p>All of the containers described above can be brought together in a single docker compose file. This provides ease of bringing the system up with a single command.</p>
+
+<pre><code>nginx-proxy:
+  container_name: nginx-proxy
+  image: jwilder/nginx-proxy
+  ports:
+    - 80:80
+    - 443:443
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - ./certs:/etc/nginx/certs:ro
+dnsmasq:
+  container_name: dnsmasq
+  image: andyshinn/dnsmasq:latest
+  command: --log-queries --log-facility=- --address=/dev.ianduffy.ie/127.0.0.1
+  ports:
+    - 53:53
+    - 53:53/udp
+  cap_add:
+    - NET_ADMIN
+socat:
+  image: alpine/socat
+  command: tcp-listen:80,fork,reuseaddr tcp-connect:host.docker.internal:9000
+  environment:
+    - VIRTUAL_HOST=dev.ianduffy.ie
+    - VIRTUAL_PORT=80
+  expose:
+    - 80
+</code></pre>
+
+<p>This enables VHosts and HTTPS for applications running on the host without creating too much of a mess as its all contained within Docker.</p>
+
+      
+    </div>
     
     <div class="post">
       <h1 class="post-title">

@@ -6,10 +6,20 @@
     <description>Recent content on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Dec 2018 14:18:32 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Feb 2019 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Local development with virtual hosts and HTTPS</title>
+      <link>http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/</guid>
+      <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
+Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.</description>
+    </item>
     
     <item>
       <title>Managing access to multiple AWS Accounts with OpenID</title>

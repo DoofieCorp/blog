@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/</loc>
+    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://ianduffy.ie/blog/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</loc>
     <lastmod>2018-12-15T14:18:32+00:00</lastmod>
   </url>
@@ -52,14 +57,26 @@
   </url>
   
   <url>
+    <loc>http://ianduffy.ie/categories/development/</loc>
+    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/categories/docker/</loc>
+    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://ianduffy.ie/</loc>
-    <lastmod>2018-12-15T14:18:32+00:00</lastmod>
+    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://ianduffy.ie/post/</loc>
-    <lastmod>2018-12-15T14:18:32+00:00</lastmod>
+    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,6 +95,12 @@
   <url>
     <loc>http://ianduffy.ie/categories/serverless/</loc>
     <lastmod>2018-12-15T14:18:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/categories/web/</loc>
+    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

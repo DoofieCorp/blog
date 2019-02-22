@@ -39,6 +39,24 @@
     </item>
     
     <item>
+      <title>Development</title>
+      <link>http://ianduffy.ie/categories/development/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://ianduffy.ie/categories/docker/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Programming</title>
       <link>http://ianduffy.ie/categories/programming/</link>
       <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
@@ -62,6 +80,15 @@
       <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://ianduffy.ie/categories/web/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/web/</guid>
       <description></description>
     </item>
     
