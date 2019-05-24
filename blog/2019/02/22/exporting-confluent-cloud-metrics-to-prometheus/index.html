@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Docker | Rants of a software engineer</title>
+  <title>Exporting Confluent Cloud Metrics to Prometheus | Rants of a software engineer</title>
 
   
   <link rel="stylesheet" href="/css/poole.css">
@@ -27,10 +27,10 @@
   
   
   
-  <link href="http://ianduffy.ie/categories/docker/index.xml" rel="alternate" type="application/rss+xml" title="Docker &middot; Ian Duffy" />
+  
 
-  <meta name="description" content="Your default page description">
-  <meta name="keywords" content="your,default,page,keywords">
+  <meta name="description" content="A prometheus exporter for taking metrics from Confluent Cloud">
+  <meta name="keywords" content="kafka,confluent,consumer,lag,prometheus,monitoring">
   
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -76,24 +76,33 @@
 
 
 <div class="content container">
-  <ul class="posts">
-  
-    <li><a href="http://ianduffy.ie/blog/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/">Exporting Confluent Cloud Metrics to Prometheus</a>
+  <div class="post">
+    <h1 class="post-title">Exporting Confluent Cloud Metrics to Prometheus</h1>
+    <span class="post-date">Feb 22, 2019 &middot; 1 minute read
     
-    &middot;
+    <br/>
     <a class="label" href="http://ianduffy.ie/categories/cloud">Cloud</a><a class="label" href="http://ianduffy.ie/categories/docker">Docker</a>
     </span>
-    &middot; <time>Feb 22, 2019</time></li>
+    <p>At Kafka Summit this year, Confluent announced consumption based billing for their <a href="https://confluent.cloud/">Kafka Cloud</a> offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the <code>__consumer_offsets</code> topic is restricted, this means popular tools like <a href="https://github.com/yahoo/kafka-manager">Kafka Manager</a> and <a href="https://github.com/braedon/prometheus-kafka-consumer-group-exporter">Prometheus Kafka Consumer Group Exporter</a> won&rsquo;t work.</p>
+
+<p><a href="https://github.com/danielqsj/kafka_exporter">kafka_exporter</a> comes as a nice alternative as it uses the Kafka Admin Client to access the metrics. However, due to the authentication process required by <a href="https://confluent.cloud/">Confluent Cloud</a> it doesn&rsquo;t work as is.</p>
+
+<p>By forking <a href="https://github.com/imduffy15/kafka_exporter">kafka_exporter</a> and upgrading the Kafka client one can get a successful output.</p>
+
+<p>You can try out my build as follows:</p>
+
+<pre><code>$ docker run -p 9308:9308 -it imduffy15/kafka_exporter --kafka.server=host.region.gcp.confluent.cloud:9092 --sasl.enabled --sasl.username=username --sasl.password=&quot;password&quot; --sasl.handshake --tls.insecure-skip-tls-verify --tls.enabled
+</code></pre>
+
+<p>and on querying <code>http://localhost:9308/metrics</code> all metrics documented <a href="https://github.com/imduffy15/kafka_exporter#topics">here</a> will be available. Prometheus can scrape this and alert and graph on the data.</p>
+
+  </div>
   
-    <li><a href="http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/">Local development with virtual hosts and HTTPS</a>
-    
-    &middot;
-    <a class="label" href="http://ianduffy.ie/categories/development">Development</a><a class="label" href="http://ianduffy.ie/categories/web">Web</a><a class="label" href="http://ianduffy.ie/categories/docker">Docker</a>
-    </span>
-    &middot; <time>Feb 22, 2019</time></li>
-  
-  </ul>
 </div>
+
+
+
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on Ian Duffy</title>
+    <title>programming on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/programming/</link>
-    <description>Recent content in Programming on Ian Duffy</description>
+    <description>Recent content in programming on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Feb 2017 18:06:45 +0000</lastBuildDate>

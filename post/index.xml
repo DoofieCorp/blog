@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Exporting Confluent Cloud Metrics to Prometheus</title>
+      <link>http://ianduffy.ie/blog/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/blog/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</guid>
+      <description>At Kafka Summit this year, Confluent announced consumption based billing for their Kafka Cloud offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the __consumer_offsets topic is restricted, this means popular tools like Kafka Manager and Prometheus Kafka Consumer Group Exporter won&amp;rsquo;t work.
+kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to access the metrics.</description>
+    </item>
+    
+    <item>
       <title>Local development with virtual hosts and HTTPS</title>
       <link>http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>

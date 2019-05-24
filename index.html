@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.54.0" />
+	<meta name="generator" content="Hugo 0.55.6" />
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -79,6 +79,32 @@
 <div class="content container">
   <div class="posts">
     
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://ianduffy.ie/blog/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/">Exporting Confluent Cloud Metrics to Prometheus</a>
+      </h1>
+      <span class="post-date">Feb 22, 2019 &middot; 1 minute read
+      
+      <br/>
+      <a class="label" href="http://ianduffy.ie/categories/cloud">Cloud</a><a class="label" href="http://ianduffy.ie/categories/docker">Docker</a>
+      </span>
+      
+      <p>At Kafka Summit this year, Confluent announced consumption based billing for their <a href="https://confluent.cloud/">Kafka Cloud</a> offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the <code>__consumer_offsets</code> topic is restricted, this means popular tools like <a href="https://github.com/yahoo/kafka-manager">Kafka Manager</a> and <a href="https://github.com/braedon/prometheus-kafka-consumer-group-exporter">Prometheus Kafka Consumer Group Exporter</a> won&rsquo;t work.</p>
+
+<p><a href="https://github.com/danielqsj/kafka_exporter">kafka_exporter</a> comes as a nice alternative as it uses the Kafka Admin Client to access the metrics. However, due to the authentication process required by <a href="https://confluent.cloud/">Confluent Cloud</a> it doesn&rsquo;t work as is.</p>
+
+<p>By forking <a href="https://github.com/imduffy15/kafka_exporter">kafka_exporter</a> and upgrading the Kafka client one can get a successful output.</p>
+
+<p>You can try out my build as follows:</p>
+
+<pre><code>$ docker run -p 9308:9308 -it imduffy15/kafka_exporter --kafka.server=host.region.gcp.confluent.cloud:9092 --sasl.enabled --sasl.username=username --sasl.password=&quot;password&quot; --sasl.handshake --tls.insecure-skip-tls-verify --tls.enabled
+</code></pre>
+
+<p>and on querying <code>http://localhost:9308/metrics</code> all metrics documented <a href="https://github.com/imduffy15/kafka_exporter#topics">here</a> will be available. Prometheus can scrape this and alert and graph on the data.</p>
+
+      
+    </div>
     
     <div class="post">
       <h1 class="post-title">

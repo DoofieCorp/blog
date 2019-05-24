@@ -6,33 +6,15 @@
     <description>Recent content in Categories on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Dec 2018 14:18:32 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Feb 2019 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://ianduffy.ie/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Aws</title>
-      <link>http://ianduffy.ie/categories/aws/</link>
-      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure</title>
-      <link>http://ianduffy.ie/categories/azure/</link>
-      <pubDate>Sun, 27 Nov 2016 02:47:11 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/azure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Cloud</title>
       <link>http://ianduffy.ie/categories/cloud/</link>
-      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/cloud/</guid>
       <description></description>
@@ -57,11 +39,20 @@
     </item>
     
     <item>
-      <title>Programming</title>
-      <link>http://ianduffy.ie/categories/programming/</link>
-      <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
+      <title>Web</title>
+      <link>http://ianduffy.ie/categories/web/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
       
-      <guid>http://ianduffy.ie/categories/programming/</guid>
+      <guid>http://ianduffy.ie/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>http://ianduffy.ie/categories/aws/</link>
+      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/aws/</guid>
       <description></description>
     </item>
     
@@ -84,11 +75,20 @@
     </item>
     
     <item>
-      <title>Web</title>
-      <link>http://ianduffy.ie/categories/web/</link>
-      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      <title>programming</title>
+      <link>http://ianduffy.ie/categories/programming/</link>
+      <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
       
-      <guid>http://ianduffy.ie/categories/web/</guid>
+      <guid>http://ianduffy.ie/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>http://ianduffy.ie/categories/azure/</link>
+      <pubDate>Sun, 27 Nov 2016 02:47:11 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/azure/</guid>
       <description></description>
     </item>
     
