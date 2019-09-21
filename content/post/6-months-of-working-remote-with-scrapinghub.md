@@ -160,4 +160,4 @@ If you’ve got any other questions feel free to [reach out](mailto:ian@ianduffy
 
 ## Interested in going remote with ScrapingHub?
 
-I’ve enjoyed my time at ScrapingHub so far and I’m sure you might too. If you enjoyed my experience above and would like to try it out yourself take a look at the [jobs page](https://scrapinghub.com/jobs) or research out to a [ScrapingHub Recruiter.](mailto:scrapinghub@jobs.workablemail.com)
+I’ve enjoyed my time at ScrapingHub so far and I’m sure you might too. If you enjoyed my experience above and would like to try it out yourself take a look at the [jobs page](https://scrapinghub.com/jobs) or reach out to a [ScrapingHub Recruiter.](mailto:scrapinghub@jobs.workablemail.com)
