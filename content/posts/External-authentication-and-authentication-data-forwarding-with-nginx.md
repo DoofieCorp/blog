@@ -7,7 +7,7 @@ date = "2020-08-29T8:00:00Z"
 
 +++
 
-In todays world it is normal to see applications running on [Kubernetes](https://kubernetes.io/) and exposed with [ingress nginx](https://kubernetes.github.io/ingress-nginx/).
+In today's world, it is normal to see applications running on [Kubernetes](https://kubernetes.io/) and exposed with [ingress nginx](https://kubernetes.github.io/ingress-nginx/).
 
 Authentication can be added to any application exposed by ingress nginx by using [oauth2-proxy](https://kubernetes.github.io/ingress-nginx/). Using the following annotations configures nginx's (http auth request module)[https://nginx.org/en/docs/http/ngx_http_auth_request_module.html]. 
 
@@ -28,4 +28,4 @@ nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Email
 
 This will result in nginx sending a header of `http-x-auth-request-email` to the application.
 
-Many applications can be configured to consume this header to identify the user. For example, the popular Django framework has its [RemoteUserMiddleware](https://docs.djangoproject.com/en/3.1/howto/auth-remote-user/) for this exact purpose
+Many applications can be configured to consume this header to identify the user. For example, the popular Django framework has [RemoteUserMiddleware](https://docs.djangoproject.com/en/3.1/howto/auth-remote-user/) for this exact purpose.
