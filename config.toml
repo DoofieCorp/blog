@@ -12,7 +12,7 @@ pygmentsuseclasses = true
 [permalinks]
     # Optional. Change the permalink format for the 'post' content type.
     # The format shown here is the same one Jekyll/Octopress uses by default.
-    post = "/blog/:year/:month/:day/:title/"
+    posts = "/:year/:month/:day/:title/"
 
 [taxonomies]
     # Optional. Use if you want tags and lists.
@@ -25,7 +25,7 @@ pygmentsuseclasses = true
     # If false display full article contents in blog index.
     # Otherwise show description and 'read on' link to individual blog post page.
     # Default (if omitted) is true.
-    truncate = false
+    truncate = true
 
     # Used when a given page doesn't set its own.
     defaultDescription = "Your default page description"
