@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Azure bug bounty Pwning Red Hat Enterprise Linux | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Acquired administrator level access to all of the [Microsoft Azure](https://azure.microsoft.com) managed [Red Hat Update Infrastructure](https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure) that supplies all the packages for all [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) instances booted from the Azure marketplace.">
+  <meta name="keywords" content="Security,Cloud,Infrastructure,Azure,Red Hat,RHEL,AWS">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Azure bug bounty Pwning Red Hat Enterprise Linux</h1>
+    <p><em>TL;DR Acquired administrator level access to all of the <a href="https://azure.microsoft.com">Microsoft Azure</a> managed <a href="https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure">Red Hat Update Infrastructure</a> that supplies all the packages for all <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> instances booted from the Azure marketplace.</em></p>
+<p>I was tasked with creating a machine image of <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> that was compliant to the <a href="https://www.stigviewer.com/stig/red_hat_enterprise_linux_6/">Security Technical Implementation guide defined by the Department of Defense</a>.</p>
+<p>This machine image was to be used for both <a href="https://aws.amazon.com/">Amazon Web Services</a> and <a href="https://azure.microsoft.com">Microsoft Azure</a>. Both of which offer marketplace images which had a metered billing pricing model[1][2]. Ideally, I wanted my custom image to be billed under the same mechanism, as such the virtual machines would be able to consume software updates from a local <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> repository owned and managed by the cloud provider.</p>
+<p>Both <a href="https://aws.amazon.com/">Amazon Web Services</a> and <a href="https://azure.microsoft.com">Microsoft Azure</a> utilise a deployment of <a href="https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure">Red Hat Update Infrastructure</a> for supplying this functionality.</p>
+<p>This setup requires two main parts:</p>
+<h3 id="red-hat-update-appliance">Red Hat Update Appliance</h3>
+<p>There is only one Red Hat Update Appliance per <a href="https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure">Red Hat Update Infrastructure</a> installation, however, both <a href="https://aws.amazon.com/">Amazon Web Services</a> and <a href="https://azure.microsoft.com">Microsoft Azure</a> create one per region.</p>
+<p>The Red Hat Update Appliance is responsible for:</p>
+<ul>
+<li>Downloading new packages from the Red Hat CDN. It is the only component that requires a connection back to Red Hat.</li>
+<li>Copying new packages to each content delivery server</li>
+<li>Supplying a <a href="http://pulpproject.org/">REST API and command line interface for management of software repositories</a></li>
+</ul>
+<p><strong>The Red Hat Update Appliance does not need to be exposed to the repository clients.</strong></p>
+<h3 id="content-delivery-server">Content Delivery server</h3>
+<p>The content delivery server(s) provide the yum repositories that clients connect to for updated packages.</p>
+<h2 id="achieving-metered-billing">Achieving metered billing</h2>
+<p>Both <a href="https://aws.amazon.com/">Amazon Web Services</a> and <a href="https://azure.microsoft.com">Microsoft Azure</a> use SSL certifications for authentication against the repositories.</p>
+<p>However, these are the same SSL certificates for every instance.</p>
+<p>On <a href="https://aws.amazon.com/">Amazon Web Services</a> having the SSL certificates is not enough, you must have booted your instance from an AMI that had an associated billing code. It is this billing code that ensures you pay the extra premium for running <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a>.</p>
+<p>On Azure it remains undefined how they manage to track billing. At the time of research, it was possible to copy the SSL certificates from one instance to another and successfully authenticate. Additionally, if you duplicated a <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> virtual hard disk and created a new instance from it all billing association seemed to be lost but repository access was still available.</p>
+<h2 id="where-azure-failed">Where Azure Failed</h2>
+<p>On Azure to setup repository connectivity, they provide an RPM with the necessary configuration. In the older version of their agent, it is responsible for this task [3].  The installation script it references comes from the following <a href="http://rhuirpm.blob.core.windows.net/script/rhui.tar.gz">archive</a>. If you expand this archive you will find the client configuration for each region.</p>
+<p>By browsing the metadata of the RPMs we can discover some interesting information:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ rpm -qip RHEL6-2.0-1.noarch.rpm
+Name        : RHEL6                        Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
+Version     : 2.0                               Vendor: <span class="o">(</span>none<span class="o">)</span>
+Release     : <span class="m">1</span>                             Build Date: Sun <span class="m">14</span> Feb <span class="m">2016</span> 06:40:54 AM UTC
+Install Date: <span class="o">(</span>not installed<span class="o">)</span>               Build Host: westeurope-rhua.cloudapp.net
+Group       : Applications/Internet         Source RPM: RHEL6-2.0-1.src.rpm
+Size        : <span class="m">20833</span>                            License: GPLv2
+Signature   : <span class="o">(</span>none<span class="o">)</span>
+URL         : http://redhat.com
+Summary     : Custom configuration <span class="k">for</span> a cloud client instance
+Description :
+Configurations <span class="k">for</span> a client to connect to the RHUI infrastructure
+</code></pre></div><p>As you can see, the build host enables us to discover all of the Red Hat Update Appliances:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ host westeurope-rhua.cloudapp.net
+westeurope-rhua.cloudapp.net has address 104.40.209.83
+
+$ host eastus2-rhua.cloudapp.net
+eastus2-rhua.cloudapp.net has address 13.68.20.161
+
+$ host southcentralus-rhua.cloudapp.net
+southcentralus-rhua.cloudapp.net has address 23.101.178.51
+
+$ host southeastasia-rhua.cloudapp.net
+southeastasia-rhua.cloudapp.net has address 137.116.129.134
+</code></pre></div><p>At the time of research, all of servers were exposing their REST APIs over HTTPs.</p>
+<p>The URL to the archive containing these RPMs was discovered a package labeled PrepareRHUI on available on any <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> Box running on <a href="https://azure.microsoft.com">Microsoft Azure</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ yumdownloader PrepareRHUI
+$ rpm -qip PrepareRHUI-1.0.0-1.noarch.rpm
+Name        : PrepareRHUI                  Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
+Version     : 1.0.0                             Vendor: Microsoft Corporation
+Release     : <span class="m">1</span>                             Build Date: Mon <span class="m">16</span> Nov <span class="m">2015</span> 06:13:21 AM UTC
+Install Date: <span class="o">(</span>not installed<span class="o">)</span>               Build Host: rhui-monitor.cloudapp.net
+Group       : Unspecified                   Source RPM: PrepareRHUI-1.0.0-1.src.rpm
+Size        : <span class="m">770</span>                              License: GPL
+Signature   : <span class="o">(</span>none<span class="o">)</span>
+Packager    : Microsoft Corporation &lt;xiazhang@microsoft.com&gt;
+Summary     : Prepare RHUI installation <span class="k">for</span> Redhat client
+Description :
+PrepareRHUI is used to prepare RHUI installation <span class="k">for</span> before making a Redhat image.
+</code></pre></div><p>The build host is interesting <code>rhui-monitor.cloudapp.net</code>, at the time of research running a port scan revealed an application running on port 8080.</p>
+<p><img src="/monitor.png" alt="Microsoft Azure RHUI Monitoring tool"></p>
+<p>Despite the application requiring username and password based authentication, It was possible to execute a run of their &ldquo;backend log collector&rdquo; on a specified content delivery server. When the collector service completed the application supplied URLs to archives which contain multiple logs and configuration files from the servers.</p>
+<p>Included within these archives was an SSL certificate that would grant full administrative access to the Red Hat Update Appliances [4].</p>
+<p><img src="/directory.png" alt="Pulp admin keys for Microsoft Azure&rsquo;s RHUI"></p>
+<p>At the time of research all <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> virtual machines booted from the Azure Marketplace image had the following additional repository configured:</p>
+<pre><code>[rhui-PA]
+name=Packages for Azure
+mirrorlist=https://eastus2-cds1.cloudapp.net/pulp/mirror/PA
+enabled=1
+gpgcheck=0
+sslverify=1
+sslcacert=/etc/pki/rhui/ca.crt
+</code></pre><p>Given no gpgcheck is enabled, with full administrative access to the <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> Appliance REST API one could have uploaded packages that would be acquired by client virtual machines on their next yum update.</p>
+<p>The issue was reported in accordance to the <a href="https://technet.microsoft.com/en-us/library/dn800983.aspx">Microsoft Online Services Bug Bounty terms</a>. Microsoft agreed it was a vulnerability in their systems. Immediate action was taken to prevent public access to <code>rhui-monitor.cloudapp.net</code>. Additionally, they eventually prevented public access to the Red Hat Update Appliances and they claim to have rotated all secrets.</p>
+<p>[1] <a href="https://azure.microsoft.com/en-in/pricing/details/virtual-machines/red-hat/">https://azure.microsoft.com/en-in/pricing/details/virtual-machines/red-hat/</a></p>
+<p>[2] <a href="https://aws.amazon.com/partners/redhat/">https://aws.amazon.com/partners/redhat/</a></p>
+<p>[3] <a href="https://github.com/Azure/azure-linux-extensions/blob/master/Common/WALinuxAgent-2.0.16/waagent#L2891">https://github.com/Azure/azure-linux-extensions/blob/master/Common/WALinuxAgent-2.0.16/waagent#L2891</a></p>
+<p>[4] <a href="https://fedorahosted.org/pulp/wiki/Certificates">https://fedorahosted.org/pulp/wiki/Certificates</a></p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

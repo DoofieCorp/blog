@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>6 months of working remotely at scrapinghub.com | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="A personal reflection on working remotely for the past 6 months">
+  <meta name="keywords" content="work,personal,lifestyle,remote,distribute,scrapinghub,scrapy">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">6 months of working remotely at scrapinghub.com</h1>
+    <p><a href="https://scrapinghub.com/">ScrapingHub</a> is a distributed company that builds tooling and a platform to extract data from the web. The company was incorporated in <a href="https://www.google.com/maps/place/Cork/@51.8959999,-8.4980691,13z">Ireland</a> in 2010, from day 1 it was a distributed team with many staff in Uruguay and other parts of the world. Since then the company has grown and now has a team of 180 people located all around the world, last year the companies revenue was 12 million. I joined in March 2019, it was my first time to work remotely. Below I reflect on my past 6 months, the remote experience and some of the things I’ve been working on.</p>
+<h2 id="what-is-scrapinghubhttpsscrapinghubcom">What is <a href="https://scrapinghub.com">Scrapinghub</a>?</h2>
+<p>The mission is “to provide our customers the data they need to innovate and grow their businesses.&rsquo;&rsquo; The founders of the company are the creators of <a href="https://scrapy.org/">Scrapy</a>, a very popular open source and collaborative framework for extracting data from the web. ScrapingHub started as a <a href="https://scrapinghub.com/scrapy-cloud">platform for running Scrapy spiders</a>. It has since grown to include three more products:</p>
+<ul>
+<li><a href="https://scrapinghub.com/crawlera">Crawlera</a>: A specially designed proxy for web scraping to ensure you can crawl quickly and reliably</li>
+<li><a href="https://scrapinghub.com/splash">Splash</a>: A headless browser to enable customers to extract data from JavaScript websites</li>
+<li><a href="https://scrapinghub.com/autoextract">AutoExtract</a>: delivers next-generation web scraping capabilities backed by an <a href="https://blog.scrapinghub.com/artificial-intelligence-data-extraction-api">AI-enabled data extraction engine</a>. This enables customers to crawl many websites without needing to write custom CSS and XPath selectors for each one.</li>
+</ul>
+<h2 id="what-is-your-role">What is your role?</h2>
+<p>I am a DevOps engineer on the <a href="https://scrapinghub.com/autoextract">AutoExtract</a> product. I work closely with two backend developers to deliver an API that enables customers to access our <a href="https://blog.scrapinghub.com/artificial-intelligence-data-extraction-api">AI-enabled data extraction engine</a>. I’m dedicated to providing infrastructure services for the team, this includes things like compute, deployment mechanisms, monitoring, alerting and logging, and so on.</p>
+<h2 id="what-is-your-background-and-what-brought-you-to-scrapinghub">What is your background and what brought you to ScrapingHub?</h2>
+<p>I graduated from <a href="https://www.dcu.ie/courses/undergraduate/computing/computer-applications.shtml">Computer Applications at Dublin City University</a> 5 years ago. During my time in college, I had a great interest in infrastructure and automation. Upon graduating, I worked as a Cloud Engineer in a bank for a year before joining an ecommerce company under the title of Software Engineer.</p>
+<p>At this company, I worked on a team that acquired data from the web. However, we never neatly solved the problem, our solution would never scale. This was due to the initial work to create XPaths and CSS selectors along with the ongoing maintenance and monitoring to ensure the sites haven’t changed and these are now broken. During my time in this role, I had heard of <a href="https://scrapinghub.com">ScrapingHub</a> as they are one of the leaders in the web scraping space. It was always a company I was curious to know more about and it was unusual to hear of an Irish company that is distributed.</p>
+<p>After this, I was employee number one an Irish Start-Up, again with the title of Software Engineer. As you can imagine in a Start-Up environment there is lots of work to do and the role was a diverse one that included many different aspects.</p>
+<p>My journey to ScrapingHub began with a call from a <a href="https://www.linkedin.com/in/garrybarcoe/">recruiter</a> in <a href="https://www.stelfox.com/">Stelfox</a> who told me about the role. He had my attention at the word <a href="https://scrapinghub.com/">ScrapingHub</a>, I knew immediately this was a chance to experience remote working for the first time. During the conversation, my interest only began to grow. The recruiter described the <a href="https://scrapinghub.com/autoextract">AutoExtract</a> product to me and I was curious to know more - they’ve figured a way to do web scraping without the need to write XPaths and CSS selectors, a problem I previously faced.</p>
+<h2 id="what-was-the-interview-and-acceptance-process-like">What was the interview and acceptance process like?</h2>
+<p>As ScrapingHub is a distributed company all interviews are done remotely, you do not meet a Shubber (someone who works for ScrapingHub) in person at any stage. For me, the interview process consisted of three interviews each lasting no more than 30 minutes.</p>
+<p>My first interview was with a <a href="https://www.linkedin.com/in/jessicalouisequinn/">ScrapingHub recruiter</a>. I got the impression that the interview focused on whether or not you and ScrapingHub are a good fit for each other. It&rsquo;s a time for them to ask you questions to see if you align with their <a href="https://scrapinghub.com/jobs">company values</a> and for you to ask questions to see if its the right role for you.</p>
+<p>My second interview was the hardest out of the three. It was with a member of the infrastructure team, it was very technical focused and enjoyable experience. For me, the interview was a stream of questions covering different key areas of the role. The questions started easy and then increased in difficulty. For example, the containers section started with “What flag do you pass to docker to expose a port?” and ended on “Describe to the best of your knowledge how containers work at a kernel level?”. When I failed to have a good answer for a question the interviewer was nice about it and discussed it in more detail, I liked this and I walked away from the interview having learned something.</p>
+<p>The final interview was with the head of engineering. I believe this interview was a mix of both culture fit and technical ability. It took the form of a friendly conversation based on resume items and previous work along with a few technical questions thrown in along the way.</p>
+<p>A couple of days later I heard back from the Stelfox recruiter to inform me that my interview had been successful. From this point on out, it was a standard procedure - receive a contract, provide personal details, etc.</p>
+<h2 id="setting-myself-up-for-success">Setting myself up for success</h2>
+<!-- raw HTML omitted -->
+<p>As I’m based in Ireland <a href="https://scrapinghub.com">ScrapingHub</a> provided me with a laptop that was shipped to my address before I was due to start. I was excited about the job and remote aspect of it. I believed having a good working area was going to be key to my success.</p>
+<p>I spent a couple of days trawling second hand sites and researching office furniture and equipment. At the time I was living in a small 1 bedroom apartment in <a href="https://www.google.com/maps/place/Dublin/@53.3242381,-6.3857842,11z">Dublin, Ireland</a> and space was limited. I focused on what I felt were the key elements to making a reasonable space where I could work contently. I ended up with the following:</p>
+<ul>
+<li>Monitor: <a href="https://www.amazon.com/Dell-U3419w-Ultrasharp-34-Inch-3440x1440/dp/B07HB3ZX9F">Dell U3419w Ultrasharp 34-Inch</a></li>
+<li>Mouse: <a href="https://www.amazon.co.uk/gp/product/B0761YL588/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&amp;psc=1">Logitech MX Master</a></li>
+<li>Keyboard: <a href="https://www.daskeyboard.com/model-s-professional-for-mac/">Das Keyboard Model S Professional</a></li>
+<li>Webcam:<a href="https://www.amazon.co.uk/gp/product/B006A2Q81M/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1"> Logitech C920</a></li>
+<li>Chair: <a href="https://www.adverts.ie/for-sale/q_herman+miller+aeron/">Herman Miller Aeron</a></li>
+<li>Mouse mat: <a href="https://www.amazon.co.uk/gp/product/B00EG7WB8C/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&amp;psc=1">Perixx DX-1000XXL Gaming Mouse Mat</a></li>
+<li>Headphones/Microphone: <a href="https://www.bose.ie/en_ie/products/headphones/over_ear_headphones/quietcomfort-35-wireless-ii.html">Bose QuietComfort 35</a></li>
+</ul>
+<p>I’ve since made use of the remote flexibility and moved away from Dublin, Ireland to a bigger property in Cork, Ireland. In doing so I’ve improved my workspace by having a dedicated office with a <a href="https://www.adverts.ie/office-desks/sit-stand-ergonomic-desk-electrically-operated/17841025">standing desk</a> and <a href="https://www.amazon.co.uk/D-Line-Extension-Electrical-Management-Electrically-Safe/dp/B0076XD7HC/ref=pd_rhf_ee_s_rp_c_0_5/260-0626086-0317246?_encoding=UTF8&amp;pd_rd_i=B0076XD7HC&amp;pd_rd_r=8ae93a0c-f956-41b4-a45e-1db92eb9a8d1&amp;pd_rd_w=qCqzf&amp;pd_rd_wg=bqXL3&amp;pf_rd_p=25145bb1-83c2-4724-9d46-08e5c49d4552&amp;pf_rd_r=NNGJ8NNH98XFQHR2876T&amp;psc=1&amp;refRID=NNGJ8NNH98XFQHR2876T">many</a>, <a href="https://www.amazon.co.uk/gp/product/B07DQLHVJX/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1">many</a>, <a href="https://www.amazon.co.uk/gp/product/B0725ZZBLV/ref=ppx_yo_dt_b_asin_image_o01_s00?ie=UTF8&amp;psc=1">many</a>, <a href="https://www.amazon.co.uk/gp/product/B00347A876/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&amp;psc=1">many</a> <a href="https://www.amazon.co.uk/gp/product/B00FYRVY2M/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1">cable</a> <a href="https://www.amazon.co.uk/gp/product/B078WMCWDD/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&amp;psc=1">management</a> aids.</p>
+<h2 id="the-first-week">The first week</h2>
+<!-- raw HTML omitted -->
+<p>Three days before I was due to start I received an email containing my staff credentials. This introduced me to some of the tools used for management and communication:</p>
+<ul>
+<li>JIRA - For managing work and tracking time.</li>
+<li>Confluence An internal knowledge base for the team to collaboratively maintain.</li>
+<li>GSuite - Email, calendar, and meetings.</li>
+<li>Github - Git repositories</li>
+<li>BambooHR - HR System</li>
+</ul>
+<p>Before officially starting I signed into Slack and received a warm welcome from all my future co-workers. I also signed into my GSuite account where my calendar revealed a hint of what the first few days were going to be like.</p>
+<p>One of my major concerns early on was keeping to a routine. To help with this I decided to continue waking up at the same time as I did in previous jobs. I wanted to use the time I saved by having no commute to complete any tasks that involved leaving the house. For example, on day 1 I did the grocery shopping for the week.</p>
+<!-- raw HTML omitted -->
+<p>With the groceries unpacked and put away, it was time to get to work. My first morning started at 9.30am, it consisted of HR introducing me to my manager. He told me a little bit about the team and followed up with inviting me to team-specific slack channels and scheduling introductions with the team.</p>
+<!-- raw HTML omitted -->
+<p>After this at 10 am was a general company HR onboarding session. New hires are brought on in batches so I wasn’t alone on these calls, for me there were 3 other new hires on the call. Immediately after this, we had a 1:1 call with HR to discuss our benefits (pension, shares, holidays, health insurance, etc.).</p>
+<p>Before finishing up for lunch we had an IT onboarding session. This meeting was to ensure we could access all the necessary systems and that we knew different company policies - How do I change my password? What do I do if I forgot my password? How do I encrypt my disk? What do I do in the event a device is stolen? And so on.</p>
+<p>ScrapingHub is very focused on wellbeing. For March they ran an event which focused on this. As you can see from my calendar, the next meeting was “Stay sane while working remote” with another later in the week of “Mindful Meditation” both of these events were March specials. As a newbie it was interesting to experience these, it gave me a glimpse of how ScrapingHub encourages camaraderie and enables people to get to know each other outside of work topics. Outside of March this space for general chit-chat is maintained, each week there’s a standing watercooler meeting for the different time zones for people to get together and chat about absolutely anything. Additionally, each month we have “Shub talks” where people show something they’ve been working on or share some piece of knowledge - I’m pleased to say within my 6 months at the company I have had the opportunity to speak at one.</p>
+<p>Opensource has been a big part of ScrapingHub since day 1, this is demonstrated by Scrapy being launched as an opensource project by the company back in 2009. My final meeting of the day showed how opensource is still a very big part of ScrapingHub. Shubbers are encouraged to contribute to opensource as much as possible, we are given 5 hours per week to engage in anything opensource related. Today ScrapingHub has a handful of opensource projects, check out some of the more popular ones: <a href="https://github.com/scrapinghub/splash">Splash</a>, <a href="https://github.com/TeamHG-Memex/eli5">ELI5</a>, <a href="https://github.com/TeamHG-Memex/deep-deep">deep-deep</a>, and <a href="https://github.com/scrapinghub/spidermon">SpiderMon</a>. Additionally, ScrapingHub supports the opensource ecosystem by part-taking in <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a>.</p>
+<p>Day two continued with more meetings. The morning section was introductions to the team and a system overview. Following these, the newbie group had an introduction to the founders of the company. By the end of the day, I had been assigned a ticket in JIRA and was working away on it.</p>
+<h2 id="what-have-you-been-working-on">What have you been working on?</h2>
+<p>Up until now, infrastructure at ScrapingHub ran on dedicated servers rented from Hetzner. Teams package their applications up as Docker containers and uses a ChatOps deployment mechanism to run them on Mesos. Additional services such as a database or kafka require input from the infrastructure team.</p>
+<p>Previously to me joining the company, a decision was made to move AutoExtract onto Google Cloud Platform with their managed Kubernetes offering. The idea behind this was to be able to enable us to quickly increase compute to meet customer demand.</p>
+<p>My main task was to make this happen. Thankfully due to the adoption of Docker and Mesos within the company this challenge I had a bit of a head start.</p>
+<p>AutoExtract is build-up of multiple components that communicate together via Kafka. It is exposed to customers via an HTTP API. Breaking this down I established what was required to get the system running, this went as follows:</p>
+<ul>
+<li>A mechanism to deploy and destroy a single component - <a href="https://helm.sh/">Helm</a> fits this use case nicely. I created a helm chart for each of the components. The chart is stored, versioned and released with the component’s source code. I extended the pre-existing ChatOp deployment mechanism to support communicating with helm.</li>
+<li>HTTP/HTTPS connectivity to pods - <a href="https://github.com/kubernetes/ingress-nginx">Ingress Nginx</a> solved this problem nicely. I paired it with <a href="https://github.com/jetstack/cert-manager">cert manager</a> to automatically provision SSL certificates from letsencrypt and <a href="https://github.com/kubernetes-incubator/external-dns">External DNS</a> to automatically create DNS records.</li>
+<li>Monitoring of the application and cluster - Deploying <a href="https://prometheus.io/">Prometheus</a> provided a straightforward way to achieve this.</li>
+<li>Authentication for internal applications - <a href="https://github.com/pusher/oauth2_proxy">OAuth2 Proxy</a> integrated nicely with ingress nginx to provide authentication against the company’s GSuite accounts.</li>
+<li>Kafka - I made use of <a href="https://confluent.cloud/">Confluent.Cloud</a>’s managed kafka offering for this. Allowed us to get Kafka on a consumption pricing model and avoid an ongoing maintenance overhead.</li>
+</ul>
+<p>Today I’m happy to say that the AutoExtract product runs entirely on Google Cloud Platform.</p>
+<h2 id="what-is-your-average-week-like">What is your average week like?</h2>
+<p>Something that amazed me about working remotely is how much more productive I am. ScrapingHub enables me to have a large amount of autonomy over my work as well as my time. I am in control of how I wish to structure my day, this allows for lots of flexibility - nothing is stopping me taking an hour here and there throughout general working hours (9 - 5 pm) and replacing them with hours late into the evening.</p>
+<p>My average week consists of a total of 3 mandatory meetings. Every Monday my manager does a 1:1 meeting with all members of the team, these last on average 15 minutes. On Tuesday we have a backend team sync up and on Thursday we have a full team sync up, each of these meetings last 1 hour and take a similar format to a daily standup with an allowance for more discussion where necessary.</p>
+<p>For the rest of the week, I’m free to work away on whatever task has been assigned to me. Everyone is always available via Slack and when more in-depth communication is necessary ad-hoc video calls are started.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions?</h2>
+<p><!-- raw HTML omitted -->Do you ever find remote work isolating or miss human contact?<!-- raw HTML omitted --></p>
+<p>No, the team I’m on is very cohesive. Everyone is very supportive and has a clear invested interest in the success of the product and thus the task you may be working on.</p>
+<p>For times when I wish to get out of the house, ScrapingHub has hotdesk spaces in WeWork in Dublin and Republic of Work in Cork. The <a href="https://businessbanking.bankofireland.com/campaigns/bank-of-ireland-workbench/">Bank of Ireland Workbench spaces </a>or public libraries can be useful spots to work from. For the most part, I only make use of them when I have plans to meet a friend for lunch.</p>
+<!-- raw HTML omitted -->
+<p>In addition to this, it&rsquo;s important to note that despite only being in the company for 6 months I was given the opportunity to meet all of my teammates in person along with the founders of the company and many members of the leadership team.</p>
+<p><!-- raw HTML omitted -->Do you find a cost saving in working from home?<!-- raw HTML omitted --></p>
+<p>Yes, I no longer spend any money on commuting or purchasing lunch. On average I’ve worked this out at about a €80 saving per week. In addition to this, I’ve recently moved away from Dublin and reduced my rent cost significantly.</p>
+<p><!-- raw HTML omitted -->Have you kept to your goal of wanting to keep a routine and doing something with the saved commuting time?<!-- raw HTML omitted --></p>
+<p>I would like to say yes, but sometimes extra sleep wins. I’m aiming to bring this back on track soon.</p>
+<p><!-- raw HTML omitted -->What has been your biggest personal challenge with switching to remote work?<!-- raw HTML omitted --></p>
+<p>Definitely communication, specifically video calls. I found seeing my face on screen for the first few days very odd. These days I’ve become comfortable with that and just struggle with knowing the correct time to speak or interrupt to add to something while someone else is talking.</p>
+<p><!-- raw HTML omitted -->What do you most enjoy about working remote?<!-- raw HTML omitted --></p>
+<p><img src="/images/6-months-of-working-remote-with-scrapinghub/rain.png" alt=""></p>
+<p>I really like the hassle free element of it, I’m no longer setting alarm clocks, checking public transport times, wondering if I need to bring an umbrella today, and so on. Starting and finishing work is as simple as entering and exiting a room in my house.</p>
+<p><!-- raw HTML omitted -->How does knowledge sharing within your team occur?<!-- raw HTML omitted --></p>
+<p>For me, this is mainly done through Slack, the team are very supportive and willing to help as much as they can. I try to return this as much has I can and believe I have mostly been successful given the teams ability to adopt kubernetes.</p>
+<p>If you’ve got any other questions feel free to <a href="mailto:ian@ianduffy.ie">reach out</a>.</p>
+<h2 id="interested-in-going-remote-with-scrapinghub">Interested in going remote with ScrapingHub?</h2>
+<p>I’ve enjoyed my time at ScrapingHub so far and I’m sure you might too. If you enjoyed my experience above and would like to try it out yourself take a look at the <a href="https://scrapinghub.com/jobs">jobs page</a> or reach out to a <a href="mailto:scrapinghub@jobs.workablemail.com">ScrapingHub Recruiter.</a></p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

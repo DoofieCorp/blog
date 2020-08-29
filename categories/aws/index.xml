@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS on Ian Duffy</title>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Managing access to multiple AWS Accounts with OpenID</title>
-      <link>http://ianduffy.ie/blog/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</link>
+      <link>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</link>
       <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
       
-      <guid>http://ianduffy.ie/blog/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</guid>
+      <guid>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</guid>
       <description>Many organisations look towards a multiple account strategy with Amazon Web Services (AWS) to provide administrative isolation between workloads, limited visibility and discoverability of workloads, isolation to minimize blast radius, management of AWS limits and cost categorisation. However, this comes at a large complexity cost, specifically around Identity Access Management (IAM).
 Starting off with a single AWS account, and using a handful of IAM users and groups for access management, is usually the norm.</description>
     </item>

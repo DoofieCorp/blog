@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>programming on Ian Duffy</title>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Scala and AWS managed ElasticSearch</title>
-      <link>http://ianduffy.ie/blog/2017/02/26/scala-and-aws-managed-elasticsearch/</link>
+      <link>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</link>
       <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
       
-      <guid>http://ianduffy.ie/blog/2017/02/26/scala-and-aws-managed-elasticsearch/</guid>
+      <guid>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</guid>
       <description>AWS offer a managed ElasticSearch service. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via AWS Identity Access Management.
 Elastic4s offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with AWS&amp;rsquo;s managed ElasticSearch service.
 Creating a request signer Using the aws-signing-request-interceptor library its easy to create an HttpRequestInterceptor which can be later added to the HttpClient used by Elastic4s for making the calls to ElasticSearch</description>

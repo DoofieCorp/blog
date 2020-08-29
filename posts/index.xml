@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Ian Duffy</title>
+    <link>http://ianduffy.ie/posts/</link>
+    <description>Recent content in Posts on Ian Duffy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ianduffy.ie/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>External authentication and authentication data forwarding with nginx</title>
+      <link>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</link>
+      <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</guid>
+      <description>In todays world it is normal to see applications running on Kubernetes and exposed with ingress nginx.
+Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s (http auth request module)[https://nginx.org/en/docs/http/ngx_http_auth_request_module.html].
+nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application.</description>
+    </item>
+    
+    <item>
+      <title>6 months of working remotely at scrapinghub.com</title>
+      <link>http://ianduffy.ie/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</link>
+      <pubDate>Wed, 11 Sep 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</guid>
+      <description>ScrapingHub is a distributed company that builds tooling and a platform to extract data from the web. The company was incorporated in Ireland in 2010, from day 1 it was a distributed team with many staff in Uruguay and other parts of the world. Since then the company has grown and now has a team of 180 people located all around the world, last year the companies revenue was 12 million.</description>
+    </item>
+    
+    <item>
+      <title>Exporting Confluent Cloud Metrics to Prometheus</title>
+      <link>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</guid>
+      <description>At Kafka Summit this year, Confluent announced consumption based billing for their Kafka Cloud offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the __consumer_offsets topic is restricted, this means popular tools like Kafka Manager and Prometheus Kafka Consumer Group Exporter won&amp;rsquo;t work.
+kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to access the metrics.</description>
+    </item>
+    
+    <item>
+      <title>Local development with virtual hosts and HTTPS</title>
+      <link>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</link>
+      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</guid>
+      <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
+Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.ie’. DNS is responsible for translating a domain name to an IP address.</description>
+    </item>
+    
+    <item>
+      <title>Managing access to multiple AWS Accounts with OpenID</title>
+      <link>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</link>
+      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</guid>
+      <description>Many organisations look towards a multiple account strategy with Amazon Web Services (AWS) to provide administrative isolation between workloads, limited visibility and discoverability of workloads, isolation to minimize blast radius, management of AWS limits and cost categorisation. However, this comes at a large complexity cost, specifically around Identity Access Management (IAM).
+Starting off with a single AWS account, and using a handful of IAM users and groups for access management, is usually the norm.</description>
+    </item>
+    
+    <item>
+      <title>Scala and AWS managed ElasticSearch</title>
+      <link>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</link>
+      <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</guid>
+      <description>AWS offer a managed ElasticSearch service. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via AWS Identity Access Management.
+Elastic4s offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with AWS&amp;rsquo;s managed ElasticSearch service.
+Creating a request signer Using the aws-signing-request-interceptor library its easy to create an HttpRequestInterceptor which can be later added to the HttpClient used by Elastic4s for making the calls to ElasticSearch</description>
+    </item>
+    
+    <item>
+      <title>Azure bug bounty Root to storage account administrator</title>
+      <link>http://ianduffy.ie/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</link>
+      <pubDate>Sun, 27 Nov 2016 02:47:11 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</guid>
+      <description>In my previous blog post Azure bug bounty Pwning Red Hat Enterprise Linux I detailed how it was possible to get administrative access to the Red Hat Update Infrastructure consumed by Red Hat Enterprise Linux virtual machines booted from the Microsoft Azure Marketplace image. In theory, if exploited one could have gained root access to all virtual machines consuming the repositories by releasing an updated version of a common package and waiting for virtual machines to execute yum update.</description>
+    </item>
+    
+    <item>
+      <title>Azure bug bounty Pwning Red Hat Enterprise Linux</title>
+      <link>http://ianduffy.ie/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</link>
+      <pubDate>Sat, 26 Nov 2016 10:29:32 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</guid>
+      <description>TL;DR Acquired administrator level access to all of the Microsoft Azure managed Red Hat Update Infrastructure that supplies all the packages for all Red Hat Enterprise Linux instances booted from the Azure marketplace.
+I was tasked with creating a machine image of Red Hat Enterprise Linux that was compliant to the Security Technical Implementation guide defined by the Department of Defense.
+This machine image was to be used for both Amazon Web Services and Microsoft Azure.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://ianduffy.ie/2016/06/28/hello-world/</link>
+      <pubDate>Tue, 28 Jun 2016 17:10:58 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/2016/06/28/hello-world/</guid>
+      <description>resource &amp;#34;null_resource&amp;#34; &amp;#34;hello_world&amp;#34; { provisioner &amp;#34;local-exec&amp;#34; { command = &amp;#34;echo &amp;#39;Hello World&amp;#39;&amp;#34; } } Interested in automation and the HashiCorp suite of tools? If so you&amp;rsquo;ll love this blog. Through different posts we will explore lots different automation tasks utilising both public and private cloud with the HashiCorp toolset.
+Thanks, Ian.</description>
+    </item>
+    
+  </channel>
+</rss>

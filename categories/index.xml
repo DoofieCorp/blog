@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Ian Duffy</title>
@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2019 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://ianduffy.ie/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cloud</title>
+      <link>http://ianduffy.ie/categories/cloud/</link>
+      <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://ianduffy.ie/categories/kubernetes/</link>
+      <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>http://ianduffy.ie/categories/security/</link>
+      <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/security/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>lifestyle</title>
@@ -17,15 +44,6 @@
       <pubDate>Wed, 11 Sep 2019 08:00:00 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/lifestyle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloud</title>
-      <link>http://ianduffy.ie/categories/cloud/</link>
-      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/cloud/</guid>
       <description></description>
     </item>
     
@@ -62,15 +80,6 @@
       <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Security</title>
-      <link>http://ianduffy.ie/categories/security/</link>
-      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/security/</guid>
       <description></description>
     </item>
     

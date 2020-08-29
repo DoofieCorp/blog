@@ -1,35 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://ianduffy.ie/blog/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</loc>
-    <lastmod>2019-09-11T08:00:00+00:00</lastmod>
+    <loc>http://ianduffy.ie/categories/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/categories/</loc>
-    <lastmod>2019-09-11T08:00:00+00:00</lastmod>
+    <loc>http://ianduffy.ie/categories/cloud/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://ianduffy.ie/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/categories/kubernetes/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/posts/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/categories/security/</loc>
+    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ianduffy.ie/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</loc>
     <lastmod>2019-09-11T08:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://ianduffy.ie/categories/lifestyle/</loc>
     <lastmod>2019-09-11T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ianduffy.ie/post/</loc>
-    <lastmod>2019-09-11T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ianduffy.ie/categories/cloud/</loc>
-    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -43,12 +58,12 @@
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</loc>
+    <loc>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</loc>
     <lastmod>2019-02-22T08:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2019/02/22/local-development-with-virtual-hosts-and-https/</loc>
+    <loc>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</loc>
     <lastmod>2019-02-22T08:00:00+00:00</lastmod>
   </url>
   
@@ -63,12 +78,7 @@
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</loc>
-    <lastmod>2018-12-15T14:18:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ianduffy.ie/categories/security/</loc>
+    <loc>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</loc>
     <lastmod>2018-12-15T14:18:32+00:00</lastmod>
   </url>
   
@@ -83,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2017/02/26/scala-and-aws-managed-elasticsearch/</loc>
+    <loc>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</loc>
     <lastmod>2017-02-26T18:06:45+00:00</lastmod>
   </url>
   
@@ -93,17 +103,17 @@
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</loc>
+    <loc>http://ianduffy.ie/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</loc>
     <lastmod>2016-11-27T02:47:11+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</loc>
+    <loc>http://ianduffy.ie/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</loc>
     <lastmod>2016-11-26T10:29:32+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ianduffy.ie/blog/2016/06/28/hello-world/</loc>
+    <loc>http://ianduffy.ie/2016/06/28/hello-world/</loc>
     <lastmod>2016-06-28T17:10:58+01:00</lastmod>
   </url>
   
