@@ -28,7 +28,7 @@ kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to 
       
       <guid>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</guid>
       <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
-Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.ie’. DNS is responsible for translating a domain name to an IP address.</description>
+Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.</description>
     </item>
     
   </channel>

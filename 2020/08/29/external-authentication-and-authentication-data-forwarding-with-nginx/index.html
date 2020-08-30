@@ -78,8 +78,8 @@
 <div class="content container">
   <div class="post">
     <h1 class="post-title">External authentication and authentication data forwarding with nginx</h1>
-    <p>In todays world it is normal to see applications running on <a href="https://kubernetes.io/">Kubernetes</a> and exposed with <a href="https://kubernetes.github.io/ingress-nginx/">ingress nginx</a>.</p>
-<p>Authentication can be added to any application exposed by ingress nginx by using <a href="https://kubernetes.github.io/ingress-nginx/">oauth2-proxy</a>. Using the following annotations configures nginx&rsquo;s (http auth request module)[https://nginx.org/en/docs/http/ngx_http_auth_request_module.html].</p>
+    <p>In today&rsquo;s world, it is normal to see applications running on <a href="https://kubernetes.io/">Kubernetes</a> and exposed with <a href="https://kubernetes.github.io/ingress-nginx/">ingress nginx</a>.</p>
+<p>Authentication can be added to any application exposed by ingress nginx by using <a href="https://kubernetes.github.io/ingress-nginx/">oauth2-proxy</a>. Using the following annotations configures nginx&rsquo;s <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">http auth request module</a>.</p>
 <pre><code>nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args
 nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth
 </code></pre><p>When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application. While this protects the application, it doesn&rsquo;t enable the application to know who the user is. This can be achieved by using additional configuration.</p>
@@ -87,7 +87,7 @@ nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth
 <p>With this configuration added to OAuth2 proxy additional annotations must be added:</p>
 <pre><code>nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-Email
 </code></pre><p>This will result in nginx sending a header of <code>http-x-auth-request-email</code> to the application.</p>
-<p>Many applications can be configured to consume this header to identify the user. For example, the popular Django framework has its <a href="https://docs.djangoproject.com/en/3.1/howto/auth-remote-user/">RemoteUserMiddleware</a> for this exact purpose</p>
+<p>Many applications can be configured to consume this header to identify the user. For example, the popular Django framework has <a href="https://docs.djangoproject.com/en/3.1/howto/auth-remote-user/">RemoteUserMiddleware</a> for this exact purpose.</p>
 
   </div>
 </div>

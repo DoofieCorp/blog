@@ -17,8 +17,8 @@
       <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
       
       <guid>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</guid>
-      <description>In todays world it is normal to see applications running on Kubernetes and exposed with ingress nginx.
-Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s (http auth request module)[https://nginx.org/en/docs/http/ngx_http_auth_request_module.html].
+      <description>In today&amp;rsquo;s world, it is normal to see applications running on Kubernetes and exposed with ingress nginx.
+Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s http auth request module.
 nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application.</description>
     </item>
     
