@@ -10,15 +10,20 @@ Many organisations look towards a multiple account strategy with Amazon Web Serv
 
 Starting off with a single AWS account, and using a handful of IAM users and groups for access management, is usually the norm. As an organisation grows they start to see a need for separate staging, production, and developer tooling accounts. Managing access to these can quickly become a mess. Do you create a unique IAM user in each account and provide your employees with the unique sign-on URL? Do you create a single IAM user for each employee and use [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) to generate credentials and to enable jumping between accounts? How do employees use the AWS Application Programming Interface (API) or the Command Line Interface (CLI); are long-lived access keys generated? How is an employee's access revoked should they leave the organisation?
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_0.jpg)
+<center>
 
-User per account approach</center>
+![](/images/managing-access-to-multiple-aws-accounts/image_0.jpg)
+User per account approach
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_1.jpg)
+</center>
 
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_1.jpg)
 All users in a single account
+using STS AssumeRole to access other accounts
 
-using STS AssumeRole to access other accounts</center>
+</center>
 
 # Design
 
@@ -38,7 +43,11 @@ In order to trade JWTs for AWS API Credentials, a service can be created that ru
 
 Additionally, the service would also generate an [Amazon Federated Sign-On URL](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html) which would enable users to access the AWS Web Console using their JWT.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_2.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_2.png)
+
+</center>
 
 # Example Implementation
 
@@ -56,19 +65,39 @@ The[ provided code](https://github.com/imduffy15/aws-credentials-issuer) contain
 
 On the "clients" screen, a client named “aws-credentials-issuer” is present, users will use this client to generate their JWT tokens. This client is pre-configured to work with the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) for command line interfaces to generate tokens and the [Implicit Grant](https://tools.ietf.org/html/rfc6749#section-4.2) for a frontend application.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_3.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_3.png)
+
+</center>
 
 Under the "aws-credentials-issuer" additional roles can be added, these roles must exist on AWS and they must have a trust relationship to the account that will be running the “aws-credentials-issuer”.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_4.png)</center>
+<center>
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_5.png)</center>
+![](/images/managing-access-to-multiple-aws-accounts/image_4.png)
+
+</center>
+
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_5.png)
+
+</center>
 
 Additionally, these roles must be placed into the users JWT tokens, this is pre-configured under "mappers".
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_6.png)</center>
+<center>
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_7.png)</center>
+![](/images/managing-access-to-multiple-aws-accounts/image_6.png)
+
+</center>
+
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_7.png)
+
+</center>
 
 Finally, the role must be assigned to a user. This can be done by navigating to users -> demo -> role mappings and moving the wanted role from "available roles" to “assigned roles” for the client “aws-credentials-issuer”
 
@@ -90,21 +119,37 @@ This code can be deployed to an AWS account by using the [serverless framework](
 
 With [AWSCLI](https://aws.amazon.com/cli/) configured with credentials for the account that the service will run in execute `sls deploy`, this will deploy the lambda functions and return URLs for executing them.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_9.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_9.png)
+
+</center>
 
 ### Frontend
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_10.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_10.png)
+
+</center>
 
 The [provided code](https://github.com/imduffy15/aws-credentials-issuer) supplies a [frontend](https://github.com/imduffy15/aws-credentials-issuer/tree/master/ui) which will provide users with a graphical experience for accessing the AWS Web Console or generating AWS API Credentials.
 
 The frontend can be deployed to an S3 bucket using the [serverless framework](https://serverless.com/). Before deploying it some variables must be modified. In the [serverless definition (](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75)[`serverless.yml`](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75)[)](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75), replace "ianduffy-aws-credentials-issuer" with a desired S3 bucket name and modify [`ui/.env`](https://github.com/imduffy15/aws-credentials-issuer/blob/master/ui/.env) to contain your Keycloak and Backend URL as highlighted above. The deployment can be executed with `sls client deploy`. 
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_11.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_11.png)
+
+</center>
 
 On completion, a URL in the format of `http://<bucket-name>.s3-website.<region>.amazonaws.com` will be returned. This needs to be supplied to keycloak a redirect URI for the "aws-credentials-issuer" client.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_12.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_12.png)
+
+</center>
 
 ## Usage
 
@@ -112,7 +157,11 @@ On completion, a URL in the format of `http://<bucket-name>.s3-website.<region>.
 
 By navigating to the URL of the S3 bucket a user can get access to the AWS Web Console or get API credentials which they can use to manually configure an application.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_13.gif)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_13.gif)
+
+</center>
 
 ### Command line
 
@@ -122,11 +171,19 @@ token-cli can be used to execute the  [Authorization Code Grant](https://tools.i
 
 Once token-cli is installed it must be configured to run against keycloak, this can be done as follows:
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_14.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_14.png)
+
+</center>
 
 Finally, a token can be generated with token-cli token get aws-credentials-issuer -p 9000. On first run the users browser will be opened and they will be required to login, on subsequent runs the token will be cached or refreshed automatically.
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_15.gif)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_15.gif)
+
+</center>
 
 This token can be used against the "aws-credentials-issuer" to get AWS API credentials:
 
@@ -135,7 +192,11 @@ curl https://<API-GATEWAY>/dev/api/credentials?role=<ROLE-ARN> \
 -H "Authorization: bearer $(token-cli token get aws-credentials-issuer)"
 ```
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_16.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_16.png)
+
+</center>
 
 Alternatively, a AWS [Amazon Federated Sign-On URL](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html) can also be generated:
 
@@ -144,4 +205,8 @@ curl https://<API-GATEWAY>/dev/api/login?role=<ROLE-ARN> \
 -H "Authorization: bearer $(token-cli token get aws-credentials-issuer)"
 ```
 
-<center>![](/images/managing-access-to-multiple-aws-accounts/image_17.png)</center>
+<center>
+
+![](/images/managing-access-to-multiple-aws-accounts/image_17.png)
+
+</center>

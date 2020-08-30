@@ -9,7 +9,7 @@ date = "2020-08-29T8:00:00Z"
 
 In today's world, it is normal to see applications running on [Kubernetes](https://kubernetes.io/) and exposed with [ingress nginx](https://kubernetes.github.io/ingress-nginx/).
 
-Authentication can be added to any application exposed by ingress nginx by using [oauth2-proxy](https://kubernetes.github.io/ingress-nginx/). Using the following annotations configures nginx's (http auth request module)[https://nginx.org/en/docs/http/ngx_http_auth_request_module.html]. 
+Authentication can be added to any application exposed by ingress nginx by using [oauth2-proxy](https://kubernetes.github.io/ingress-nginx/). Using the following annotations configures nginx's [http auth request module](https://nginx.org/en/docs/http/ngx_http_auth_request_module.html). 
 
 ```
 nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args

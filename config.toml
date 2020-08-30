@@ -78,3 +78,6 @@ pygmentsuseclasses = true
     respectDoNotTrack = true
     useSessionStorage = false
 
+[markup.goldmark.renderer]
+unsafe= true
+

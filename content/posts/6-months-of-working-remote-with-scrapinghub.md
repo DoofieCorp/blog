@@ -46,7 +46,11 @@ A couple of days later I heard back from the Stelfox recruiter to inform me that
 
 ## Setting myself up for success
 
-<center>![](/images/6-months-of-working-remote-with-scrapinghub/desk.png)</center>
+<center>
+
+![](/images/6-months-of-working-remote-with-scrapinghub/desk.png)
+
+</center>
 
 As I’m based in Ireland [ScrapingHub](https://scrapinghub.com) provided me with a laptop that was shipped to my address before I was due to start. I was excited about the job and remote aspect of it. I believed having a good working area was going to be key to my success.
 
@@ -64,7 +68,11 @@ I’ve since made use of the remote flexibility and moved away from Dublin, Irel
 
 ## The first week
 
-<center>![](/images/6-months-of-working-remote-with-scrapinghub/slack.png)</center>
+<center>
+
+![](/images/6-months-of-working-remote-with-scrapinghub/slack.png)
+
+</center>
 
 Three days before I was due to start I received an email containing my staff credentials. This introduced me to some of the tools used for management and communication:
 
@@ -78,12 +86,24 @@ Before officially starting I signed into Slack and received a warm welcome from 
 
 One of my major concerns early on was keeping to a routine. To help with this I decided to continue waking up at the same time as I did in previous jobs. I wanted to use the time I saved by having no commute to complete any tasks that involved leaving the house. For example, on day 1 I did the grocery shopping for the week.
 
-<center>![](/images/6-months-of-working-remote-with-scrapinghub/day1.png)</center>
-<center>![](/images/6-months-of-working-remote-with-scrapinghub/generic-day.png)</center>
+<center>
+
+![](/images/6-months-of-working-remote-with-scrapinghub/day1.png)
+
+</center>
+<center>
+
+![](/images/6-months-of-working-remote-with-scrapinghub/generic-day.png)
+
+</center>
 
 With the groceries unpacked and put away, it was time to get to work. My first morning started at 9.30am, it consisted of HR introducing me to my manager. He told me a little bit about the team and followed up with inviting me to team-specific slack channels and scheduling introductions with the team.
 
-<center>![](/images/6-months-of-working-remote-with-scrapinghub/calendar.png)</center>
+<center>
+
+![](/images/6-months-of-working-remote-with-scrapinghub/calendar.png)
+
+</center>
 
 After this at 10 am was a general company HR onboarding session. New hires are brought on in batches so I wasn’t alone on these calls, for me there were 3 other new hires on the call. Immediately after this, we had a 1:1 call with HR to discuss our benefits (pension, shares, holidays, health insurance, etc.).
 
@@ -130,7 +150,11 @@ No, the team I’m on is very cohesive. Everyone is very supportive and has a cl
 
 For times when I wish to get out of the house, ScrapingHub has hotdesk spaces in WeWork in Dublin and Republic of Work in Cork. The [Bank of Ireland Workbench spaces ](https://businessbanking.bankofireland.com/campaigns/bank-of-ireland-workbench/)or public libraries can be useful spots to work from. For the most part, I only make use of them when I have plans to meet a friend for lunch.
 
-<center>![](/images/6-months-of-working-remote-with-scrapinghub/co-working-space.png)</center>
+<center>
+
+![](/images/6-months-of-working-remote-with-scrapinghub/co-working-space.png)
+
+</center>
 
 In addition to this, it's important to note that despite only being in the company for 6 months I was given the opportunity to meet all of my teammates in person along with the founders of the company and many members of the leadership team.
 

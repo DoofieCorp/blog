@@ -24,7 +24,11 @@ description = "Using docker to provide virtual hosts and HTTPS to your local app
 
 +++
 
-<center>![](/images/local-development-with-virtual-hosts-and-https/diagram.png)</center>
+<center>
+
+![](/images/local-development-with-virtual-hosts-and-https/diagram.png)
+
+</center>
  
 When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
 
