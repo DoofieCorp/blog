@@ -6,17 +6,40 @@
     <description>Recent content in Categories on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://ianduffy.ie/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 25 Sep 2021 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>http://ianduffy.ie/categories/aws/</link>
+      <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/aws/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cloud</title>
       <link>http://ianduffy.ie/categories/cloud/</link>
-      <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>http://ianduffy.ie/categories/containers/</link>
+      <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://ianduffy.ie/categories/docker/</link>
+      <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/docker/</guid>
       <description></description>
     </item>
     
@@ -57,29 +80,11 @@
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>http://ianduffy.ie/categories/docker/</link>
-      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Web</title>
       <link>http://ianduffy.ie/categories/web/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>http://ianduffy.ie/categories/aws/</link>
-      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/aws/</guid>
       <description></description>
     </item>
     

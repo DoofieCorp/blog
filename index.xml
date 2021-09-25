@@ -6,10 +6,17 @@
     <description>Recent content on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 25 Sep 2021 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Downloading ECR images with nerdctl</title>
+      <link>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</link>
+      <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
+      
+      <guid>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</guid>
+      <description>With Docker Desktop changing their licencing many folks are in need of a replacement. Nerdctl is worthy of this, combined with Lima it provides a Docker like CLI interface.
+While the CLI interface mostly remains the same, a question that might arise is &amp;ldquo;How to I pull/push images from private repositories?&amp;rdquo;
+Lima provides a linux virtual environment for nerdctl to run in. By introducing a $HOME/.docker/config.json authentication can occur as normal.</description>
+    </item>
     
     <item>
       <title>External authentication and authentication data forwarding with nginx</title>

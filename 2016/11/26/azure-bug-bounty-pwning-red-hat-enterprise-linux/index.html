@@ -102,7 +102,7 @@
 <h2 id="where-azure-failed">Where Azure Failed</h2>
 <p>On Azure to setup repository connectivity, they provide an RPM with the necessary configuration. In the older version of their agent, it is responsible for this task [3].  The installation script it references comes from the following <a href="http://rhuirpm.blob.core.windows.net/script/rhui.tar.gz">archive</a>. If you expand this archive you will find the client configuration for each region.</p>
 <p>By browsing the metadata of the RPMs we can discover some interesting information:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ rpm -qip RHEL6-2.0-1.noarch.rpm
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ rpm -qip RHEL6-2.0-1.noarch.rpm
 Name        : RHEL6                        Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
 Version     : 2.0                               Vendor: <span class="o">(</span>none<span class="o">)</span>
 Release     : <span class="m">1</span>                             Build Date: Sun <span class="m">14</span> Feb <span class="m">2016</span> 06:40:54 AM UTC
@@ -115,7 +115,7 @@ Summary     : Custom configuration <span class="k">for</span> a cloud client ins
 Description :
 Configurations <span class="k">for</span> a client to connect to the RHUI infrastructure
 </code></pre></div><p>As you can see, the build host enables us to discover all of the Red Hat Update Appliances:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ host westeurope-rhua.cloudapp.net
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ host westeurope-rhua.cloudapp.net
 westeurope-rhua.cloudapp.net has address 104.40.209.83
 
 $ host eastus2-rhua.cloudapp.net
@@ -128,7 +128,7 @@ $ host southeastasia-rhua.cloudapp.net
 southeastasia-rhua.cloudapp.net has address 137.116.129.134
 </code></pre></div><p>At the time of research, all of servers were exposing their REST APIs over HTTPs.</p>
 <p>The URL to the archive containing these RPMs was discovered a package labeled PrepareRHUI on available on any <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> Box running on <a href="https://azure.microsoft.com">Microsoft Azure</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ yumdownloader PrepareRHUI
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ yumdownloader PrepareRHUI
 $ rpm -qip PrepareRHUI-1.0.0-1.noarch.rpm
 Name        : PrepareRHUI                  Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
 Version     : 1.0.0                             Vendor: Microsoft Corporation
@@ -147,7 +147,7 @@ PrepareRHUI is used to prepare RHUI installation <span class="k">for</span> befo
 <p>Included within these archives was an SSL certificate that would grant full administrative access to the Red Hat Update Appliances [4].</p>
 <p><img src="/directory.png" alt="Pulp admin keys for Microsoft Azure&rsquo;s RHUI"></p>
 <p>At the time of research all <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> virtual machines booted from the Azure Marketplace image had the following additional repository configured:</p>
-<pre><code>[rhui-PA]
+<pre tabindex="0"><code>[rhui-PA]
 name=Packages for Azure
 mirrorlist=https://eastus2-cds1.cloudapp.net/pulp/mirror/PA
 enabled=1

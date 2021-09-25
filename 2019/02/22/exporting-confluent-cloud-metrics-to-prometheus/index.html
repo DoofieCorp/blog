@@ -82,7 +82,7 @@
 <p><a href="https://github.com/danielqsj/kafka_exporter">kafka_exporter</a> comes as a nice alternative as it uses the Kafka Admin Client to access the metrics. However, due to the authentication process required by <a href="https://confluent.cloud/">Confluent Cloud</a> it doesn&rsquo;t work as is.</p>
 <p>By forking <a href="https://github.com/imduffy15/kafka_exporter">kafka_exporter</a> and upgrading the Kafka client one can get a successful output.</p>
 <p>You can try out my build as follows:</p>
-<pre><code>$ docker run -p 9308:9308 -it imduffy15/kafka_exporter \
+<pre tabindex="0"><code>$ docker run -p 9308:9308 -it imduffy15/kafka_exporter \
 --kafka.server=host.region.gcp.confluent.cloud:9092 \
 --sasl.enabled \
 --sasl.username=username \

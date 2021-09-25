@@ -177,13 +177,13 @@ using STS AssumeRole to access other accounts</p>
 <p><img src="/images/managing-access-to-multiple-aws-accounts/image_15.gif" alt=""></p>
 </center>
 <p>This token can be used against the &ldquo;aws-credentials-issuer&rdquo; to get AWS API credentials:</p>
-<pre><code>curl https://&lt;API-GATEWAY&gt;/dev/api/credentials?role=&lt;ROLE-ARN&gt; \
+<pre tabindex="0"><code>curl https://&lt;API-GATEWAY&gt;/dev/api/credentials?role=&lt;ROLE-ARN&gt; \
 -H &quot;Authorization: bearer $(token-cli token get aws-credentials-issuer)&quot;
 </code></pre><center>
 <p><img src="/images/managing-access-to-multiple-aws-accounts/image_16.png" alt=""></p>
 </center>
 <p>Alternatively, a AWS <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Amazon Federated Sign-On URL</a> can also be generated:</p>
-<pre><code>curl https://&lt;API-GATEWAY&gt;/dev/api/login?role=&lt;ROLE-ARN&gt; \
+<pre tabindex="0"><code>curl https://&lt;API-GATEWAY&gt;/dev/api/login?role=&lt;ROLE-ARN&gt; \
 -H &quot;Authorization: bearer $(token-cli token get aws-credentials-issuer)&quot;
 </code></pre><center>
 <p><img src="/images/managing-access-to-multiple-aws-accounts/image_17.png" alt=""></p>
