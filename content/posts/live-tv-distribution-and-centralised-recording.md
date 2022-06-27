@@ -11,26 +11,26 @@ title = "Live TV distribution and centralised recording"
 
 Live TV isn't often used in my household as most of the content we consume is via streaming services ([Netflix](https://netflix.com/), [Disney+](https://www.disneyplus.com/en-ie), [Amazon Prime](https://www.primevideo.com/)). I wanted a selection of Live TV to be available for those moments when we aren't interested in committing to a 2 hour movie, season long show, or RTE were doing their yearly live broadcast of the late late Toy Show and I didn't want to rely on their ever failing web player.
 
-I have no interest in paying for [Sky](https://www.sky.com/ie) or similar services as it is difficult to justify the cost given the limited use it would get. Additionally, I had no interest in exploring gray area legalities of "dodgy boxes" or IPTV providers. The combination  of [Soarview](https://saorview.ie/en/) (RTEs, Virgin Medias, etc) and [Freesat](https://www.freesat.co.uk/channels) (BBCs, ITVs, Channel4, 5, etc.) was ideal as it provides all of the free channels. It just left the question, how do I distribute these to all devices within my household and have a Sky+ like experience for recording and pausing?
+I have no interest in paying for [Sky](https://www.sky.com/ie) or similar services as it is difficult to justify the cost given the limited use it would get. Additionally, I had no interest in exploring gray area legalities of "dodgy boxes" or IPTV providers. The combination  of [Saorview](https://saorview.ie/en/) (RTEs, Virgin Medias, etc) and [Freesat](https://www.freesat.co.uk/channels) (BBCs, ITVs, Channel4, 5, etc.) was ideal as it provides all of the free channels. It just left the question, how do I distribute these to all devices within my household and have a Sky+ like experience for recording and pausing?
 
-Given these wants, I decided it was best to setup my own IPTV system for distribution of Soarview and FreeSat around my home. Having the content available over the network made accessing it extremely easy and centralising all the decoding to one place allowed for centralised recording.
+Given these wants, I decided it was best to setup my own IPTV system for distribution of Saorview and FreeSat around my home. Having the content available over the network made accessing it extremely easy and centralising all the decoding to one place allowed for centralised recording.
 
 ![diagram showing how all the different components of my live tv distribution solution work](/images/live-tv-distribution-and-centralised-recording/live-tv.png)
 
 ## TVHeadend
 
-TVHeadend is the brains behind this setup, it is responsible for generating the EPGs, communicating with the tuners, providing streams of all the different channels, running scheduled recordings, providing recording playback and the functionality to pause live TV. In addition to this, any RTSP based stream can be advertised via TVHeadend, this enables us to have our CCTV cameras appear as TV channels.
+[TVHeadend](https://tvheadend.org) is the brains behind this setup, it is responsible for generating the EPGs, communicating with the tuners, providing streams of all the different channels, running scheduled recordings, providing recording playback and the functionality to pause live TV. In addition to this, any RTSP based stream can be advertised via TVHeadend, this enables us to have our CCTV cameras appear as TV channels.
 
 
-## Soarview
+## Saorview
 
 <center>
 
 
-![diagram showing the soarview specific components](/images/live-tv-distribution-and-centralised-recording/soarview.png)
+![diagram showing the saorview specific components](/images/live-tv-distribution-and-centralised-recording/saorview.png)
 </center>
 
-Receiving Soarview is straight forward all you need is a UHF aerial and a set top box. However, I had to complicate this, I didn't want to have a set top box per TV, I wanted the channels to be accessible on more than just my TV and  I wanted centralised recordings.
+Receiving Saorview is straight forward all you need is a UHF aerial and a set top box. However, I had to complicate this, I didn't want to have a set top box per TV, I wanted the channels to be accessible on more than just my TV and  I wanted centralised recordings.
 
 <center>
 
