@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://ianduffy.ie/categories/aws/</loc>
-    <lastmod>2021-09-25T08:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://ianduffy.ie/categories/</loc>
+    <lastmod>2022-06-27T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/</loc>
+    <lastmod>2022-06-27T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/2022/06/27/live-tv-distribution-and-centralised-recording/</loc>
+    <lastmod>2022-06-27T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/posts/</loc>
+    <lastmod>2022-06-27T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/smart-home/</loc>
+    <lastmod>2022-06-27T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/aws/</loc>
     <lastmod>2021-09-25T08:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/cloud/</loc>
@@ -18,12 +30,6 @@
     <lastmod>2021-09-25T08:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</loc>
-    <lastmod>2021-09-25T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/</loc>
-    <lastmod>2021-09-25T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/posts/</loc>
     <lastmod>2021-09-25T08:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</loc>

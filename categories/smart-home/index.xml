@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>smart home on Ian Duffy</title>
+    <link>http://ianduffy.ie/categories/smart-home/</link>
+    <description>Recent content in smart home on Ian Duffy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/smart-home/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Live TV distribution and centralised recording</title>
+      <link>http://ianduffy.ie/2022/06/27/live-tv-distribution-and-centralised-recording/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/2022/06/27/live-tv-distribution-and-centralised-recording/</guid>
+      <description>Disclaimer: The following setup is for personal distribution purposes only. If you have a TV tuner a TV license must be held.
+Live TV isn&amp;rsquo;t often used in my household as most of the content we consume is via streaming services (Netflix, Disney+, Amazon Prime). I wanted a selection of Live TV to be available for those moments when we aren&amp;rsquo;t interested in committing to a 2 hour movie, season long show, or RTE were doing their yearly live broadcast of the late late Toy Show and I didn&amp;rsquo;t want to rely on their ever failing web player.</description>
+    </item>
+    
+  </channel>
+</rss>

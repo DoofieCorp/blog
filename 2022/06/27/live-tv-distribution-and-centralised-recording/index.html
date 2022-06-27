@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Live TV distribution and centralised recording | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Overview of how I handle Live TV distribution within my home using TVHeadend">
+  <meta name="keywords" content="distribution,tv,live,tvheadend,satip,rtsp,kodi,dvb">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Live TV distribution and centralised recording</h1>
+    <p><em>Disclaimer: The following setup is for personal distribution purposes only. If you have a TV tuner a TV license must be held.</em></p>
+<p>Live TV isn&rsquo;t often used in my household as most of the content we consume is via streaming services (<a href="https://netflix.com/">Netflix</a>, <a href="https://www.disneyplus.com/en-ie">Disney+</a>, <a href="https://www.primevideo.com/">Amazon Prime</a>). I wanted a selection of Live TV to be available for those moments when we aren&rsquo;t interested in committing to a 2 hour movie, season long show, or RTE were doing their yearly live broadcast of the late late Toy Show and I didn&rsquo;t want to rely on their ever failing web player.</p>
+<p>I have no interest in paying for <a href="https://www.sky.com/ie">Sky</a> or similar services as it is difficult to justify the cost given the limited use it would get. Additionally, I had no interest in exploring gray area legalities of &ldquo;dodgy boxes&rdquo; or IPTV providers. The combination  of <a href="https://saorview.ie/en/">Soarview</a> (RTEs, Virgin Medias, etc) and <a href="https://www.freesat.co.uk/channels">Freesat</a> (BBCs, ITVs, Channel4, 5, etc.) was ideal as it provides all of the free channels. It just left the question, how do I distribute these to all devices within my household and have a Sky+ like experience for recording and pausing?</p>
+<p>Given these wants, I decided it was best to setup my own IPTV system for distribution of Soarview and FreeSat around my home. Having the content available over the network made accessing it extremely easy and centralising all the decoding to one place allowed for centralised recording.</p>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/live-tv.png" alt="diagram showing how all the different components of my live tv distribution solution work"></p>
+<h2 id="tvheadend">TVHeadend</h2>
+<p>TVHeadend is the brains behind this setup, it is responsible for generating the EPGs, communicating with the tuners, providing streams of all the different channels, running scheduled recordings, providing recording playback and the functionality to pause live TV. In addition to this, any RTSP based stream can be advertised via TVHeadend, this enables us to have our CCTV cameras appear as TV channels.</p>
+<h2 id="soarview">Soarview</h2>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/soarview.png" alt="diagram showing the soarview specific components"></p>
+</center>
+<p>Receiving Soarview is straight forward all you need is a UHF aerial and a set top box. However, I had to complicate this, I didn&rsquo;t want to have a set top box per TV, I wanted the channels to be accessible on more than just my TV and  I wanted centralised recordings.</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-adapters-rack.jpg" alt="dvb-t-adapters-in-rack"></p>
+</center>
+<p>To achieve this I used two (one for each mux) <a href="https://www.amazon.co.uk/gp/product/B01BU4UIOW">DVB-T2/T tuners</a>, these are plugged directly into  the computer running TVHeadend. TVHeadend is configured with the two DVB-T muxes as defined in this <a href="https://www.2rn.ie/wp-content/uploads/2019/09/2RN-DTT-Television-Transmission-Network-Sept-2019-Rev.1.2.pdf">document</a> for my nearest transmission station.</p>
+<p>With the adapters plugged into the TVHeadend box they will automatically appear as a &ldquo;DVB input&rdquo; on TVHeadend:</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-adapters.png" alt="dvb-t adapters registered on tvheadend"></p>
+</center>
+<p>The default out of the box settings on TVHeadend worked fine for me. For reference purposes they are included below:</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-adapters-settings.png" alt="dvb-t adapter settings on tvheadend"></p>
+</center>
+<p>Using the adapters, I created a DVB-T network and configured two muxes as defined by this <a href="https://www.2rn.ie/wp-content/uploads/2019/09/2RN-DTT-Television-Transmission-Network-Sept-2019-Rev.1.2.pdf">document</a>:</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-network.png" alt="dvb-t network configured on tvheadend"></p>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-muxes.png" alt="dvb-t muxes configured on tvheadend"></p>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-mux-1.png" alt="dvb-t mux 1"></p>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-t-mux-2.png" alt="dvb-t mux 2"></p>
+</center>
+<h2 id="freesat">FreeSat</h2>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/freesat.png" alt="diagram showing the freesat specific components"></p>
+</center>
+<p>FreeSat is a little bit more complicated, it requires a Satellite connected to a SATIP box which TVHeadend then communicates with over the network receive content.</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/satip-box.jpg" alt="satip box"></p>
+</center>
+<p>For my SatIP box I used a <a href="https://www.amazon.co.uk/Telestar-DIGIBIT-HD-SAT-Reciever/dp/B008OVPYCQ">Digibit R1</a>, it takes all 4 connections to the Quattro LNB on the dish.</p>
+<p>To get the best performance and integration with TVHeadend from this system I flashed it with a custom firmware <a href="https://github.com/perexg/satip-axe">SATIP-AXE</a> which uses <a href="https://github.com/catalinii/minisatip">minisatip</a> for exposing the content.</p>
+<p>TVHeadend should automatically discover your SATIP box across the network and list it as a DVB Input:</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-s-adapters.png" alt="dvb-s adapters"></p>
+</center>
+<p>Unlike the DVB-T tuners, for optimal usage some configuration was required, the following configuration can be inputted by clicking on the &ldquo;minisatip&rdquo; folder on the &ldquo;DVB Inputs&rdquo; screen:</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-s-configuration.png" alt="dvb-s configuration"></p>
+</center>
+<p>Once configured, similarly to the DVB-T adapters, a DVB-S network can be created, for this we can specify the orbital position of 28.2E Astra and it will automatically configure all if the muxes:</p>
+<center>
+<p><img src="/images/live-tv-distribution-and-centralised-recording/dvb-s-network.png" alt="dvb-s network"></p>
+</center>
+<h2 id="viewing">Viewing</h2>
+<p>As described at the start of this post, I wanted the content to be available on all my different devices. TVHeadend does a fantastic job at providing interfaces to do this.</p>
+<h3 id="computer">Computer</h3>
+<center>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/7zxPAdvRg_w" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</center>
+<p>For our computers TVHeadend provides a <code>.m3u</code> at <code>/playlist/channels.m3u</code> playlist that can be opened with VLC. Once opened in VLC all of the channels appear as playlist items.</p>
+<h3 id="mobile-phone-ios">Mobile Phone (iOS)</h3>
+<center>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/CRAd655XXRQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</center>
+<p>For our mobile phones TVHeadend has an <a href="https://apps.apple.com/gb/app/tvhclient/id638900112">iOS application</a>. This allows us to view the EPG, watch live TV and configure and watch recordings.</p>
+<p>Additionally, if we use port-forwarding to expose the TVHeadend instance to the internet or provide a VPN back into my home network we can access all of the content when away from home.</p>
+<h3 id="tv">TV</h3>
+<center>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/QSOnFipThe4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</center>
+<p>To standardise the experience on all of our TVs I decided it was best to just use them as dumb displays with a <a href="https://www.amazon.co.uk/dp/B07Z6RD4M9">Nvidia Shield</a> attached. This provides us with a fantastic android experience on all TVs.</p>
+<p>For Android devices I like to use Kodi as it has a fantastic TVHeadend plugin for providing an EPG, live viewing, recording scheduling and recording viewing.</p>
+<h3 id="car">Car</h3>
+<center>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/wgEcfKsunl4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</center>
+<p>As my car&rsquo;s head unit is android based Kodi can be installed and the exact same interface used on the TVs is available within the Car.</p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
