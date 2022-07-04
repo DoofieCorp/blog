@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Smart heating and hot water | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Walkthrough of my chosen smart heating solution">
+  <meta name="keywords" content="Smart Home,drayton,wiser,Smart Heating,Home Assistant">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Smart heating and hot water</h1>
+    <p>Smart heating systems enable you to control your home&rsquo;s heating and hot water from more than just your boiler programmer. They provide fantastic convenience and may even result in reducing your energy costs.</p>
+<p>While there are a vast amount of solutions on the market for achieving this, I struggled to find one that suited all my wants:</p>
+<ol>
+<li>Must have a local interface for smart controls, not being able to turn on/off the heating or hot water due to an internet failure is not acceptable.</li>
+<li>Should have physical buttons for turning on/off heating or hot water, nobody should require a network connected device to control the home&rsquo;s heating.</li>
+<li>Allow for per-room heating controls.</li>
+<li>Be easy to retrofit.</li>
+</ol>
+<h2 id="contenders">Contenders</h2>
+<h3 id="nest">Nest</h3>
+<center>
+<p><img src="/images/smart-heating-and-hot-water/nest.png" alt="Photo of a nest thermostat wall mounted"></p>
+</center>
+<p>Arguably one of the most popular and well-known solutions is the Nest thermostat. On Amazon.co.uk these units come in at a 4.5 star rating.</p>
+<p>Requirement 1 is a huge deal for me, I don&rsquo;t want to be in a scenario where my mobile app for my heating stops working due to a <a href="https://nymag.com/intelligencer/2019/06/google-cloud-outage-impacts-nest-smart-locks-and-a-c.html">cloud outage</a>.</p>
+<p>Nest sadly doesn&rsquo;t provide local APIs to interact with their units. While they do have a remote API as described by the <a href="https://www.home-assistant.io/integrations/nest/">Home Assistant Documentation</a> there is a fee.</p>
+<h3 id="tado">Tado</h3>
+<center>
+<p><img src="/images/smart-heating-and-hot-water/tado.jpg" alt=""></p>
+</center>
+<p>Not a well-known household name, but it is a first page hit for &ldquo;smart heating&rdquo; on amazon.co.uk.</p>
+<p>Sadly, this product fails to satisfy requirement 1.  However, on the upside, they do have a remote API that is free of charge, the <a href="https://www.home-assistant.io/integrations/tado/">home assistant documentation covers</a>. Additionally, they satisfy my want by providing TRVs to allow for heating control on a per room bases.</p>
+<h3 id="hive">Hive</h3>
+<center>
+<p><img src="/images/smart-heating-and-hot-water/hive.jpeg" alt=""></p>
+</center>
+<p>The hive units are a perfect example of why requirement 1 is important. in 2021 hive announced a <a href="https://www.hivehome.com/us/support">shutdown notice</a> that is, if you had any of their smart heating devices they are no longer going to function. As a result of this action, I quickly discounted all Hive products and did no further research.</p>
+<h3 id="heatmiser">Heatmiser</h3>
+<center>
+<p><img src="/images/smart-heating-and-hot-water/heatmiser.jpg" alt=""></p>
+</center>
+<p>The Heatmiser units are fantastic and satisfied all of my requirements.</p>
+<p>Home assistant provides <a href="https://www.home-assistant.io/integrations/heatmiser/">native integration</a> for Heatmiser DT/DT-E/PRT/PRT-E thermostats.</p>
+<p>These units are a bit dated looking. Thankfully, the <a href="https://www.heatmiser.com/en/heatmiser-neo-overview/">heatmiser neo range</a> also has a local API and there is a <a href="https://github.com/MindrustUK/Heatmiser-for-home-assistant">3rd party home assistant integration via hacs</a>.</p>
+<p>The NeoAir range was a very close option for me. However, I could not determine a way to do controls on a per room level, they do not offer TRVs that integrate with this system. Only existing heating zones can be controlled.</p>
+<p>In the event, I was to self build I would plan for Heatmiser early on.</p>
+<h3 id="diy-with-shellycloud">DIY with Shelly.Cloud</h3>
+<center>
+<p><img src="/images/smart-heating-and-hot-water/shelly.jpg" alt=""></p>
+</center>
+<p><a href="https://shelly.cloud/">Shelly.Cloud</a> provides <a href="https://shop.shelly.cloud/shelly-plus-1pm-wifi-smart-home-automation">relays</a> which could replace your boiler programmer, <a href="https://shop.shelly.cloud/shelly-trv-wifi-smart-home-automation#597">TRVs</a> which would allow for per room control, or standalone <a href="https://shop.shelly.cloud/shelly-h-t-wifi-smart-home-automation-1#160">thermostats</a> to use your existing zones</p>
+<p>While this approach could work and would satisfy all requirements it works out extremely DIY heavy and expensive.</p>
+<p>My heating system has 3 zones (downstairs, upstairs and hot water). I would need a relay for each zone, each relay costs 15.90eur which results in a total of 50eur.</p>
+<p>To may the relays look pretty and to add physical controls I would need a 3 gang switch. This can be estimated at 20eur.</p>
+<p>I have 12 radiators, to provide per room controls I would need a TRV for each radiator. A four pack of TRVs cost 237.24eur which results in a total of 711.72eur.</p>
+<p>This brings the total cost for this solution to little over 780eur and I would have to do a bunch of configuration to make it work (read: it would probably always be broken).</p>
+<h3 id="drayton-wiser">Drayton Wiser</h3>
+<center>
+<p><img src="/images/smart-heating-and-hot-water/drayton.jpg" alt=""></p>
+</center>
+<p>A well known name in the UK heating system space and a first page hit on amazon.co.uk for &ldquo;smart heating&rdquo;, the <a href="https://wiser.draytoncontrols.co.uk/">Drayton Wiser System</a> by Schneider Electric provides the complete solution in my opinion.</p>
+<p>They have solutions for <a href="https://www.amazon.co.uk/Drayton-Wiser-Thermostat-Heating-Control/dp/B075GS4WFK?ref_=ast_sto_dp">1</a>, <a href="https://www.amazon.co.uk/Drayton-Wiser-Thermostat-Heating-Control/dp/B075GRPZQ2?ref_=ast_sto_dp">2</a> and <a href="https://www.amazon.co.uk/Drayton-Wiser-Thermostat-Heating-Control/dp/B075GRPZQ2?ref_=ast_sto_dp">3</a> zone heating systems. Additionally, they offer solutions based around <a href="https://www.amazon.co.uk/Drayton-Heating-Radiator-Thermostat-Amazon/dp/B08WCGYMQN/">wireless TRVs</a> rather than wireless thermostats to give per room control.</p>
+<p>For my setup, I needed a 3 zone boiler programmer. Sadly this can only be bought in a <a href="https://www.amazon.co.uk/Drayton-Wiser-Multi-Zone-Thermostat-Radiator/dp/B075GSQDZF">bundle</a> of two TRVs and a wireless thermostat, with each radiator covered with a TRV the wireless thermostat just becomes a waste. The bundle costs 244.80eur.</p>
+<p>Achieving per room control with this system isn&rsquo;t cheap, but it is cheaper than the Shelly approach and it doesn&rsquo;t require manual configuration. Each TRV costs 46.31eur, as the boiler programmer bundle comes with 2 TRVs I only needed an additional 10 totalling a cost of 463.10eur.</p>
+<p>The total cost of the system came to 707.9eur.</p>
+<p>While the Drayton Wiser system doesn&rsquo;t have native home assistant integration, it does provide a local API and somebody has created a <a href="https://github.com/asantaga/wiserHomeAssistantPlatform">3rd party integration</a>. In addition to this, their mobile app automatically detects if it&rsquo;s on the same network as your boiler programmer, if it is it connects directly, if not it will connect via a Drayton relay.</p>
+<p>The physical controls provided by this system are fantastic, at each TRV you can twist left or right to turn up or down the temperature in the room. From the boiler programmer, there are physical buttons to turn on/off hot water or the heating zones.</p>
+<p>I have no regrets in about decision to go with the Drayton Wiser system. I don&rsquo;t believe any other systems on the market satisfy my wants as well as this system. I have had friends and family purchase this system from my recommendation, and all have been satisfied with it. Its app is not perfect and its window open detection could be improved but overall, I&rsquo;m happy.</p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
