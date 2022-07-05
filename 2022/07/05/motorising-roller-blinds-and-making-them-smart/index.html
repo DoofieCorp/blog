@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Motorising roller blinds and making them smart | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="The journey of figuring out how to motorise blinds and make them smart on a budget">
+  <meta name="keywords" content="Smart Home,Dooya,Somfy,Smart Blinds,Home Assistant,Sonoff,RF Bridge,Tasmota,">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Motorising roller blinds and making them smart</h1>
+    
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/bLBhSKxaVSs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>In previous posts I discussed <a href="https://ianduffy.ie/2022/06/27/live-tv-distribution-and-centralised-recording/">Live TV distribution</a>, <a href="https://ianduffy.ie/2022/06/27/combining-smart-switches-and-smart-lights/">Smart Lighting</a> and <a href="https://ianduffy.ie/2022/07/04/smart-heating-and-hot-water/">Smart Heating and Hot Water</a> systems. Continuing with that theme, this post explores the journey of motorising roller blinds and making them &ldquo;smart&rdquo;.</p>
+<p>The requirements are similar to the previous posts:</p>
+<ol>
+<li>There must be no internet dependency and the blinds should be able to be controlled by a local interface.</li>
+<li>The cost of it should be affordable.</li>
+<li>Should be battery operated, I didn&rsquo;t want the complexities of having a fused spur at each window.</li>
+</ol>
+<p>For a pleasant change getting something that didn&rsquo;t have an internet dependency was straightforward. However, the cost was not something I liked.</p>
+<p>There&rsquo;s the incredible <a href="https://www.lutron.com/en-US/Products/Pages/ShadingSystems/SerenaShades/Overview.aspx">Lutron Blinds</a> with their patented technology for ensuring all the blinds stay at the same level as they move up and down. The cost of kitting out the whole house with these was not worth thinking about, if you&rsquo;re a multi-millionaire go for it. Given that&rsquo;s not me I was curious about <a href="https://www.ikea.com/ie/en/p/fyrtur-block-out-roller-blind-smart-wireless-battery-operated-grey-30408173/">IKEA&rsquo;s</a>, I liked this solution but my partner vetoed it on aesthetic grounds. This lead me to discover <a href="https://www.somfy.co.uk/">Somfy blinds</a> which many local blind manufacturers were willing to add to any of their roller blind fabrics, however, it worked out at 250eur per blind, I wanted smart blinds, but not at that price.</p>
+<p>I began wondering, can I just get standard roller blinds installed and insert a motor? I found a fantastic Chinese brand called <a href="https://www.dooya.com/product_index_en.php?nid=36">Dooya</a> (turns out they are owned by Somfy) who had a fantastic range of blind motors that were battery operated. I found an <a href="https://runxinbestblinds.aliexpress.com/store/605802">aliexpress seller</a> who was selling a <a href="https://www.aliexpress.com/item/32614830824.html">Dooya DM25LE</a> for 54.50eur at the time (sadly inflation has since taken its toll on that).</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/aliexpress-order.png" alt="My aliexpress order of a Dooya DM25LE"></p>
+</center>
+<p>While I was doing the blind motor research my partner found a local blind shop that had fabrics she liked. However, it needed to be explored whether or not they could supply the blinds on tubes compatible with the motors I had in mind. Turns out the diameter of the tube blinds are installed on is not a common consumer concern, so much so that the staff referred to me as &ldquo;38mm tube guy&rdquo;. After many conversations, it was eventually decided that to get an answer I would need to go visit their manufacturing warehouse. Thankfully it was only a quick drive away. I met with a guy who discussed with me how the diameter of the tube is typically decided upon based on the thickness, length and weight of the material. From previously taken measurements and the fabric selection he was able to determine the tube size he would have in mind for our blinds, it came in at 30mm. I asked, can we do 38mm? he seemed a bit confused by the request but said there was no reason they couldn&rsquo;t do it. A note was placed on my account and he sent me home with a 38mm diameter tube offcut.</p>
+<p>Many weeks later my blind motor arrived from China and it was possible to test if the plan would work. The below picture shows that the blind motor is a perfect fit on their provided tube offcut, winning!</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/tube.jpg" alt="38mm blind tube with the blind motor hanging out"></p>
+</center>
+<p>However, there were still some challenges to be resolved. The first was the plug outlet for charging the blinds, it was a 2-pin unit with a transformer built-in. My first thought was I&rsquo;ll just order some matching their specification, however, the specifications were a bit unusual 8.4v 1amp.</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/charger.jpg" alt="dooya blind motor charger"></p>
+</center>
+<p>I began exploring two-pin adapters but they&rsquo;re typically a bit of a loose fit, and the cable was a bit on the short side for reaching the blinds so it wasn&rsquo;t a great solution. The problem of the cable being too short ultimately lead to the solution, buy a <a href="https://www.amazon.de/dp/B00R1FJT4U">standard two-pin extension lead</a> on Amazon Germany or Spain, cut off the two-pin plug end and replace it with a three-pin plug.</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/two-pin-to-three-pin.jpg" alt="two pin socket on 3 pin extension cord"></p>
+</center>
+<p>After all this, it was onto the last show stopper challenge, mounting the blind with the new motor in place.</p>
+<p>The female end of the motor didn&rsquo;t match the female end of the pull cord it replaced, and as such, the blind bracket wasn&rsquo;t compatible. Replacing the blind brackets wasn&rsquo;t going to be an option, the blind company was going to be installing the blinds, the hole alignment wasn&rsquo;t the same and drilling additional holes for the replacement bracket would have compromised the plasterboard too much.</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/blind-motor-socket.png" alt="blind motor socket"></p>
+</center>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/blind-cord.jpg" alt="blind cord"></p>
+</center>
+<p>It&rsquo;s moments like these where I wish I owned a 3D printer and could print off an adapter to make the blind motor work with the bracket for the blind cord. Instead, I began to browse many blind shops on AliExpress sending off Google-translated messages describing what I was looking for. Eventually, I came across this <a href="https://www.aliexpress.com/item/1005001709124858.html">blind bracket set</a> the adapter within the photos looked perfect, messaged the seller to see if they were willing to just sell the adapter and they were, and at a fantastic price of 87cents each.</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/blind-adapter-up.jpg" alt=""></p>
+</center>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/blind-adapter-down.jpg" alt=""></p>
+</center>
+<p>At this point, the blinds are successfully motorised for 54.50eur per blind. The next question is, how do I integrate them in with my smart home system?</p>
+<p>Typically I answer this question by thinking about how the device is controlled, is it a mobile app? Does it hit some HTTP API? The interface this time is a little less sophisticated, it&rsquo;s just a remote:</p>
+<center> 
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/remotes.jpg" alt=""></p>
+</center>
+<p>I guess I could place three <a href="https://us.switch-bot.com/products/switchbot-bot">switchbot bot</a> devices around the remote and use them to press the buttons, but that isn&rsquo;t very neat. If you look at the label on the back of the remote in the above photo you&rsquo;ll see &ldquo;443mhz&rdquo;, these are RF-based devices, which should be something I can sniff and duplicate.</p>
+<center>
+<p><img src="/images/motorising-roller-blinds-and-making-them-smart/sonoff_RF_bridge.jpg" alt=""></p>
+</center>
+<p>The above photo is a <a href="https://templates.blakadder.com/sonoff_RF_bridge.html">Sonoff RF Bridge</a> Sonoff designed it so their customers could communicate with their RF devices over WiFi. Thankfully, some really smart people found a way to <a href="https://github.com/arendst/Tasmota">Tasmota</a> (an opensource firmware) and for it to intercept raw RF communications.</p>
+<p>Tasmota&rsquo;s <a href="https://tasmota.github.io/docs/devices/Sonoff-RF-Bridge-433">documentation</a> covers this specific device in great detail. Using that documentation I was able to place the device into sniffing mode, press buttons on the remote, capture the data they sent, replay them and get the same action to occur - I could now control my blinds over WiFi.</p>
+<p>All that was left was to hook it into my <a href="https://www.home-assistant.io/">Home Assistant</a> smart home system so I could run automations like opening/closing the blinds at sunset/sun-rise, accept actions via Alexa and so on.</p>
+<p>A community member created a fantastic <a href="https://github.com/nagyrobi/home-assistant-custom-components-cover-rf-time-based">3rd party integration</a> to enable control of RF blinds using time durations to calculate percentages. This enables us to set the blinds to specific positions, we can say things like &ldquo;Alexa, set office blind to 40%&rdquo;.</p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

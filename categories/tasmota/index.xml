@@ -6,7 +6,18 @@
     <description>Recent content in tasmota on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/tasmota/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/tasmota/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Motorising roller blinds and making them smart</title>
+      <link>http://ianduffy.ie/2022/07/05/motorising-roller-blinds-and-making-them-smart/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/2022/07/05/motorising-roller-blinds-and-making-them-smart/</guid>
+      <description>In previous posts I discussed Live TV distribution, Smart Lighting and Smart Heating and Hot Water systems. Continuing with that theme, this post explores the journey of motorising roller blinds and making them &amp;ldquo;smart&amp;rdquo;.
+The requirements are similar to the previous posts:
+ There must be no internet dependency and the blinds should be able to be controlled by a local interface. The cost of it should be affordable.</description>
+    </item>
+    
     <item>
       <title>Combining smart switches and smart lights</title>
       <link>http://ianduffy.ie/2022/06/27/combining-smart-switches-and-smart-lights/</link>
