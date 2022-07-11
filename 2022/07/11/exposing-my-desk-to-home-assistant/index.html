@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Exposing my desk to Home Assistant | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <meta name="description" content="Walkthrough of how my desk connects to Home Assistant">
+  <meta name="keywords" content="Home Assistant,Alexa,Desk,Tasmota,ESP">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Exposing my desk to Home Assistant</h1>
+    <cemter>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/_GEJ1rDDnAo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</cemter>
+<p>I have a sit/stand desk. It has two buttons for control, one goes up, the other goes down. It connects to a control box via an RJ45 plug.</p>
+<p>I wanted to connect the desk to <a href="https://home-assistant.io">Home Assistant</a> so that I could use Alexa to move the desk up and down, to go to specific height percentages, and to connect to automations e.g. Via the <a href="https://github.com/home-assistant/iOS">Home Assistant OSX application</a> Home Assistant is made aware if my webcam is on/off, I can use a state change to on to automatically make the desk go up to encourage me to stand during meetings.</p>
+<h2 id="discovery">Discovery</h2>
+<center>
+<p><img src="/images/exposing-my-desk-to-home-assistant/controller-pcb.png" alt="Photo of the PCB of the controller"></p>
+</center>
+<p>To understand how the controller worked I opened it. Its PCB was well labeled and I was quickly able to identify the cables for up/down actions. As shown in the below video, control of the desk was achieved by pulling the M1- and M1+ cables to ground.</p>
+<center>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/gfmq5j_V7wA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</center>
+<h2 id="implementation">Implementation</h2>
+<p><img src="/images/exposing-my-desk-to-home-assistant/iot-box.png" alt="ESP32"></p>
+<p>Using an ESP32 flashed with <a href="https://tasmota.github.io/docs/">Tasmota</a> I could configure two GPIO pins to be relays and connected them to M1- and M1+.</p>
+<p>Triggering these relays from Tasmota pulled the M1- and M1+ pins to ground allowing programmatic control of the desk.</p>
+<p>To connect the ESP32 to the M1- and M1+ pins I put an RJ45 plug on one end of CAT6 cable and plugged it into the control box. On the other end, I just stripped back the cables and connected them to the ESP32. In addition to the M1- and M1+ pins I was able to power the ESP32 through the 5v and ground exposed by the control box. Lastly, to allow the original controller to work I joint another piece of CAT6 which was terminated with an RJ45 keystone so that the original control could plug in without any modification.</p>
+<center>
+<p><img src="/images/exposing-my-desk-to-home-assistant/tasmota-template-config.png" alt="Tasmota template"></p>
+</center>
+<p>To be safe, I made use of some additional features in Tasmota. To ensure up and down options couldn&rsquo;t be used at the same time I configured an <a href="https://tasmota.github.io/docs/Commands/#interlnck">interlock</a> and to make sure the relays were never accidentally left on I configured a <a href="https://tasmota.github.io/docs/Commands/#pulsetime">PulseTime</a> to automatically revert them back to an off state after a set duration.</p>
+<h2 id="integration-with-home-assistant">Integration with Home Assistant</h2>
+<p>As it’s Tasmota based the ESP32 is automatically picked up by Home Assistant. Sadly Alexa doesn’t have any concept of a sit/stand desk, to work around this I exposed the desk as a blind using <a href="https://github.com/nagyrobi/home-assistant-custom-components-cover-rf-time-based">cover_rf_time_based</a></p>
+<pre tabindex="0"><code> - platform: cover_rf_time_based
+    devices:
+      office_desk:
+        name: Office Desk
+        travelling_time_up: 16
+        travelling_time_down: 16
+        close_script_entity_id: switch.office_desk_down
+        stop_script_entity_id: script.office_desk_stop
+        open_script_entity_id: switch.office_desk_up
+        send_stop_at_ends: False
+</code></pre>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
