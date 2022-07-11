@@ -2,7 +2,7 @@
 title = "Downloading ECR images with nerdctl"
 description = "Tutorial on how to use nerdctl to download private images from ECR"
 keywords = ["docker", "ecr", "nerdctl", "images"]
-categories = ["cloud", "aws", "docker" "containers"]
+categories = ["cloud", "aws", "docker", "containers"]
 date = "2021-09-25T8:00:00Z"
 +++
 
