@@ -74,9 +74,16 @@ pygmentsuseclasses = true
 [privacy]
   [privacy.googleAnalytics]
     anonymizeIP = true
-    disable = false
+    disable = true
     respectDoNotTrack = true
-    useSessionStorage = false
+    useSessionStorage = true
+  [privacy.twitter]
+    disable = true
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = true
+    privacyEnhanced = true
 
 [markup.goldmark.renderer]
 unsafe= true
