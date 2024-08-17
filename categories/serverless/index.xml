@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Serverless on Ian Duffy</title>
+    <title>serverless on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/serverless/</link>
-    <description>Recent content in Serverless on Ian Duffy</description>
+    <description>Recent content in serverless on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Dec 2018 14:18:32 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keeping the Wife Happy: Building a Modern Website with Astro and TinaCMS</title>
+      <link>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</guid>
+      <description>When my wife, Ciara, told me she wanted to start a blog, my initial reaction was, “Oh no, here we go!” I knew setting up a website could quickly become complicated, expensive, and require ongoing maintenance—something I&amp;rsquo;d rather avoid. So, what&amp;rsquo;s a guy to do?
+The Classic Options: WordPress or Static Sites? The first thing that came to mind was WordPress. It’s user-friendly, which would make it easy for Ciara to manage content on her own.</description>
+    </item>
+    
     <item>
       <title>Managing access to multiple AWS Accounts with OpenID</title>
       <link>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</link>

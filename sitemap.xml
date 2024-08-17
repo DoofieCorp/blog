@@ -3,15 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://ianduffy.ie/categories/</loc>
-    <lastmod>2022-07-11T00:00:00+01:00</lastmod>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://ianduffy.ie/2022/07/11/exposing-my-desk-to-home-assistant/</loc>
-    <lastmod>2022-07-11T00:00:00+01:00</lastmod>
+    <loc>http://ianduffy.ie/categories/development/</loc>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/</loc>
-    <lastmod>2022-07-11T00:00:00+01:00</lastmod>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</loc>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/posts/</loc>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/security/</loc>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/serverless/</loc>
+    <lastmod>2024-08-17T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/2022/07/11/exposing-my-desk-to-home-assistant/</loc>
     <lastmod>2022-07-11T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/smart-home/</loc>
@@ -50,17 +62,11 @@
     <loc>http://ianduffy.ie/categories/kubernetes/</loc>
     <lastmod>2020-08-29T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ianduffy.ie/categories/security/</loc>
-    <lastmod>2020-08-29T08:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://ianduffy.ie/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</loc>
     <lastmod>2019-09-11T08:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/lifestyle/</loc>
     <lastmod>2019-09-11T08:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/categories/development/</loc>
-    <lastmod>2019-02-22T08:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</loc>
     <lastmod>2019-02-22T08:00:00+00:00</lastmod>
@@ -72,9 +78,6 @@
     <lastmod>2019-02-22T08:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</loc>
-    <lastmod>2018-12-15T14:18:32+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/categories/serverless/</loc>
     <lastmod>2018-12-15T14:18:32+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/programming/</loc>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Keeping the Wife Happy: Building a Modern Website with Astro and TinaCMS | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Learn how I built a modern, secure blog for my wife using Astro and TinaCMS. Discover the perfect middle ground between WordPress and static sites, with dynamic content, minimal maintenance, and zero hosting costs">
+  <meta name="keywords" content="Astro blog setup,TinaCMS,WordPress alternatives,static site generator,dynamic content,GitHub Pages blog,web development,web scraping,Tailscale VPN,Privoxy HTTP Proxy,WYSIWYG editor,custom blog themes,tech tutorial,minimal maintenance website,blogging tools">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Keeping the Wife Happy: Building a Modern Website with Astro and TinaCMS</h1>
+    <p><img src="/images/building-a-modern-website-with-astro-and-tinacms/headline.webp" alt=""></p>
+<p>When my wife, Ciara, told me she wanted to start a blog, my initial reaction was, “Oh no, here we go!” I knew setting up a website could quickly become complicated, expensive, and require ongoing maintenance—something I&rsquo;d rather avoid. So, what&rsquo;s a guy to do?</p>
+<h3 id="the-classic-options-wordpress-or-static-sites">The Classic Options: WordPress or Static Sites?</h3>
+<p>The first thing that came to mind was WordPress. It’s user-friendly, which would make it easy for Ciara to manage content on her own. But, WordPress comes with its challenges. It requires a database, PHP, and regular security maintenance. With my laziness, combined with how frequently WordPress sites get targeted, getting hacked felt inevitable.</p>
+<p>On top of that, the WordPress solution would cost money—either in the form of managed hosting, premium themes, or plugins to get everything just right. Sure, you can get started on the free tier, but to have full control over the blog and access to essential features, the costs quickly add up. This option could easily spiral into an ongoing investment, both in time and money.</p>
+<p>On the other end of the spectrum, there’s the techie solution—a static site generator like Hugo which is what I use for my own site. Hosting it on GitHub Pages for free, writing content in Markdown, and deploying with a simple <code>git push</code>. But expecting Ciara to learn Markdown and Git just to write a blog post? That was never going to fly.</p>
+<h3 id="is-there-a-middle-ground">Is There a Middle Ground?</h3>
+<p>I started to wonder if there was an in-between solution. A setup that combined the user-friendliness of WordPress with the simplicity, security, and zero hosting costs of a static site generator. That’s when I stumbled upon <a href="https://cassidoo.co/post/blog-website-baby/">Cassidy Williams’ blog post</a> about using Astro for static blogs and combining it with TinaCMS for content editing. Could this be the magic bullet?</p>
+<h3 id="the-proof-of-concept-astro-and-tinacms">The Proof of Concept: Astro and TinaCMS</h3>
+<p>I decided to throw together a proof of concept. Astro worked as a fantastic static site generator, and pairing it with TinaCMS allowed for a WYSIWYG editor that was simple and intuitive for Ciara to use. When changes were made in the editor, TinaCMS would automatically commit them to Git. From there, GitHub Actions would take over, building and publishing the site to GitHub Pages. In short, new content could be live on the site within minutes of her hitting &ldquo;save.&rdquo;</p>
+<p><img src="/images/building-a-modern-website-with-astro-and-tinacms/tinacms.png" alt="TinaCMS"></p>
+<p>This seemed perfect! Ciara could write, upload media, and self-publish, and I would have a minimal ongoing maintenance burden.</p>
+<h3 id="adding-a-personal-touch-custom-themes-and-dynamic-content">Adding a Personal Touch: Custom Themes and Dynamic Content</h3>
+<p><img src="/images/building-a-modern-website-with-astro-and-tinacms/best-sellers.png" alt="TinaCMS"></p>
+<p>Once we had the basic blog up and running, it was time to add some personal touches. Ciara picked out a theme she loved, and I got to work customizing it. This is where I started having some real fun.</p>
+<p>Ciara sells teaching resources on <a href="https://www.teacherspayteachers.com/">Teachers Pay Teachers</a>, so I thought it would be nice for her blog to feature her best-selling products. A quick bit of web scraping at build time allowed me to pull this content in dynamically. The result? A sleek, personalized blog with live product updates. You can check out the final result <a href="https://ciarasclassroom.com/resources/">here</a>.</p>
+<p>But why stop there? I wanted to integrate even more dynamic content, like her latest Instagram posts, into the footer. This turned out to be more challenging than I expected. Instagram’s API was trickier to work with, and scraping was blocked when running from GitHub Actions due to IP restrictions.</p>
+<h3 id="the-solution-tailscale-and-privoxy">The Solution: Tailscale and Privoxy</h3>
+<p><img src="/images/building-a-modern-website-with-astro-and-tinacms/proxy.png" alt="Proxy"></p>
+<p>I already use <a href="https://tailscale.com/">Tailscale VPN</a> for accessing home-hosted resources while away, and Tailscale offers a GitHub Action for establishing VPN connectivity. I set up a <a href="https://www.privoxy.org/">Privoxy HTTP Proxy</a> on my home router, which allowed GitHub Actions traffic to route through my home internet connection.</p>
+<p><img src="/images/building-a-modern-website-with-astro-and-tinacms/github-action.png" alt="Github Action"></p>
+<p>With everything in place, I updated GitHub Actions to run the script with traffic flowing over the HTTP Proxy and set up a scheduled GitHub Action to refresh the content daily. Now, the website updates automatically with new Instagram posts, giving it that dynamic touch without compromising the simplicity and security of a static site.</p>
+<p><img src="/images/building-a-modern-website-with-astro-and-tinacms/dynamic-content.png" alt="Dynamic Content"></p>
+<h3 id="final-thoughts-the-best-of-both-worlds">Final Thoughts: The Best of Both Worlds</h3>
+<p>This journey taught me that static and dynamic content can blend beautifully when you find the right tools. With Astro, TinaCMS, and GitHub Actions, we were able to build a website that feels modern, secure, and easy to use.</p>
+<p>Ciara can now self publish content, while I (hopefully) never have to touch it again.</p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

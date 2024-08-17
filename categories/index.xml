@@ -6,11 +6,38 @@
     <description>Recent content in Categories on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>development</title>
+      <link>http://ianduffy.ie/categories/development/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>http://ianduffy.ie/categories/security/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverless</title>
+      <link>http://ianduffy.ie/categories/serverless/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/categories/serverless/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>smart home</title>
       <link>http://ianduffy.ie/categories/smart-home/</link>
-      <pubDate>Tue, 05 Jul 2022 00:00:00 +0100</pubDate>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0100</pubDate>
       
       <guid>http://ianduffy.ie/categories/smart-home/</guid>
       <description></description>
@@ -19,7 +46,7 @@
     <item>
       <title>tasmota</title>
       <link>http://ianduffy.ie/categories/tasmota/</link>
-      <pubDate>Tue, 05 Jul 2022 00:00:00 +0100</pubDate>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0100</pubDate>
       
       <guid>http://ianduffy.ie/categories/tasmota/</guid>
       <description></description>
@@ -71,15 +98,6 @@
     </item>
     
     <item>
-      <title>Security</title>
-      <link>http://ianduffy.ie/categories/security/</link>
-      <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>lifestyle</title>
       <link>http://ianduffy.ie/categories/lifestyle/</link>
       <pubDate>Wed, 11 Sep 2019 08:00:00 +0000</pubDate>
@@ -89,29 +107,11 @@
     </item>
     
     <item>
-      <title>Development</title>
-      <link>http://ianduffy.ie/categories/development/</link>
-      <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Web</title>
       <link>http://ianduffy.ie/categories/web/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
       
       <guid>http://ianduffy.ie/categories/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Serverless</title>
-      <link>http://ianduffy.ie/categories/serverless/</link>
-      <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
-      
-      <guid>http://ianduffy.ie/categories/serverless/</guid>
       <description></description>
     </item>
     

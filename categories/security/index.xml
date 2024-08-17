@@ -6,7 +6,17 @@
     <description>Recent content in Security on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keeping the Wife Happy: Building a Modern Website with Astro and TinaCMS</title>
+      <link>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</guid>
+      <description>When my wife, Ciara, told me she wanted to start a blog, my initial reaction was, “Oh no, here we go!” I knew setting up a website could quickly become complicated, expensive, and require ongoing maintenance—something I&amp;rsquo;d rather avoid. So, what&amp;rsquo;s a guy to do?
+The Classic Options: WordPress or Static Sites? The first thing that came to mind was WordPress. It’s user-friendly, which would make it easy for Ciara to manage content on her own.</description>
+    </item>
+    
     <item>
       <title>External authentication and authentication data forwarding with nginx</title>
       <link>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</link>

@@ -6,16 +6,25 @@
     <description>Recent content in Posts on Ian Duffy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Motorising roller blinds and making them smart</title>
-      <link>http://ianduffy.ie/2022/07/05/motorising-roller-blinds-and-making-them-smart/</link>
-      <pubDate>Tue, 05 Jul 2022 00:00:00 +0100</pubDate>
+      <title>Keeping the Wife Happy: Building a Modern Website with Astro and TinaCMS</title>
+      <link>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0100</pubDate>
       
-      <guid>http://ianduffy.ie/2022/07/05/motorising-roller-blinds-and-making-them-smart/</guid>
-      <description>In previous posts I discussed Live TV distribution, Smart Lighting and Smart Heating and Hot Water systems. Continuing with that theme, this post explores the journey of motorising roller blinds and making them &amp;ldquo;smart&amp;rdquo;.
-The requirements are similar to the previous posts:
- There must be no internet dependency and the blinds should be able to be controlled by a local interface. The cost of it should be affordable.</description>
+      <guid>http://ianduffy.ie/2024/08/17/keeping-the-wife-happy-building-a-modern-website-with-astro-and-tinacms/</guid>
+      <description>When my wife, Ciara, told me she wanted to start a blog, my initial reaction was, “Oh no, here we go!” I knew setting up a website could quickly become complicated, expensive, and require ongoing maintenance—something I&amp;rsquo;d rather avoid. So, what&amp;rsquo;s a guy to do?
+The Classic Options: WordPress or Static Sites? The first thing that came to mind was WordPress. It’s user-friendly, which would make it easy for Ciara to manage content on her own.</description>
+    </item>
+    
+    <item>
+      <title>Exposing my desk to Home Assistant</title>
+      <link>http://ianduffy.ie/2022/07/11/exposing-my-desk-to-home-assistant/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0100</pubDate>
+      
+      <guid>http://ianduffy.ie/2022/07/11/exposing-my-desk-to-home-assistant/</guid>
+      <description>I have a sit/stand desk. It has two buttons for control, one goes up, the other goes down. It connects to a control box via an RJ45 plug.
+I wanted to connect the desk to Home Assistant so that I could use Alexa to move the desk up and down, to go to specific height percentages, and to connect to automations e.g. Via the Home Assistant OSX application Home Assistant is made aware if my webcam is on/off, I can use a state change to on to automatically make the desk go up to encourage me to stand during meetings.</description>
     </item>
     
     <item>
