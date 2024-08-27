@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>programming on Ian Duffy</title>
+    <title>Programming on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/programming/</link>
-    <description>Recent content in programming on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Programming on Ian Duffy</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Feb 2017 18:06:45 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seamlessly Switching Between Work and Personal GitHub Accounts with SSH, GPG, and SSH Agent</title>
+      <link>http://ianduffy.ie/2024/08/27/seamlessly-switching-between-work-and-personal-github-accounts-with-ssh-gpg-and-ssh-agent/</link>
+      <pubDate>Tue, 27 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://ianduffy.ie/2024/08/27/seamlessly-switching-between-work-and-personal-github-accounts-with-ssh-gpg-and-ssh-agent/</guid>
+      <description>If you&amp;rsquo;re juggling work and personal GitHub accounts, switching between them manually can get frustrating. Luckily, you can set things up so that your environment automatically switches accounts based on the project directory you&amp;rsquo;re working in. This post will show you how to configure your SSH agent with 1Password, use different GPG keys and identities, and make it all work seamlessly.&#xA;Step 1: Manage SSH Keys with 1Password 1Password’s SSH agent integration can securely manage your SSH keys so you don’t have to deal with passwords or key files every time.</description>
+    </item>
     <item>
       <title>Scala and AWS managed ElasticSearch</title>
       <link>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</link>
       <pubDate>Sun, 26 Feb 2017 18:06:45 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2017/02/26/scala-and-aws-managed-elasticsearch/</guid>
-      <description>AWS offer a managed ElasticSearch service. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via AWS Identity Access Management.
-Elastic4s offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with AWS&amp;rsquo;s managed ElasticSearch service.
-Creating a request signer Using the aws-signing-request-interceptor library its easy to create an HttpRequestInterceptor which can be later added to the HttpClient used by Elastic4s for making the calls to ElasticSearch</description>
+      <description>AWS offer a managed ElasticSearch service. It exposes an HTTP endpoint for interacting with ElasticSearch and requires authentication via AWS Identity Access Management.&#xA;Elastic4s offers a neat DSL and Scala client for ElasticSearch. This post details how to use it with AWS&amp;rsquo;s managed ElasticSearch service.&#xA;Creating a request signer Using the aws-signing-request-interceptor library its easy to create an HttpRequestInterceptor which can be later added to the HttpClient used by Elastic4s for making the calls to ElasticSearch</description>
     </item>
-    
   </channel>
 </rss>

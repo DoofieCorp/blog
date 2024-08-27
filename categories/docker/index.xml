@@ -1,42 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on Ian Duffy</title>
+    <title>Docker on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/docker/</link>
-    <description>Recent content in docker on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Docker on Ian Duffy</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Sep 2021 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Sep 2021 08:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Downloading ECR images with nerdctl</title>
       <link>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</link>
       <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</guid>
-      <description>With Docker Desktop changing their licencing many folks are in need of a replacement. Nerdctl is worthy of this, combined with Lima it provides a Docker like CLI interface.
-While the CLI interface mostly remains the same, a question that might arise is &amp;ldquo;How to I pull/push images from private repositories?&amp;rdquo;
-Lima provides a linux virtual environment for nerdctl to run in. By introducing a $HOME/.docker/config.json authentication can occur as normal.</description>
+      <description>With Docker Desktop changing their licencing many folks are in need of a replacement. Nerdctl is worthy of this, combined with Lima it provides a Docker like CLI interface.&#xA;While the CLI interface mostly remains the same, a question that might arise is &amp;ldquo;How to I pull/push images from private repositories?&amp;rdquo;&#xA;Lima provides a linux virtual environment for nerdctl to run in. By introducing a $HOME/.docker/config.json authentication can occur as normal.</description>
     </item>
-    
     <item>
       <title>Exporting Confluent Cloud Metrics to Prometheus</title>
       <link>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</guid>
-      <description>At Kafka Summit this year, Confluent announced consumption based billing for their Kafka Cloud offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the __consumer_offsets topic is restricted, this means popular tools like Kafka Manager and Prometheus Kafka Consumer Group Exporter won&amp;rsquo;t work.
-kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to access the metrics.</description>
+      <description>At Kafka Summit this year, Confluent announced consumption based billing for their Kafka Cloud offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the __consumer_offsets topic is restricted, this means popular tools like Kafka Manager and Prometheus Kafka Consumer Group Exporter won&amp;rsquo;t work.&#xA;kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to access the metrics.</description>
     </item>
-    
     <item>
       <title>Local development with virtual hosts and HTTPS</title>
       <link>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</guid>
-      <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
-Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.</description>
+      <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.&#xA;Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.ie’. DNS is responsible for translating a domain name to an IP address.</description>
     </item>
-    
   </channel>
 </rss>

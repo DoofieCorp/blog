@@ -1,51 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>smart home on Ian Duffy</title>
+    <title>Smart Home on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/smart-home/</link>
-    <description>Recent content in smart home on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Smart Home on Ian Duffy</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://ianduffy.ie/categories/smart-home/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/smart-home/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Exposing my desk to Home Assistant</title>
       <link>http://ianduffy.ie/2022/07/11/exposing-my-desk-to-home-assistant/</link>
       <pubDate>Mon, 11 Jul 2022 00:00:00 +0100</pubDate>
-      
       <guid>http://ianduffy.ie/2022/07/11/exposing-my-desk-to-home-assistant/</guid>
-      <description>I have a sit/stand desk. It has two buttons for control, one goes up, the other goes down. It connects to a control box via an RJ45 plug.
-I wanted to connect the desk to Home Assistant so that I could use Alexa to move the desk up and down, to go to specific height percentages, and to connect to automations e.g. Via the Home Assistant OSX application Home Assistant is made aware if my webcam is on/off, I can use a state change to on to automatically make the desk go up to encourage me to stand during meetings.</description>
+      <description>I have a sit/stand desk. It has two buttons for control, one goes up, the other goes down. It connects to a control box via an RJ45 plug.&#xA;I wanted to connect the desk to Home Assistant so that I could use Alexa to move the desk up and down, to go to specific height percentages, and to connect to automations e.g. Via the Home Assistant OSX application Home Assistant is made aware if my webcam is on/off, I can use a state change to on to automatically make the desk go up to encourage me to stand during meetings.</description>
     </item>
-    
     <item>
       <title>Smart heating and hot water</title>
       <link>http://ianduffy.ie/2022/07/04/smart-heating-and-hot-water/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0100</pubDate>
-      
       <guid>http://ianduffy.ie/2022/07/04/smart-heating-and-hot-water/</guid>
-      <description>Smart heating systems enable you to control your home&amp;rsquo;s heating and hot water from more than just your boiler programmer. They provide fantastic convenience and may even result in reducing your energy costs.
-While there are a vast amount of solutions on the market for achieving this, I struggled to find one that suited all my wants:
- Must have a local interface for smart controls, not being able to turn on/off the heating or hot water due to an internet failure is not acceptable.</description>
+      <description>Smart heating systems enable you to control your home&amp;rsquo;s heating and hot water from more than just your boiler programmer. They provide fantastic convenience and may even result in reducing your energy costs.&#xA;While there are a vast amount of solutions on the market for achieving this, I struggled to find one that suited all my wants:&#xA;Must have a local interface for smart controls, not being able to turn on/off the heating or hot water due to an internet failure is not acceptable.</description>
     </item>
-    
     <item>
       <title>Combining smart switches and smart lights</title>
       <link>http://ianduffy.ie/2022/06/27/combining-smart-switches-and-smart-lights/</link>
       <pubDate>Mon, 27 Jun 2022 00:00:00 +0100</pubDate>
-      
       <guid>http://ianduffy.ie/2022/06/27/combining-smart-switches-and-smart-lights/</guid>
       <description>Lighting is core to any smart home system. The systems attempt to make it as accessible as possible; there shouldn&amp;rsquo;t be a need to search for a light switch when entering a walkway a motion sensor should take care of it, there shouldn&amp;rsquo;t be a need to have to get out of bed to switch out the light before going to sleep, there shouldn&amp;rsquo;t be a need to run around every room before leaving the house to ensure lights are off and there shouldn&amp;rsquo;t be a need to manually turn on and off your outdoor lights every night.</description>
     </item>
-    
     <item>
       <title>Live TV distribution and centralised recording</title>
       <link>http://ianduffy.ie/2022/06/27/live-tv-distribution-and-centralised-recording/</link>
       <pubDate>Mon, 27 Jun 2022 00:00:00 +0100</pubDate>
-      
       <guid>http://ianduffy.ie/2022/06/27/live-tv-distribution-and-centralised-recording/</guid>
-      <description>Disclaimer: The following setup is for personal distribution purposes only. If you have a TV tuner a TV license must be held.
-Live TV isn&amp;rsquo;t often used in my household as most of the content we consume is via streaming services (Netflix, Disney+, Amazon Prime). I wanted a selection of Live TV to be available for those moments when we aren&amp;rsquo;t interested in committing to a 2 hour movie, season long show, or RTE were doing their yearly live broadcast of the late late Toy Show and I didn&amp;rsquo;t want to rely on their ever failing web player.</description>
+      <description>Disclaimer: The following setup is for personal distribution purposes only. If you have a TV tuner a TV license must be held.&#xA;Live TV isn&amp;rsquo;t often used in my household as most of the content we consume is via streaming services (Netflix, Disney+, Amazon Prime). I wanted a selection of Live TV to be available for those moments when we aren&amp;rsquo;t interested in committing to a 2 hour movie, season long show, or RTE were doing their yearly live broadcast of the late late Toy Show and I didn&amp;rsquo;t want to rely on their ever failing web player.</description>
     </item>
-    
   </channel>
 </rss>

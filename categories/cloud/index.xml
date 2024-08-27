@@ -4,70 +4,51 @@
     <title>Cloud on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/cloud/</link>
     <description>Recent content in Cloud on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Sep 2021 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Sep 2021 08:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Downloading ECR images with nerdctl</title>
       <link>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</link>
       <pubDate>Sat, 25 Sep 2021 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2021/09/25/downloading-ecr-images-with-nerdctl/</guid>
-      <description>With Docker Desktop changing their licencing many folks are in need of a replacement. Nerdctl is worthy of this, combined with Lima it provides a Docker like CLI interface.
-While the CLI interface mostly remains the same, a question that might arise is &amp;ldquo;How to I pull/push images from private repositories?&amp;rdquo;
-Lima provides a linux virtual environment for nerdctl to run in. By introducing a $HOME/.docker/config.json authentication can occur as normal.</description>
+      <description>With Docker Desktop changing their licencing many folks are in need of a replacement. Nerdctl is worthy of this, combined with Lima it provides a Docker like CLI interface.&#xA;While the CLI interface mostly remains the same, a question that might arise is &amp;ldquo;How to I pull/push images from private repositories?&amp;rdquo;&#xA;Lima provides a linux virtual environment for nerdctl to run in. By introducing a $HOME/.docker/config.json authentication can occur as normal.</description>
     </item>
-    
     <item>
       <title>External authentication and authentication data forwarding with nginx</title>
       <link>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</link>
       <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</guid>
-      <description>In today&amp;rsquo;s world, it is normal to see applications running on Kubernetes and exposed with ingress nginx.
-Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s http auth request module.
-nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application.</description>
+      <description>In today&amp;rsquo;s world, it is normal to see applications running on Kubernetes and exposed with ingress nginx.&#xA;Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s http auth request module.&#xA;nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application.</description>
     </item>
-    
     <item>
       <title>Exporting Confluent Cloud Metrics to Prometheus</title>
       <link>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2019/02/22/exporting-confluent-cloud-metrics-to-prometheus/</guid>
-      <description>At Kafka Summit this year, Confluent announced consumption based billing for their Kafka Cloud offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the __consumer_offsets topic is restricted, this means popular tools like Kafka Manager and Prometheus Kafka Consumer Group Exporter won&amp;rsquo;t work.
-kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to access the metrics.</description>
+      <description>At Kafka Summit this year, Confluent announced consumption based billing for their Kafka Cloud offering, making it the cheapest and easiest way to get a Kafka Cluster. However, due to the Kafka cluster being multi-tenanted it comes with some restrictions, ZooKeeper is not exposed and the __consumer_offsets topic is restricted, this means popular tools like Kafka Manager and Prometheus Kafka Consumer Group Exporter won&amp;rsquo;t work.&#xA;kafka_exporter comes as a nice alternative as it uses the Kafka Admin Client to access the metrics.</description>
     </item>
-    
     <item>
       <title>Managing access to multiple AWS Accounts with OpenID</title>
       <link>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</link>
       <pubDate>Sat, 15 Dec 2018 14:18:32 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2018/12/15/managing-access-to-multiple-aws-accounts-with-openid/</guid>
-      <description>Many organisations look towards a multiple account strategy with Amazon Web Services (AWS) to provide administrative isolation between workloads, limited visibility and discoverability of workloads, isolation to minimize blast radius, management of AWS limits and cost categorisation. However, this comes at a large complexity cost, specifically around Identity Access Management (IAM).
-Starting off with a single AWS account, and using a handful of IAM users and groups for access management, is usually the norm.</description>
+      <description>Many organisations look towards a multiple account strategy with Amazon Web Services (AWS) to provide administrative isolation between workloads, limited visibility and discoverability of workloads, isolation to minimize blast radius, management of AWS limits and cost categorisation. However, this comes at a large complexity cost, specifically around Identity Access Management (IAM).&#xA;Starting off with a single AWS account, and using a handful of IAM users and groups for access management, is usually the norm.</description>
     </item>
-    
     <item>
       <title>Azure bug bounty Root to storage account administrator</title>
       <link>http://ianduffy.ie/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</link>
       <pubDate>Sun, 27 Nov 2016 02:47:11 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2016/11/27/azure-bug-bounty-root-to-storage-account-administrator/</guid>
       <description>In my previous blog post Azure bug bounty Pwning Red Hat Enterprise Linux I detailed how it was possible to get administrative access to the Red Hat Update Infrastructure consumed by Red Hat Enterprise Linux virtual machines booted from the Microsoft Azure Marketplace image. In theory, if exploited one could have gained root access to all virtual machines consuming the repositories by releasing an updated version of a common package and waiting for virtual machines to execute yum update.</description>
     </item>
-    
     <item>
       <title>Azure bug bounty Pwning Red Hat Enterprise Linux</title>
       <link>http://ianduffy.ie/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</link>
       <pubDate>Sat, 26 Nov 2016 10:29:32 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2016/11/26/azure-bug-bounty-pwning-red-hat-enterprise-linux/</guid>
-      <description>TL;DR Acquired administrator level access to all of the Microsoft Azure managed Red Hat Update Infrastructure that supplies all the packages for all Red Hat Enterprise Linux instances booted from the Azure marketplace.
-I was tasked with creating a machine image of Red Hat Enterprise Linux that was compliant to the Security Technical Implementation guide defined by the Department of Defense.
-This machine image was to be used for both Amazon Web Services and Microsoft Azure.</description>
+      <description>TL;DR Acquired administrator level access to all of the Microsoft Azure managed Red Hat Update Infrastructure that supplies all the packages for all Red Hat Enterprise Linux instances booted from the Azure marketplace.&#xA;I was tasked with creating a machine image of Red Hat Enterprise Linux that was compliant to the Security Technical Implementation guide defined by the Department of Defense.&#xA;This machine image was to be used for both Amazon Web Services and Microsoft Azure.</description>
     </item>
-    
   </channel>
 </rss>

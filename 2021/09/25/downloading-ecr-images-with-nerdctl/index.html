@@ -24,11 +24,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  
-  
-  
-
   <meta name="description" content="Tutorial on how to use nerdctl to download private images from ECR">
   <meta name="keywords" content="docker,ecr,nerdctl,images">
   
@@ -82,21 +77,21 @@
 <p>While the CLI interface mostly remains the same, a question that might arise is &ldquo;How to I pull/push images from private repositories?&rdquo;</p>
 <p>Lima provides a linux virtual environment for nerdctl to run in. By introducing a <code>$HOME/.docker/config.json</code> authentication can occur as normal.</p>
 <p>By default, Lima will mount your home folder to <code>/Users/username</code> while maintaining its own home folder at <code>/home/username.linux</code>, for ease of configuration a be symbolic linked can be created  between the two:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">osx $ lima
-lima $ ln -s /Users/username/.docker <span class="nv">$HOME</span>/.docker
-lima $ ln -s /Users/username/.aws <span class="nv">$HOME</span>/.aws
-</code></pre></div><p>Doing this will make both your docker and AWS configurations available to nerdctl.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">osx $ lima
+</span></span><span class="line"><span class="cl">lima $ ln -s /Users/username/.docker <span class="nv">$HOME</span>/.docker
+</span></span><span class="line"><span class="cl">lima $ ln -s /Users/username/.aws <span class="nv">$HOME</span>/.aws
+</span></span></code></pre></div><p>Doing this will make both your docker and AWS configurations available to nerdctl.</p>
 <p>Assuming your docker configuration already contains a <code>credHelpers</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;credHelpers&#34;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&#34;AWS_ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com&#34;</span><span class="p">:</span> <span class="s2">&#34;ecr-login&#34;</span><span class="p">,</span>
-    <span class="nt">&#34;public.ecr.aws&#34;</span><span class="p">:</span> <span class="s2">&#34;ecr-login&#34;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>All thats left is to download <a href="https://github.com/awslabs/amazon-ecr-credential-helper">Amazon ECR Docker Credential Helper</a> to somewhere on your $PATH within lima:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">lima $ sudo wget -O /usr/bin/docker-credential-ecr-login https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.5.0/linux-amd64/docker-credential-ecr-login 
-lima $ sudo chmod <span class="m">755</span> /usr/bin/docker-credential-ecr-login
-</code></pre></div><p>You can now <code>nerdctl image pull &lt;private-ecr-image&gt;</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;credHelpers&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;AWS_ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com&#34;</span><span class="p">:</span> <span class="s2">&#34;ecr-login&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public.ecr.aws&#34;</span><span class="p">:</span> <span class="s2">&#34;ecr-login&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>All thats left is to download <a href="https://github.com/awslabs/amazon-ecr-credential-helper">Amazon ECR Docker Credential Helper</a> to somewhere on your $PATH within lima:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lima $ sudo wget -O /usr/bin/docker-credential-ecr-login https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.5.0/linux-amd64/docker-credential-ecr-login 
+</span></span><span class="line"><span class="cl">lima $ sudo chmod <span class="m">755</span> /usr/bin/docker-credential-ecr-login
+</span></span></code></pre></div><p>You can now <code>nerdctl image pull &lt;private-ecr-image&gt;</code>.</p>
 
   </div>
 </div>

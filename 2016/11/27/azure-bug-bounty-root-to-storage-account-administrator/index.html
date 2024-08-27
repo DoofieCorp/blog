@@ -24,11 +24,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  
-  
-  
-
   <meta name="description" content="Details how its possible to become an azure Storage account administrator from having root access on a virtual machine">
   <meta name="keywords" content="Security,Cloud,Infrastructure,Azure,Red Hat,RHEL,AWS">
   
@@ -82,8 +77,8 @@
 <p>As an attacker, this would have granted access to every piece of data on the compromised virtual machines. Sadly, the attack vector is actually much more widespread than this. Given some poor implementation within the mandatory <a href="https://azure.microsoft.com">Microsoft Azure</a> Linux Agent (WaLinuxAgent) one is able to obtain the administrator API keys to the storage account used by the virtual machine for debug log shipping purposes, at the time of research this storage account defaulted to one shared by multiple virtual machines.</p>
 <p>At the time of research, the <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> image available on the <a href="https://azure.microsoft.com">Microsoft Azure</a> Marketplace came with WaLinuxAgent 2.0.16. When a virtual machine was created with the &ldquo;Linux diagnostic extension&rdquo; enabled the API key for access to the specified storage account was written to <code>/var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9007/xmlCfg.xml</code>.</p>
 <p>Once acquired one can simply use the <a href="https://github.com/Azure/azure-xplat-cli">Azure Xplat-CLI</a> to interact the storage account:</p>
-<pre tabindex="0"><code>export AZURE_STORAGE_ACCOUNT=&quot;storage_account_name_as_per_xmlcfg&quot;
-export AZURE_STORAGE_ACCESS_KEY=&quot;storage_account_access_key_as_per_xmlcfg&quot;
+<pre tabindex="0"><code>export AZURE_STORAGE_ACCOUNT=&#34;storage_account_name_as_per_xmlcfg&#34;
+export AZURE_STORAGE_ACCESS_KEY=&#34;storage_account_access_key_as_per_xmlcfg&#34;
 azure storage container list # acquire some container name
 azure storage blob list # provide the container name
 # Copy, download, upload, delete any blobs available across any containers you can access.

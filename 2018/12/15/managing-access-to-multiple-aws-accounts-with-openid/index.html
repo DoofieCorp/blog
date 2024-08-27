@@ -24,11 +24,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  
-  
-  
-
   <meta name="description" content="This blog post walks through a design and implementation for managing access to multiple AWS accounts using Keycloak">
   <meta name="keywords" content="keycloak,okta,auth0,jwt,jwks,lambda,serverless,openid,oidc,federated,aws,active directory,identity,access,multiple">
   
@@ -178,13 +173,13 @@ using STS AssumeRole to access other accounts</p>
 </center>
 <p>This token can be used against the &ldquo;aws-credentials-issuer&rdquo; to get AWS API credentials:</p>
 <pre tabindex="0"><code>curl https://&lt;API-GATEWAY&gt;/dev/api/credentials?role=&lt;ROLE-ARN&gt; \
--H &quot;Authorization: bearer $(token-cli token get aws-credentials-issuer)&quot;
+-H &#34;Authorization: bearer $(token-cli token get aws-credentials-issuer)&#34;
 </code></pre><center>
 <p><img src="/images/managing-access-to-multiple-aws-accounts/image_16.png" alt=""></p>
 </center>
 <p>Alternatively, a AWS <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Amazon Federated Sign-On URL</a> can also be generated:</p>
 <pre tabindex="0"><code>curl https://&lt;API-GATEWAY&gt;/dev/api/login?role=&lt;ROLE-ARN&gt; \
--H &quot;Authorization: bearer $(token-cli token get aws-credentials-issuer)&quot;
+-H &#34;Authorization: bearer $(token-cli token get aws-credentials-issuer)&#34;
 </code></pre><center>
 <p><img src="/images/managing-access-to-multiple-aws-accounts/image_17.png" alt=""></p>
 </center>

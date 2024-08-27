@@ -24,11 +24,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  
-  
-  
-
   <meta name="description" content="Using docker to provide virtual hosts and HTTPS to your local applications">
   <meta name="keywords" content="Docker,Nginx,Development,Vhosts,DNS,LetsEncrypt,SSL,HTTPS,Web,OSX,Mac,Dig">
   
@@ -106,20 +101,20 @@
 </code></pre><p>This service can now be accessed via httpbin.dev.ianduffy.ie. Alternatively, if you do not have the dnsmasq service from earlier running, the service can be accessed by passing the header &ldquo;host&rdquo; with value &ldquo;httpbin.dev.ianduffy.ie&rdquo;. This can be tested with an HTTP client like <a href="https://curl.haxx.se/">curl</a></p>
 <pre tabindex="0"><code>$ curl http://httpbin.dev.ianduffy.ie/headers
 {
-  &quot;headers&quot;: {
-    &quot;Accept&quot;: &quot;*/*&quot;,
-    &quot;Connection&quot;: &quot;close&quot;,
-    &quot;Host&quot;: &quot;httpbin.dev.ianduffy.ie&quot;,
-    &quot;User-Agent&quot;: &quot;curl/7.54.0&quot;
+  &#34;headers&#34;: {
+    &#34;Accept&#34;: &#34;*/*&#34;,
+    &#34;Connection&#34;: &#34;close&#34;,
+    &#34;Host&#34;: &#34;httpbin.dev.ianduffy.ie&#34;,
+    &#34;User-Agent&#34;: &#34;curl/7.54.0&#34;
   }
 }
-</code></pre><pre tabindex="0"><code>$ curl -H &quot;host: httpbin.dev.ianduffy.ie&quot; http://127.0.0.1/headers
+</code></pre><pre tabindex="0"><code>$ curl -H &#34;host: httpbin.dev.ianduffy.ie&#34; http://127.0.0.1/headers
 {
-  &quot;headers&quot;: {
-    &quot;Accept&quot;: &quot;*/*&quot;,
-    &quot;Connection&quot;: &quot;close&quot;,
-    &quot;Host&quot;: &quot;httpbin.dev.ianduffy.ie&quot;,
-    &quot;User-Agent&quot;: &quot;curl/7.54.0&quot;
+  &#34;headers&#34;: {
+    &#34;Accept&#34;: &#34;*/*&#34;,
+    &#34;Connection&#34;: &#34;close&#34;,
+    &#34;Host&#34;: &#34;httpbin.dev.ianduffy.ie&#34;,
+    &#34;User-Agent&#34;: &#34;curl/7.54.0&#34;
   }
 }
 </code></pre><h2 id="https">HTTPS</h2>

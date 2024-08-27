@@ -24,11 +24,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link href="/favicon.png" rel="icon">
 
-  
-  
-  
-  
-
   <meta name="description" content="Acquired administrator level access to all of the [Microsoft Azure](https://azure.microsoft.com) managed [Red Hat Update Infrastructure](https://access.redhat.com/documentation/en/red-hat-update-infrastructure/3.0.beta.1/paged/system-administrator-guide/chapter-1-about-red-hat-update-infrastructure) that supplies all the packages for all [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) instances booted from the Azure marketplace.">
   <meta name="keywords" content="Security,Cloud,Infrastructure,Azure,Red Hat,RHEL,AWS">
   
@@ -102,46 +97,46 @@
 <h2 id="where-azure-failed">Where Azure Failed</h2>
 <p>On Azure to setup repository connectivity, they provide an RPM with the necessary configuration. In the older version of their agent, it is responsible for this task [3].  The installation script it references comes from the following <a href="http://rhuirpm.blob.core.windows.net/script/rhui.tar.gz">archive</a>. If you expand this archive you will find the client configuration for each region.</p>
 <p>By browsing the metadata of the RPMs we can discover some interesting information:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ rpm -qip RHEL6-2.0-1.noarch.rpm
-Name        : RHEL6                        Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
-Version     : 2.0                               Vendor: <span class="o">(</span>none<span class="o">)</span>
-Release     : <span class="m">1</span>                             Build Date: Sun <span class="m">14</span> Feb <span class="m">2016</span> 06:40:54 AM UTC
-Install Date: <span class="o">(</span>not installed<span class="o">)</span>               Build Host: westeurope-rhua.cloudapp.net
-Group       : Applications/Internet         Source RPM: RHEL6-2.0-1.src.rpm
-Size        : <span class="m">20833</span>                            License: GPLv2
-Signature   : <span class="o">(</span>none<span class="o">)</span>
-URL         : http://redhat.com
-Summary     : Custom configuration <span class="k">for</span> a cloud client instance
-Description :
-Configurations <span class="k">for</span> a client to connect to the RHUI infrastructure
-</code></pre></div><p>As you can see, the build host enables us to discover all of the Red Hat Update Appliances:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ host westeurope-rhua.cloudapp.net
-westeurope-rhua.cloudapp.net has address 104.40.209.83
-
-$ host eastus2-rhua.cloudapp.net
-eastus2-rhua.cloudapp.net has address 13.68.20.161
-
-$ host southcentralus-rhua.cloudapp.net
-southcentralus-rhua.cloudapp.net has address 23.101.178.51
-
-$ host southeastasia-rhua.cloudapp.net
-southeastasia-rhua.cloudapp.net has address 137.116.129.134
-</code></pre></div><p>At the time of research, all of servers were exposing their REST APIs over HTTPs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ rpm -qip RHEL6-2.0-1.noarch.rpm
+</span></span><span class="line"><span class="cl">Name        : RHEL6                        Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Version     : 2.0                               Vendor: <span class="o">(</span>none<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Release     : <span class="m">1</span>                             Build Date: Sun <span class="m">14</span> Feb <span class="m">2016</span> 06:40:54 AM UTC
+</span></span><span class="line"><span class="cl">Install Date: <span class="o">(</span>not installed<span class="o">)</span>               Build Host: westeurope-rhua.cloudapp.net
+</span></span><span class="line"><span class="cl">Group       : Applications/Internet         Source RPM: RHEL6-2.0-1.src.rpm
+</span></span><span class="line"><span class="cl">Size        : <span class="m">20833</span>                            License: GPLv2
+</span></span><span class="line"><span class="cl">Signature   : <span class="o">(</span>none<span class="o">)</span>
+</span></span><span class="line"><span class="cl">URL         : http://redhat.com
+</span></span><span class="line"><span class="cl">Summary     : Custom configuration <span class="k">for</span> a cloud client instance
+</span></span><span class="line"><span class="cl">Description :
+</span></span><span class="line"><span class="cl">Configurations <span class="k">for</span> a client to connect to the RHUI infrastructure
+</span></span></code></pre></div><p>As you can see, the build host enables us to discover all of the Red Hat Update Appliances:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ host westeurope-rhua.cloudapp.net
+</span></span><span class="line"><span class="cl">westeurope-rhua.cloudapp.net has address 104.40.209.83
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ host eastus2-rhua.cloudapp.net
+</span></span><span class="line"><span class="cl">eastus2-rhua.cloudapp.net has address 13.68.20.161
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ host southcentralus-rhua.cloudapp.net
+</span></span><span class="line"><span class="cl">southcentralus-rhua.cloudapp.net has address 23.101.178.51
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ host southeastasia-rhua.cloudapp.net
+</span></span><span class="line"><span class="cl">southeastasia-rhua.cloudapp.net has address 137.116.129.134
+</span></span></code></pre></div><p>At the time of research, all of servers were exposing their REST APIs over HTTPs.</p>
 <p>The URL to the archive containing these RPMs was discovered a package labeled PrepareRHUI on available on any <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a> Box running on <a href="https://azure.microsoft.com">Microsoft Azure</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ yumdownloader PrepareRHUI
-$ rpm -qip PrepareRHUI-1.0.0-1.noarch.rpm
-Name        : PrepareRHUI                  Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
-Version     : 1.0.0                             Vendor: Microsoft Corporation
-Release     : <span class="m">1</span>                             Build Date: Mon <span class="m">16</span> Nov <span class="m">2015</span> 06:13:21 AM UTC
-Install Date: <span class="o">(</span>not installed<span class="o">)</span>               Build Host: rhui-monitor.cloudapp.net
-Group       : Unspecified                   Source RPM: PrepareRHUI-1.0.0-1.src.rpm
-Size        : <span class="m">770</span>                              License: GPL
-Signature   : <span class="o">(</span>none<span class="o">)</span>
-Packager    : Microsoft Corporation &lt;xiazhang@microsoft.com&gt;
-Summary     : Prepare RHUI installation <span class="k">for</span> Redhat client
-Description :
-PrepareRHUI is used to prepare RHUI installation <span class="k">for</span> before making a Redhat image.
-</code></pre></div><p>The build host is interesting <code>rhui-monitor.cloudapp.net</code>, at the time of research running a port scan revealed an application running on port 8080.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ yumdownloader PrepareRHUI
+</span></span><span class="line"><span class="cl">$ rpm -qip PrepareRHUI-1.0.0-1.noarch.rpm
+</span></span><span class="line"><span class="cl">Name        : PrepareRHUI                  Relocations: <span class="o">(</span>not relocatable<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Version     : 1.0.0                             Vendor: Microsoft Corporation
+</span></span><span class="line"><span class="cl">Release     : <span class="m">1</span>                             Build Date: Mon <span class="m">16</span> Nov <span class="m">2015</span> 06:13:21 AM UTC
+</span></span><span class="line"><span class="cl">Install Date: <span class="o">(</span>not installed<span class="o">)</span>               Build Host: rhui-monitor.cloudapp.net
+</span></span><span class="line"><span class="cl">Group       : Unspecified                   Source RPM: PrepareRHUI-1.0.0-1.src.rpm
+</span></span><span class="line"><span class="cl">Size        : <span class="m">770</span>                              License: GPL
+</span></span><span class="line"><span class="cl">Signature   : <span class="o">(</span>none<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Packager    : Microsoft Corporation &lt;xiazhang@microsoft.com&gt;
+</span></span><span class="line"><span class="cl">Summary     : Prepare RHUI installation <span class="k">for</span> Redhat client
+</span></span><span class="line"><span class="cl">Description :
+</span></span><span class="line"><span class="cl">PrepareRHUI is used to prepare RHUI installation <span class="k">for</span> before making a Redhat image.
+</span></span></code></pre></div><p>The build host is interesting <code>rhui-monitor.cloudapp.net</code>, at the time of research running a port scan revealed an application running on port 8080.</p>
 <p><img src="/monitor.png" alt="Microsoft Azure RHUI Monitoring tool"></p>
 <p>Despite the application requiring username and password based authentication, It was possible to execute a run of their &ldquo;backend log collector&rdquo; on a specified content delivery server. When the collector service completed the application supplied URLs to archives which contain multiple logs and configuration files from the servers.</p>
 <p>Included within these archives was an SSL certificate that would grant full administrative access to the Red Hat Update Appliances [4].</p>

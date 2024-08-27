@@ -4,19 +4,16 @@
     <title>Kubernetes on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/kubernetes/</link>
     <description>Recent content in Kubernetes on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Aug 2020 08:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>External authentication and authentication data forwarding with nginx</title>
       <link>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</link>
       <pubDate>Sat, 29 Aug 2020 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2020/08/29/external-authentication-and-authentication-data-forwarding-with-nginx/</guid>
-      <description>In today&amp;rsquo;s world, it is normal to see applications running on Kubernetes and exposed with ingress nginx.
-Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s http auth request module.
-nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application.</description>
+      <description>In today&amp;rsquo;s world, it is normal to see applications running on Kubernetes and exposed with ingress nginx.&#xA;Authentication can be added to any application exposed by ingress nginx by using oauth2-proxy. Using the following annotations configures nginx&amp;rsquo;s http auth request module.&#xA;nginx.ingress.kubernetes.io/auth-signin: https://oauth2-proxy-ingress/oauth2/start?rd=https://$host$request_uri$is_args$args nginx.ingress.kubernetes.io/auth-url: https://oauth2-proxy-ingress/oauth2/auth When a user is not authenticated, nginx will redirect them to the OAuth2 proxy, prompt for login, generate a cookie and redirect back to the application.</description>
     </item>
-    
   </channel>
 </rss>

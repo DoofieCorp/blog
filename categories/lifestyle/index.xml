@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lifestyle on Ian Duffy</title>
+    <title>Lifestyle on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/lifestyle/</link>
-    <description>Recent content in lifestyle on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Lifestyle on Ian Duffy</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2019 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/lifestyle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Sep 2019 08:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/lifestyle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>6 months of working remotely at scrapinghub.com</title>
       <link>http://ianduffy.ie/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</link>
       <pubDate>Wed, 11 Sep 2019 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2019/09/11/6-months-of-working-remotely-at-scrapinghub.com/</guid>
       <description>ScrapingHub is a distributed company that builds tooling and a platform to extract data from the web. The company was incorporated in Ireland in 2010, from day 1 it was a distributed team with many staff in Uruguay and other parts of the world. Since then the company has grown and now has a team of 180 people located all around the world, last year the companies revenue was 12 million.</description>
     </item>
-    
   </channel>
 </rss>

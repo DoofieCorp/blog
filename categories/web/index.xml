@@ -4,18 +4,16 @@
     <title>Web on Ian Duffy</title>
     <link>http://ianduffy.ie/categories/web/</link>
     <description>Recent content in Web on Ian Duffy</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Feb 2019 08:00:00 +0000</lastBuildDate><atom:link href="http://ianduffy.ie/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Feb 2019 08:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Local development with virtual hosts and HTTPS</title>
       <link>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</link>
       <pubDate>Fri, 22 Feb 2019 08:00:00 +0000</pubDate>
-      
       <guid>http://ianduffy.ie/2019/02/22/local-development-with-virtual-hosts-and-https/</guid>
-      <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
-Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.</description>
+      <description>When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.&#xA;Domain Name Systems (DNS) Domain Name Systems (DNS) are often referred to as the phonebook of the internet. People access information online through domain names, like ‘amazon.com’ or ‘rte.ie’. DNS is responsible for translating a domain name to an IP address.</description>
     </item>
-    
   </channel>
 </rss>
