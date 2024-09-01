@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Google Review Tracking | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  <meta name="description" content="Discover an innovative, cost-effective solution for tracking customer reviews using AWS services, complete with a GitHub repo for easy implementation.">
+  <meta name="keywords" content="customer reviews,small business,AWS,Lambda,SES,S3,NodeJS,Terraform,automation,CRM,Google reviews">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Google Review Tracking</h1>
+    <p><strong>TL;DR:</strong> I&rsquo;ve created an automated solution for tracking Google reviews using AWS services. The best part? You can implement it yourself! Check out the full code and setup instructions on GitHub: <a href="https://github.com/imduffy15/google-review-email-processor">google-review-email-processor</a></p>
+<p>A small business owner came to me with a tricky problem: he needed a way to track which customers had left reviews for his business and which hadn&rsquo;t. His goal was simple—avoid bothering customers who had already left a review with additional requests. Straightforward, right? Not quite.</p>
+<p><img src="/images/google-review-tracking.png" alt=""></p>
+<h2 id="the-initial-game-plan-apis-and-dead-ends">The Initial Game Plan: APIs and Dead Ends</h2>
+<p>I started by checking out the APIs Google offers. I mean, that&rsquo;s where all the reviews live, so it made sense, right?</p>
+<ul>
+<li>
+<p><strong>Google Maps API</strong>: Looked promising, but it only gives a handful of reviews. No dice.</p>
+</li>
+<li>
+<p><strong>Google Business API</strong>: This is application only. I applied and got rejected. Bummer.</p>
+</li>
+</ul>
+<p>I even toyed with the idea of web scraping, but quickly decided it wasn&rsquo;t a good idea. Too expensive, too fiddly to maintain, and let&rsquo;s be real – Google probably wouldn&rsquo;t be too thrilled about it.</p>
+<h2 id="the-lightbulb-moment-email-to-the-rescue">The Lightbulb Moment: Email to the Rescue!</h2>
+<p>Just when I was about to throw in the towel, <em>ping</em> – an email notification for a new review popped up. And that&rsquo;s when it hit me.</p>
+<p>Google sends out an email every single time someone leaves a review for your business. And guess what? They have all the data I needed:</p>
+<ul>
+<li>A snippet of the review</li>
+<li>The reviewer&rsquo;s name</li>
+<li>The star rating</li>
+</ul>
+<p>Bingo! I had found my data source.</p>
+<h2 id="the-solution-putting-the-pieces-together">The Solution: Putting the Pieces Together</h2>
+<ol>
+<li><strong>Email Forwarding Magic</strong>: Set up a rule to bounce those Google review notifications over to an AWS SES address.</li>
+<li><strong>AWS SES</strong>: Receives the email and stores it to S3.</li>
+<li><strong>Lambda Function</strong>:
+<ul>
+<li>Listen for new emails on S3.</li>
+<li>Parse the reviewer name, review snippet, and rating.</li>
+<li>Do a fuzzy match on the CRM to mark the customer as having left a review.</li>
+</ul>
+</li>
+</ol>
+<p>And just like that, I had an automated system keeping the CRM up-to-date with all the review info.</p>
+<h2 id="why-i-love-this-solution">Why I Love This Solution</h2>
+<ul>
+<li>
+<p><strong>Wallet-Friendly</strong>: AWS SES and Lambda costs near nothing. The S3 bucket is configured to delete emails after 1 day, so the storage costs are minimal.</p>
+</li>
+<li>
+<p><strong>No Polling Necessary</strong>: Google will notify us when new reviews are submitted. No need to constantly check for new reviews.</p>
+</li>
+<li>
+<p><strong>Hands-Off</strong>: Once it&rsquo;s set up, it should just do its thing. Set it and forget it!</p>
+</li>
+<li>
+<p><strong>Scalable</strong>: It should work for any size business, given Lambda&rsquo;s ability to scale.</p>
+</li>
+<li>
+<p><strong>Plays Nice</strong>: I&rsquo;m not stepping on any toes or breaking any rules. It&rsquo;s all above board.</p>
+</li>
+</ul>
+<h2 id="implement-it-yourself-the-github-repo">Implement It Yourself: The GitHub Repo</h2>
+<p><strong>GitHub Repository</strong>: <a href="https://github.com/imduffy15/google-review-email-processor">google-review-email-processor</a></p>
+<p>What&rsquo;s in the repo:</p>
+<ul>
+<li>
+<p><strong>Google Review Email Parser</strong>: A lambda function in NodeJS that parses the email notification from Google of new reviews</p>
+</li>
+<li>
+<p><strong>Terraform Code</strong>: Terraform scripts to spin up everything.</p>
+</li>
+</ul>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

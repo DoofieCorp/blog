@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology on Ian Duffy</title>
+    <link>http://ianduffy.ie/categories/technology/</link>
+    <description>Recent content in Technology on Ian Duffy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2024 10:00:00 +0000</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Review Tracking</title>
+      <link>http://ianduffy.ie/2024/09/01/google-review-tracking/</link>
+      <pubDate>Sun, 01 Sep 2024 10:00:00 +0000</pubDate>
+      <guid>http://ianduffy.ie/2024/09/01/google-review-tracking/</guid>
+      <description>TL;DR: I&amp;rsquo;ve created an automated solution for tracking Google reviews using AWS services. The best part? You can implement it yourself! Check out the full code and setup instructions on GitHub: google-review-email-processor&#xA;A small business owner came to me with a tricky problem: he needed a way to track which customers had left reviews for his business and which hadn&amp;rsquo;t. His goal was simple—avoid bothering customers who had already left a review with additional requests.</description>
+    </item>
+  </channel>
+</rss>
