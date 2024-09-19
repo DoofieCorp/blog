@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ianduffy.ie/categories/</loc>
+    <lastmod>2024-09-18T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/community/</loc>
+    <lastmod>2024-09-18T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/</loc>
+    <lastmod>2024-09-18T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/posts/</loc>
+    <lastmod>2024-09-18T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/remote-work/</loc>
+    <lastmod>2024-09-18T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/2024/09/18/what-remote-work-means-to-me-and-where-growremote-fits-in/</loc>
+    <lastmod>2024-09-18T00:00:00+01:00</lastmod>
+  </url><url>
     <loc>http://ianduffy.ie/categories/automation/</loc>
     <lastmod>2024-09-01T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ianduffy.ie/categories/</loc>
-    <lastmod>2024-09-01T10:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://ianduffy.ie/2024/09/01/google-review-tracking/</loc>
-    <lastmod>2024-09-01T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/</loc>
-    <lastmod>2024-09-01T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/posts/</loc>
     <lastmod>2024-09-01T10:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/small-business/</loc>
