@@ -1,6 +1,6 @@
 +++
 categories = ["remote work", "community"]
-date = "2024-03-15T00:00:00+01:00"
+date = "2024-09-18T00:00:00+01:00"
 description = "My experience with remote work and how Grow Remote helped me find community"
 keywords = ["remote work", "Grow Remote", "community", "work-life balance", "networking", "Ireland"]
 title = "What remote work means to me and where GrowRemote fits in"
