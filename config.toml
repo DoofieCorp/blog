@@ -6,7 +6,11 @@ theme = "hyde-x"
 paginate = 10
 pygmentsuseclasses = true
 
-[author]
+[taxonomies]
+    category = "categories"
+    author = "authors"  # Add author taxonomy
+
+[author.ian]
     name = "Ian Duffy"
 
 [permalinks]
@@ -14,14 +18,12 @@ pygmentsuseclasses = true
     # The format shown here is the same one Jekyll/Octopress uses by default.
     posts = "/:year/:month/:day/:title/"
 
-[taxonomies]
-    # Optional. Use if you want tags and lists.
-    category = "categories"
 
 #
 # All parameters below here are optional and can be mixed and matched.
 #
 [params]
+    authorName = "Ian Duffy"  # Add author name as a parameter instead
     # If false display full article contents in blog index.
     # Otherwise show description and 'read on' link to individual blog post page.
     # Default (if omitted) is true.
