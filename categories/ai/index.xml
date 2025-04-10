@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on Ian Duffy</title>
+    <link>http://ianduffy.ie/categories/ai/</link>
+    <description>Recent content in AI on Ian Duffy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Apr 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://ianduffy.ie/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An AI-Powered Rubber Duck Is The Way Forward</title>
+      <link>http://ianduffy.ie/2025/04/10/an-ai-powered-rubber-duck-is-the-way-forward/</link>
+      <pubDate>Thu, 10 Apr 2025 00:00:00 +0100</pubDate>
+      <guid>http://ianduffy.ie/2025/04/10/an-ai-powered-rubber-duck-is-the-way-forward/</guid>
+      <description>Error: EACCES: permission denied, open &amp;#39;/var/log/application.log&amp;#39; You stare at the error on your screen, and frustration builds as the red text blinks at you.&#xA;You search through docs, Google, forums, and Stack Overflow. Sometimes, you even ask on IRC.&#xA;Others had similar problems, but their situations were different from yours, their solution didn’t work.&#xA;Sometimes, you think Google has the answer, but you end up on page 3 or even page 10, still searching.</description>
+    </item>
+  </channel>
+</rss>
