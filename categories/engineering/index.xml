@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Productivity on Ian Duffy</title>
-    <link>http://ianduffy.ie/categories/productivity/</link>
-    <description>Recent content in Productivity on Ian Duffy</description>
+    <title>Engineering on Ian Duffy</title>
+    <link>http://ianduffy.ie/categories/engineering/</link>
+    <description>Recent content in Engineering on Ian Duffy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://ianduffy.ie/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ianduffy.ie/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Troubleshooting the Engineer&#39;s Brain</title>
       <link>http://ianduffy.ie/2025/04/15/troubleshooting-the-engineers-brain/</link>
       <pubDate>Tue, 15 Apr 2025 00:00:00 +0100</pubDate>
       <guid>http://ianduffy.ie/2025/04/15/troubleshooting-the-engineers-brain/</guid>
       <description>The engineering mindset is fantastic at finding edge cases and hunting bugs.&#xA;However, it often turns these same powers against you. Let&amp;rsquo;s look at how an engineer&amp;rsquo;s mindset can have too many unhandled exceptions.&#xA;Common Brain Bugs and Their Fixes CODE REVIEW DEFENSIVENESS Scenario: You receive several comments on your pull request and immediately feel a wave of shame and defensiveness.&#xA;Bug: Personalizing and catastrophizing—you treat feedback about your code as criticism of your worth and abilities.</description>
-    </item>
-    <item>
-      <title>My Favorite Mac Apps and Tools</title>
-      <link>http://ianduffy.ie/2024/08/31/my-favorite-mac-apps-and-tools/</link>
-      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://ianduffy.ie/2024/08/31/my-favorite-mac-apps-and-tools/</guid>
-      <description>Hey there! I&amp;rsquo;ve been using a Mac for years, and I want to share some brilliant tools I&amp;rsquo;ve found. These apps help me work better and make my Mac even more fantastic. Let&amp;rsquo;s have a look!&#xA;Apps That Make My Day Easier 1. MeetingBar MeetingBar is like a tiny calendar in your menu bar. It shows when your next meeting is and how long your current meeting will last. Dead handy!</description>
     </item>
   </channel>
 </rss>

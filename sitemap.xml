@@ -2,19 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ianduffy.ie/categories/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/engineering/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/personal-development/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/posts/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/productivity/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/categories/psychology/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://ianduffy.ie/2025/04/15/troubleshooting-the-engineers-brain/</loc>
+    <lastmod>2025-04-15T00:00:00+01:00</lastmod>
+  </url><url>
     <loc>http://ianduffy.ie/categories/ai/</loc>
     <lastmod>2025-04-10T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/2025/04/10/an-ai-powered-rubber-duck-is-the-way-forward/</loc>
-    <lastmod>2025-04-10T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/categories/</loc>
-    <lastmod>2025-04-10T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/</loc>
-    <lastmod>2025-04-10T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/posts/</loc>
     <lastmod>2025-04-10T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/programming/</loc>
@@ -45,9 +60,6 @@
     <lastmod>2024-09-01T10:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/2024/08/31/my-favorite-mac-apps-and-tools/</loc>
-    <lastmod>2024-08-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ianduffy.ie/categories/productivity/</loc>
     <lastmod>2024-08-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://ianduffy.ie/categories/software/</loc>

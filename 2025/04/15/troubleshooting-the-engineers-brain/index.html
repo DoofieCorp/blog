@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Troubleshooting the Engineer&#39;s Brain | Rants of a software engineer</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Look at how an engineer&#39;s mindset can sometimes work against them, causing issues like imposter syndrome, perfectionism, and rumination. Learn practical strategies to debug these mental patterns.">
+  <meta name="keywords" content="engineer mindset,imposter syndrome,perfectionism,code review defensiveness,engineering psychology,mental health,productivity,cognitive biases,workplace anxiety,engineering culture">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060296-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Ian Duffy</h1>
+      <p class="lead">Rants of a software engineer</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/imduffy15"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://ie.linkedin.com/in/imduffy15"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      <a href="https://www.youtube.com/channel/UCoGs2iiOIGrfXofp-3g-Qqg"><i class="fa fa-youtube-square fa-3x"></i></a>
+      
+      </li>
+    </ul>
+
+    
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Troubleshooting the Engineer&#39;s Brain</h1>
+    <center>
+<p><img src="/images/mental-conflict.png" alt="mental conflict"></p>
+</center>
+<p>The engineering mindset is fantastic at finding edge cases and hunting bugs.</p>
+<p>However, it often turns these same powers against you. Let&rsquo;s look at how an engineer&rsquo;s mindset can have too many unhandled exceptions.</p>
+<h2 id="common-brain-bugs-and-their-fixes">Common Brain Bugs and Their Fixes</h2>
+<h3 id="code-review-defensiveness">CODE REVIEW DEFENSIVENESS</h3>
+<p><strong>Scenario:</strong> You receive several comments on your pull request and immediately feel a wave of shame and defensiveness.</p>
+<p><strong>Bug:</strong> Personalizing and catastrophizing—you treat feedback about your code as criticism of your worth and abilities.</p>
+<p><strong>Fix:</strong> Separate the code from your identity. Frame feedback as free education rather than criticism. Remember that perfect code doesn&rsquo;t exist, and the most valuable reviews often contain the most comments.</p>
+<h3 id="imposter-syndrome">IMPOSTER SYNDROME</h3>
+<p><strong>Scenario:</strong> Despite solving complex problems regularly, you constantly worry about being &ldquo;found out&rdquo; as not smart enough for your role.</p>
+<p><strong>Bug:</strong> Discounting positives while magnifying perceived shortcomings, creating a persistent feeling of fraudulence.</p>
+<p><strong>Fix:</strong> Document your contributions objectively. Maintain a &ldquo;wins&rdquo; file with accomplishments and positive feedback. Recognize that imposter syndrome correlates with competence—the least skilled are often the most confident.</p>
+<h3 id="executive-terror">EXECUTIVE TERROR</h3>
+<p><strong>Scenario:</strong> A senior leader comments on your document or joins a meeting where you&rsquo;re presenting, triggering immediate panic.</p>
+<p><strong>Bug:</strong> Creating a hierarchy-based threat response that exists primarily in your mind.</p>
+<p><strong>Fix:</strong> Remember that intimidation is a choice. Everyone shares the same goal: doing what is best for the business. Their perspective might be valuable precisely because they see things differently. Try thinking: &ldquo;Great, another perspective that could help build something better.&rdquo; Hierarchies exist for coordination, not to create fear.</p>
+<h3 id="slack-panic">SLACK PANIC</h3>
+<p><strong>Scenario:</strong> Your manager messages, &ldquo;Do you have a moment to chat?&rdquo; and your heart immediately races.</p>
+<p><strong>Bug:</strong> Catastrophizing—your mind automatically jumps to worst-case scenarios from minimal information.</p>
+<p><strong>Fix:</strong> When uncertainty triggers spiralling predictions, reduce the resources allocated to speculation. What concrete evidence supports the negative interpretation? Create three alternative, neutral explanations before responding.</p>
+<h3 id="rumination-loop">RUMINATION LOOP</h3>
+<p><strong>Scenario:</strong> You made a mistake in a meeting three days ago, and your mind keeps replaying the moment on repeat.</p>
+<p><strong>Bug:</strong> Your brain gets stuck in an infinite loop replaying past events or worrying about future scenarios.</p>
+<p><strong>Fix:</strong> When you catch yourself in recursive thought patterns that aren&rsquo;t yielding new insights, break the circuit and redirect your thoughts to more productive tasks. Schedule a bounded 15-minute &ldquo;worry time&rdquo; where rumination is allowed, and then terminate those thoughts.</p>
+<h3 id="perfectionism-paralysis">PERFECTIONISM PARALYSIS</h3>
+<p><strong>Scenario:</strong> You delay submitting work because it doesn&rsquo;t feel &ldquo;ready&rdquo; despite meeting all requirements.</p>
+<p><strong>Bug:</strong> Setting impossibly high standards and harshly judging yourself for not meeting them.</p>
+<p><strong>Fix:</strong> Define multiple service levels for your work: minimum viable product, target implementation, and ideal state. Ship when you reach the target, not when you get the ideal. Recognize that most systems improve through iterations, not endless pre-release polishing.</p>
+<h3 id="filtered-thinking">FILTERED THINKING</h3>
+<p><strong>Scenario:</strong> You receive nine positive comments and one constructive criticism, but only remember the criticism.</p>
+<p><strong>Bug:</strong> Negative filtering—selectively focusing on negative information while filtering out positive data.</p>
+<p><strong>Fix:</strong> Consciously register positive events with the same attention you give negative ones. For every self-criticism, identify one thing you did effectively. After meetings or reviews, note what went well, not just areas for improvement.</p>
+<h2 id="running-a-more-stable-mental-system">Running a More Stable Mental System</h2>
+<p>Start by identifying your most frequent cognitive bugs, then consistently apply the patches. With practice, you&rsquo;ll catch distortions earlier and recover faster, spending more energy on actual engineering problems rather than manufactured mental crises.</p>
+<p>Your analytical mind is your greatest professional asset—once you stop it from running exploits against itself.</p>
+
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
