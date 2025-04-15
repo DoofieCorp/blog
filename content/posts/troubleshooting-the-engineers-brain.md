@@ -15,7 +15,7 @@ date = "2025-04-15T00:00:00+01:00"
 
 The engineering mindset is fantastic at finding edge cases and hunting bugs.
 
-However, it often turns these same powers against you. Let's look at how an engineer's mindset can self-sabotage.
+However, it often turns these same powers against you. Let's look at how an engineer's mindset can have too many unhandled exceptions.
 
 ## Common Brain Bugs and Their Fixes
 
