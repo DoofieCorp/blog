@@ -1,94 +1,82 @@
 +++
 title = "Troubleshooting the Engineer's Brain"
-date = 2025-04-14T23:00:00.000Z
 description = "Look at how an engineer's mindset can sometimes work against them, causing issues like imposter syndrome, perfectionism, and rumination. Learn practical strategies to debug these mental patterns."
-keywords = [
-  "engineer mindset",
-  "imposter syndrome",
-  "perfectionism",
-  "code review defensiveness",
-  "engineering psychology",
-  "mental health",
-  "productivity",
-  "cognitive biases",
-  "workplace anxiety",
-  "engineering culture"
-]
-categories = [
-  "engineering",
-  "personal development",
-  "psychology",
-  "productivity"
-]
+keywords = ["engineer mindset", "imposter syndrome", "perfectionism", "code review defensiveness", "engineering psychology", "mental health", "productivity", "cognitive biases", "workplace anxiety", "engineering culture"]
+categories = ["engineering", "personal development", "psychology", "productivity"]
+date = "2025-04-15T00:00:00+01:00"
+
 +++
 
-You've sent what you thought was a clear message, only to discover it was confusing. Or perhaps you've misinterpreted a colleague's tone in a Slack message and spent the day convinced they're upset with you.
+<center>
 
-We consistently underestimate how easily human communication breaks down and the emotional fallout.
+![mental conflict](/images/mental-conflict.png)
 
-## The Hidden Cost of Miscommunication
+</center>
 
-### THE INNOCENT QUESTION THAT SPARKED DEFENSIVENESS
+The engineering mindset is fantastic at finding edge cases and hunting bugs.
 
-**What happened:** You asked a straightforward question about code implementation.
+However, it often turns these same powers against you. Let's look at how an engineer's mindset can have too many unhandled exceptions.
 
-**What they felt:** Your question sounded like criticism of their work.
+## Common Brain Bugs and Their Fixes
 
-**Why it matters:** The conversation quickly becomes about defending positions rather than solving problems.
+### CODE REVIEW DEFENSIVENESS
 
-**What helps:** Frame questions about your understanding, not their decisions. "Help me understand the approach here" feels less threatening than "Why did you choose this approach?"
+**Scenario:** You receive several comments on your pull request and immediately feel a wave of shame and defensiveness.
 
-### THE BRIEF MESSAGE INTERPRETED AS ANGER
+**Bug:** Personalizing and catastrophizing—you treat feedback about your code as criticism of your worth and abilities.
 
-**What happened:** You sent a quick, to-the-point Slack message to save time.
+**Fix:** Separate the code from your identity. Frame feedback as free education rather than criticism. Remember that perfect code doesn't exist, and the most valuable reviews often contain the most comments.
 
-**What they felt:** The shortness of the message made them think you were annoyed or upset.
+### IMPOSTER SYNDROME
 
-**Why it matters:** A simple, time-saving choice created unnecessary anxiety and tension.
+**Scenario:** Despite solving complex problems regularly, you constantly worry about being "found out" as not smart enough for your role.
 
-**What helps:** Choose the right communication medium based on your message's emotional content. Use text for simple facts. Use phone calls or video chats for messages that might carry emotional weight.
+**Bug:** Discounting positives while magnifying perceived shortcomings, creating a persistent feeling of fraudulence.
 
-### THE THOUGHTFUL SILENCE SEEN AS DISAPPROVAL
+**Fix:** Document your contributions objectively. Maintain a "wins" file with accomplishments and positive feedback. Recognize that imposter syndrome correlates with competence—the least skilled are often the most confident.
 
-**What happened:** You're quietly thinking through a complex problem during a meeting.
+### EXECUTIVE TERROR
 
-**What they felt:** Your silence signals disagreement or lack of interest.
+**Scenario:** A senior leader comments on your document or joins a meeting where you're presenting, triggering immediate panic.
 
-**Why it matters:** Others stop sharing ideas or become defensive without any actual disagreement.
+**Bug:** Creating a hierarchy-based threat response that exists primarily in your mind.
 
-**What helps:** Make your attention patterns known. "I tend to get quiet when processing information, not because I'm disinterested."
+**Fix:** Remember that intimidation is a choice. Everyone shares the same goal: doing what is best for the business. Their perspective might be valuable precisely because they see things differently. Try thinking: "Great, another perspective that could help build something better." Hierarchies exist for coordination, not to create fear.
 
-### CULTURAL DIFFERENCES
+### SLACK PANIC
 
-**What happened:** You directly approached a senior colleague with suggestions for improvement, expecting a merit-based discussion.
+**Scenario:** Your manager messages, "Do you have a moment to chat?" and your heart immediately races.
 
-**What they felt:** In their more hierarchical culture, your approach seemed disrespectful of organisational structures.
+**Bug:** Catastrophizing—your mind automatically jumps to worst-case scenarios from minimal information.
 
-**Why it matters:** Teams with members from different cultural backgrounds often have invisible differences in expectations about authority, decision-making, and appropriate communication channels.
+**Fix:** When uncertainty triggers spiralling predictions, reduce the resources allocated to speculation. What concrete evidence supports the negative interpretation? Create three alternative, neutral explanations before responding.
 
-**What helps:** Learn about the cultural backgrounds of your teammates and discuss different frameworks for working together. "In my previous teams, we approached leaders with ideas directly. How does that process work in your experience?"
+### RUMINATION LOOP
 
-### THE INFORMATION VACUUM FILLED WITH RUMOURS
+**Scenario:** You made a mistake in a meeting three days ago, and your mind keeps replaying the moment on repeat.
 
-**What happened:** Leadership didn't communicate about upcoming changes.
+**Bug:** Your brain gets stuck in an infinite loop replaying past events or worrying about future scenarios.
 
-**What they felt:** Anxiety and distrust grew as people created explanations.
+**Fix:** When you catch yourself in recursive thought patterns that aren't yielding new insights, break the circuit and redirect your thoughts to more productive tasks. Schedule a bounded 15-minute "worry time" where rumination is allowed, and then terminate those thoughts.
 
-**Why it matters:** The narrative created is almost always worse than reality, damaging morale and trust.
+### PERFECTIONISM PARALYSIS
 
-**What helps:** Provide regular updates, even when the update is "There's no update yet, but here's what we know."
+**Scenario:** You delay submitting work because it doesn't feel "ready" despite meeting all requirements.
 
-\###CLARITY NEVER SOUGHT
-**What happened:** You weren't sure about the requirements but didn't want to seem incompetent.
+**Bug:** Setting impossibly high standards and harshly judging yourself for not meeting them.
 
-**What they felt:** Frustrated when your work didn't meet their unexpressed expectations.
+**Fix:** Define multiple service levels for your work: minimum viable product, target implementation, and ideal state. Ship when you reach the target, not when you get the ideal. Recognize that most systems improve through iterations, not endless pre-release polishing.
 
-**Why it matters:** The rework required took far more time than clarification would have.
+### FILTERED THINKING
 
-**What helps:** Normalise the idea that clarification benefits everyone. "I want to make sure I'm on the right track. Let me describe my understanding of what we need."
+**Scenario:** You receive nine positive comments and one constructive criticism, but only remember the criticism.
 
-## Spotting Communication Breakdowns Early
+**Bug:** Negative filtering—selectively focusing on negative information while filtering out positive data.
 
-While your technical skills matter, your ability to spot and fix communication problems will determine your impact. The real superpowers on a technical team are the ability to recognise when words are being interpreted differently, when assumptions are misaligned, and when emotional reactions seem disproportionate.
+**Fix:** Consciously register positive events with the same attention you give negative ones. For every self-criticism, identify one thing you did effectively. After meetings or reviews, note what went well, not just areas for improvement.
 
-Your code might be perfect, but your team's success depends on how well you navigate the messy, imperfect world of human communication.
+## Running a More Stable Mental System
+
+Start by identifying your most frequent cognitive bugs, then consistently apply the patches. With practice, you'll catch distortions earlier and recover faster, spending more energy on actual engineering problems rather than manufactured mental crises.
+
+Your analytical mind is your greatest professional asset—once you stop it from running exploits against itself.
