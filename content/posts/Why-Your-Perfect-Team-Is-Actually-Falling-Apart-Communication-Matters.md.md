@@ -23,59 +23,65 @@ We consistently underestimate how easily human communication breaks down and the
 
 ## The Hidden Cost of Miscommunication
 
-THE INNOCENT QUESTION THAT SPARKED DEFENSIVENESS
-What happened: You asked a straightforward question about code implementation.
+### THE INNOCENT QUESTION THAT SPARKED DEFENSIVENESS
 
-What they felt: Your question sounded like criticism of their work.
+**What happened:** You asked a straightforward question about code implementation.
 
-Why it matters: The conversation quickly becomes about defending positions rather than solving problems.
+**What they felt:** Your question sounded like criticism of their work.
 
-What helps: Frame questions about your understanding, not their decisions. "Help me understand the approach here" feels less threatening than "Why did you choose this approach?"
+**Why it matters:** The conversation quickly becomes about defending positions rather than solving problems.
 
-THE BRIEF MESSAGE INTERPRETED AS ANGER
-What happened: You sent a quick, to-the-point Slack message to save time.
+**What helps:** Frame questions about your understanding, not their decisions. "Help me understand the approach here" feels less threatening than "Why did you choose this approach?"
 
-What they felt: The shortness of the message made them think you were annoyed or upset.
+### THE BRIEF MESSAGE INTERPRETED AS ANGER
 
-Why it matters: A simple, time-saving choice created unnecessary anxiety and tension.
+**What happened:** You sent a quick, to-the-point Slack message to save time.
 
-What helps: Choose the right communication medium based on your message's emotional content. Use text for simple facts. Use phone calls or video chats for messages that might carry emotional weight.
+**What they felt:** The shortness of the message made them think you were annoyed or upset.
 
-THE THOUGHTFUL SILENCE SEEN AS DISAPPROVAL
-What happened: You're quietly thinking through a complex problem during a meeting.
+**Why it matters:** A simple, time-saving choice created unnecessary anxiety and tension.
 
-What they felt: Your silence signals disagreement or lack of interest.
+**What helps:** Choose the right communication medium based on your message's emotional content. Use text for simple facts. Use phone calls or video chats for messages that might carry emotional weight.
 
-Why it matters: Others stop sharing ideas or become defensive without any actual disagreement.
+### THE THOUGHTFUL SILENCE SEEN AS DISAPPROVAL
 
-What helps: Make your attention patterns known. "I tend to get quiet when processing information, not because I'm disinterested."
+**What happened:** You're quietly thinking through a complex problem during a meeting.
 
-CULTURAL DIFFERENCES
-What happened: You directly approached a senior colleague with suggestions for improvement, expecting a merit-based discussion.
+**What they felt:** Your silence signals disagreement or lack of interest.
 
-What they felt: In their more hierarchical culture, your approach seemed disrespectful of organisational structures.
+**Why it matters:** Others stop sharing ideas or become defensive without any actual disagreement.
 
-Why it matters: Teams with members from different cultural backgrounds often have invisible differences in expectations about authority, decision-making, and appropriate communication channels.
+**What helps:** Make your attention patterns known. "I tend to get quiet when processing information, not because I'm disinterested."
 
-What helps: Learn about the cultural backgrounds of your teammates and discuss different frameworks for working together. "In my previous teams, we approached leaders with ideas directly. How does that process work in your experience?"
+### CULTURAL DIFFERENCES
 
-THE INFORMATION VACUUM FILLED WITH RUMOURS
-What happened: Leadership didn't communicate about upcoming changes.
+**What happened:** You directly approached a senior colleague with suggestions for improvement, expecting a merit-based discussion.
 
-What they felt: Anxiety and distrust grew as people created explanations.
+**What they felt:** In their more hierarchical culture, your approach seemed disrespectful of organisational structures.
 
-Why it matters: The narrative created is almost always worse than reality, damaging morale and trust.
+**Why it matters:** Teams with members from different cultural backgrounds often have invisible differences in expectations about authority, decision-making, and appropriate communication channels.
 
-What helps: Provide regular updates, even when the update is "There's no update yet, but here's what we know."
+**What helps:** Learn about the cultural backgrounds of your teammates and discuss different frameworks for working together. "In my previous teams, we approached leaders with ideas directly. How does that process work in your experience?"
 
-CLARITY NEVER SOUGHT
-What happened: You weren't sure about the requirements but didn't want to seem incompetent.
+### THE INFORMATION VACUUM FILLED WITH RUMOURS
 
-What they felt: Frustrated when your work didn't meet their unexpressed expectations.
+**What happened:** Leadership didn't communicate about upcoming changes.
 
-Why it matters: The rework required took far more time than clarification would have.
+**What they felt:** Anxiety and distrust grew as people created explanations.
 
-What helps: Normalise the idea that clarification benefits everyone. "I want to make sure I'm on the right track. Let me describe my understanding of what we need."
+**Why it matters:** The narrative created is almost always worse than reality, damaging morale and trust.
+
+**What helps:** Provide regular updates, even when the update is "There's no update yet, but here's what we know."
+
+### CLARITY NEVER SOUGHT
+
+**What happened:** You weren't sure about the requirements but didn't want to seem incompetent.
+
+**What they felt:** Frustrated when your work didn't meet their unexpressed expectations.
+
+**Why it matters:** The rework required took far more time than clarification would have.
+
+**What helps:** Normalise the idea that clarification benefits everyone. "I want to make sure I'm on the right track. Let me describe my understanding of what we need."
 
 ## Spotting Communication Breakdowns Early
 
