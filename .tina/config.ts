@@ -1,12 +1,12 @@
 import { defineConfig } from "tinacms";
 
 export default defineConfig({
-  branch: "main",
+  branch: "master",
   clientId: process.env.TINA_CLIENT_ID || "",
   token: process.env.TINA_TOKEN || "",
   build: {
     outputFolder: "admin",
-    publicFolder: "static",
+    publicFolder: "public",
   },
   media: {
     tina: {
@@ -21,42 +21,53 @@ export default defineConfig({
         label: "Posts",
         path: "content/posts",
         format: "md",
-        fields: [
+        frontmatterFormat: "toml",
+        frontmatterDelimiters: "+++",
+        defaultItem: () => ({
+          date: new Date().toISOString(),
+        }),
+        templates: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "datetime",
-            name: "date",
-            label: "Date",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Description",
-          },
-          {
-            type: "string",
-            name: "keywords",
-            label: "Keywords",
-            list: true,
-          },
-          {
-            type: "string",
-            name: "categories",
-            label: "Categories",
-            list: true,
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
+            name: "default",
+            label: "Default",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+                required: true,
+                isTitle: true,
+              },
+              {
+                type: "datetime",
+                name: "date",
+                label: "Date",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+              },
+              {
+                type: "string",
+                name: "keywords",
+                label: "Keywords",
+                list: true,
+              },
+              {
+                type: "string",
+                name: "categories",
+                label: "Categories",
+                list: true,
+              },
+              {
+                type: "rich-text",
+                name: "body",
+                label: "Body",
+                isBody: true,
+              },
+            ],
           },
         ],
       },

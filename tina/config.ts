@@ -8,30 +8,28 @@ const branch =
   "master";
 
 export default defineConfig({
-  branch,
-
-  // Get this from tina.io
-  clientId: process.env.TINA_CLIENT_ID,
-  // Get this from tina.io
-  token: process.env.TINA_TOKEN,
-
+  branch: "main",
+  clientId: process.env.TINA_CLIENT_ID || "",
+  token: process.env.TINA_TOKEN || "",
   build: {
     outputFolder: "admin",
     publicFolder: "static",
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "images",
       publicFolder: "static",
     },
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
       {
         name: "post",
         label: "Posts",
         path: "content/posts",
+        format: "md",
+        frontmatterFormat: "toml",
+        frontmatterDelimiters: "+++",
         fields: [
           {
             type: "string",
@@ -39,6 +37,29 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+          },
+          {
+            type: "string",
+            name: "keywords",
+            label: "Keywords",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "categories",
+            label: "Categories",
+            list: true,
           },
           {
             type: "rich-text",
