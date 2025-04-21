@@ -78,8 +78,7 @@ We consistently underestimate how easily human communication breaks down and the
 
 **What helps:** Provide regular updates, even when the update is "There's no update yet, but here's what we know."
 
-### CLARITY NEVER SOUGHT
-
+\###CLARITY NEVER SOUGHT
 **What happened:** You weren't sure about the requirements but didn't want to seem incompetent.
 
 **What they felt:** Frustrated when your work didn't meet their unexpressed expectations.
