@@ -36,4 +36,3 @@ azure storage blob list # provide the container name
 ```
 
 If the storage account was used by multiple virtual machines there is potential to download their virtual hard disks.
-

@@ -56,7 +56,7 @@ What makes Grow Remote special is the variety of activities organised by groups 
 
 These events show how Grow Remote brings people together. They give remote workers chances to connect, have fun, and get involved with their local areas in meaningful ways.
 
-* To find Grow Remote events near you, visit [Grow Remote’s Eventbrite page](https://www.eventbrite.com/o/grow-remote-17859877089).  
+* To find Grow Remote events near you, visit [Grow Remote’s Eventbrite page](https://www.eventbrite.com/o/grow-remote-17859877089).
 * If you're interested in leading your own chapter, learn more about becoming a local leader [here](https://growremote.ie/local-leader/).
 
 ## Helping Others Find Their Remote Role
@@ -74,8 +74,8 @@ Remote work isn't just changing individual lives - it can transform whole commun
 
 To stay updated on what's happening in my Grow Remote Chapter, follow us on:
 
-* [Instagram](https://www.instagram.com/growremote_south_east_cork/)  
-* [Facebook](https://www.facebook.com/growremote.south.east.cork)  
+* [Instagram](https://www.instagram.com/growremote_south_east_cork/)
+* [Facebook](https://www.facebook.com/growremote.south.east.cork)
 * [LinkedIn](https://www.linkedin.com/company/growremote-south-east-cork)
 
 Remote work is an incredible opportunity, but it doesn’t have to be a solitary one. Through Grow Remote, you’ll find support, new challenges, and a community that makes remote work not only productive but truly fulfilling.

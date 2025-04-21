@@ -30,7 +30,7 @@ At this company, I worked on a team that acquired data from the web. However, we
 
 After this, I was employee number one an Irish Start-Up, again with the title of Software Engineer. As you can imagine in a Start-Up environment there is lots of work to do and the role was a diverse one that included many different aspects.
 
-My journey to ScrapingHub began with a call from a [recruiter](https://www.linkedin.com/in/garrybarcoe/) in [Stelfox](https://www.stelfox.com/) who told me about the role. He had my attention at the word [ScrapingHub](https://scrapinghub.com/), I knew immediately this was a chance to experience remote working for the first time. During the conversation, my interest only began to grow. The recruiter described the [AutoExtract](https://scrapinghub.com/autoextract) product to me and I was curious to know more - they’ve figured a way to do web scraping without the need to write XPaths and CSS selectors, a problem I previously faced. 
+My journey to ScrapingHub began with a call from a [recruiter](https://www.linkedin.com/in/garrybarcoe/) in [Stelfox](https://www.stelfox.com/) who told me about the role. He had my attention at the word [ScrapingHub](https://scrapinghub.com/), I knew immediately this was a chance to experience remote working for the first time. During the conversation, my interest only began to grow. The recruiter described the [AutoExtract](https://scrapinghub.com/autoextract) product to me and I was curious to know more - they’ve figured a way to do web scraping without the need to write XPaths and CSS selectors, a problem I previously faced.
 
 ## What was the interview and acceptance process like?
 
@@ -82,7 +82,7 @@ Three days before I was due to start I received an email containing my staff cre
 *   Github - Git repositories
 *   BambooHR - HR System
 
-Before officially starting I signed into Slack and received a warm welcome from all my future co-workers. I also signed into my GSuite account where my calendar revealed a hint of what the first few days were going to be like. 
+Before officially starting I signed into Slack and received a warm welcome from all my future co-workers. I also signed into my GSuite account where my calendar revealed a hint of what the first few days were going to be like.
 
 One of my major concerns early on was keeping to a routine. To help with this I decided to continue waking up at the same time as I did in previous jobs. I wanted to use the time I saved by having no commute to complete any tasks that involved leaving the house. For example, on day 1 I did the grocery shopping for the week.
 
@@ -128,7 +128,7 @@ AutoExtract is build-up of multiple components that communicate together via Kaf
 
 *   A mechanism to deploy and destroy a single component - [Helm](https://helm.sh/) fits this use case nicely. I created a helm chart for each of the components. The chart is stored, versioned and released with the component’s source code. I extended the pre-existing ChatOp deployment mechanism to support communicating with helm.
 *   HTTP/HTTPS connectivity to pods - [Ingress Nginx](https://github.com/kubernetes/ingress-nginx) solved this problem nicely. I paired it with [cert manager](https://github.com/jetstack/cert-manager) to automatically provision SSL certificates from letsencrypt and [External DNS](https://github.com/kubernetes-incubator/external-dns) to automatically create DNS records.
-*   Monitoring of the application and cluster - Deploying [Prometheus](https://prometheus.io/) provided a straightforward way to achieve this. 
+*   Monitoring of the application and cluster - Deploying [Prometheus](https://prometheus.io/) provided a straightforward way to achieve this.
 *   Authentication for internal applications - [OAuth2 Proxy](https://github.com/pusher/oauth2_proxy) integrated nicely with ingress nginx to provide authentication against the company’s GSuite accounts.
 *   Kafka - I made use of [Confluent.Cloud](https://confluent.cloud/)’s managed kafka offering for this. Allowed us to get Kafka on a consumption pricing model and avoid an ongoing maintenance overhead.
 

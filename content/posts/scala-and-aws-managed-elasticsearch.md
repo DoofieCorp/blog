@@ -65,4 +65,3 @@ private def createEsHttpClient(config: Config): HttpClient = {
 ```
 
 Full Example on [GitHub](https://github.com/imduffy15/scala-aws-hosted-es/blob/master/src/main/scala/Run.scala)
-

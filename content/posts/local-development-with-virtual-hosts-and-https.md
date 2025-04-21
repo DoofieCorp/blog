@@ -29,7 +29,7 @@ description = "Using docker to provide virtual hosts and HTTPS to your local app
 ![](/images/local-development-with-virtual-hosts-and-https/diagram.png)
 
 </center>
- 
+
 When doing development locally it might be necessary to access the application(s) using a virtual host (vhost) and/or HTTPS. This post describes an approach to achieving this on OSX using Docker, which avoids creating a large mess on your computer.
 
 ## Domain Name Systems (DNS)
@@ -143,8 +143,8 @@ Most developers will want to run their application on the host and continue with
 ```
 $ docker run -it --expose 80 -e VIRTUAL_HOST=test.dev.ianduffy.ie alpine/socat tcp-listen:80,fork,reuseaddr tcp-connect:host.docker.internal:9000
 ```
- 
- 
+
+
 ## Bring it all together with docker-compose
 
 All of the containers described above can be brought together in a single docker compose file. This provides ease of bringing the system up with a single command.

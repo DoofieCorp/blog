@@ -17,7 +17,7 @@ While there are a vast amount of solutions on the market for achieving this, I s
  4. Be easy to retrofit.
 
 
-## Contenders 
+## Contenders
 
 ### Nest
 

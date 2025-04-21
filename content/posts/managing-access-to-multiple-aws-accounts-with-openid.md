@@ -29,7 +29,7 @@ using STS AssumeRole to access other accounts
 
 ## Reuse employees existing identities
 
-In most organisations, an employee will already have an identity, normally used for accessing e-mail. These identities are normally stored in Active Directory (AD), Google Suite (GSuite) or Office 365. In an ideal world, these identities could be reused and would grant access to AWS. This means employees would only need to remember one set of credentials and their access could be revoked from a single place. 
+In most organisations, an employee will already have an identity, normally used for accessing e-mail. These identities are normally stored in Active Directory (AD), Google Suite (GSuite) or Office 365. In an ideal world, these identities could be reused and would grant access to AWS. This means employees would only need to remember one set of credentials and their access could be revoked from a single place.
 
 ## Expose an OpenID compatible interface for authentication
 
@@ -55,7 +55,7 @@ Provided below is an example implementation of the above design. One user with u
 
 To follow along, clone or [download](https://github.com/imduffy15/aws-credentials-issuer/archive/master.zip) the code at [https://github.com/imduffy15/aws-credentials-issuer](https://github.com/imduffy15/aws-credentials-issuer).
 
- 
+
 
 ## OpenID Provider
 
@@ -115,7 +115,7 @@ This code can be deployed to an AWS account by using the [serverless framework](
 
 * A [function](https://github.com/imduffy15/aws-credentials-issuer/blob/master/lambda_handler.py#L67) for generating AWS API Credentials
 
-* A [function](https://github.com/imduffy15/aws-credentials-issuer/blob/master/lambda_handler.py#L36) for generating [Amazon Federated Sign-On URL](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html)s 
+* A [function](https://github.com/imduffy15/aws-credentials-issuer/blob/master/lambda_handler.py#L36) for generating [Amazon Federated Sign-On URL](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html)s
 
 With [AWSCLI](https://aws.amazon.com/cli/) configured with credentials for the account that the service will run in execute `sls deploy`, this will deploy the lambda functions and return URLs for executing them.
 
@@ -135,7 +135,7 @@ With [AWSCLI](https://aws.amazon.com/cli/) configured with credentials for the a
 
 The [provided code](https://github.com/imduffy15/aws-credentials-issuer) supplies a [frontend](https://github.com/imduffy15/aws-credentials-issuer/tree/master/ui) which will provide users with a graphical experience for accessing the AWS Web Console or generating AWS API Credentials.
 
-The frontend can be deployed to an S3 bucket using the [serverless framework](https://serverless.com/). Before deploying it some variables must be modified. In the [serverless definition (](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75)[`serverless.yml`](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75)[)](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75), replace "ianduffy-aws-credentials-issuer" with a desired S3 bucket name and modify [`ui/.env`](https://github.com/imduffy15/aws-credentials-issuer/blob/master/ui/.env) to contain your Keycloak and Backend URL as highlighted above. The deployment can be executed with `sls client deploy`. 
+The frontend can be deployed to an S3 bucket using the [serverless framework](https://serverless.com/). Before deploying it some variables must be modified. In the [serverless definition (](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75)[`serverless.yml`](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75)[)](https://github.com/imduffy15/aws-credentials-issuer/blob/master/serverless.yml#L75), replace "ianduffy-aws-credentials-issuer" with a desired S3 bucket name and modify [`ui/.env`](https://github.com/imduffy15/aws-credentials-issuer/blob/master/ui/.env) to contain your Keycloak and Backend URL as highlighted above. The deployment can be executed with `sls client deploy`.
 
 <center>
 

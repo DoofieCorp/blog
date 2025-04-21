@@ -1,4 +1,4 @@
-baseurl = "http://ianduffy.ie/"
+baseurl = "https://imduffy15.github.io/"
 title = "Ian Duffy"
 languageCode = "en-us"
 MetaDataFormat = "toml"
@@ -90,3 +90,21 @@ pygmentsuseclasses = true
 [markup.goldmark.renderer]
 unsafe= true
 
+[module]
+[[module.mounts]]
+source = "content"
+target = "content"
+
+[[module.mounts]]
+source = "static"
+target = "static"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = ".tina/__generated__"
+target = "assets/tina"
+
+publishDir = "public"

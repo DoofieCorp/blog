@@ -44,7 +44,7 @@ Bingo! I had found my data source.
     - Parse the reviewer name, review snippet, and rating.
     - Do a fuzzy match on the CRM to mark the customer as having left a review.
 
-And just like that, I had an automated system keeping the CRM up-to-date with all the review info. 
+And just like that, I had an automated system keeping the CRM up-to-date with all the review info.
 
 ## Why I Love This Solution
 

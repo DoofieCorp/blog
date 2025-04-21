@@ -116,7 +116,7 @@ Now, configure your `~/.gitconfig-work` and `~/.gitconfig-personal` files. These
     insteadOf = "git@github.com:"
 ```
 
-**How It Works:**  
+**How It Works:**
 The `insteadOf` configuration rewrites the GitHub URLs to custom SSH URLs (`git@personalgit:` and `git@workgit:`). These URLs then map to the appropriate SSH `Host` entries in your `~/.ssh/config`, ensuring the correct SSH key is used for each account automatically.
 
 For example, when working in your personal directory, `git@github.com:personal-username/repo.git` becomes `git@personalgit:repo.git`, which uses the SSH key specified in the `Host personal-github` entry.

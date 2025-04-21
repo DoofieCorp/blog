@@ -38,7 +38,7 @@ For my setup I ended up with:
   - [Minitiger switch](https://templates.blakadder.com/minitiger_1gang-V2.html)
 
 ### Bulbs:
- 
+
  - [Novostella 5W bulb](https://templates.blakadder.com/novostella_UT55505.html)
  - [Novostella 7W](https://templates.blakadder.com/novostella_UT55507.html)
  - [Athom 15W](https://templates.blakadder.com/athom_LB01-15W-E27.html)

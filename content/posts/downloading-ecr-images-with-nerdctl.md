@@ -36,7 +36,7 @@ Assuming your docker configuration already contains a `credHelpers`:
 All thats left is to download [Amazon ECR Docker Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper) to somewhere on your $PATH within lima:
 
 ```bash
-lima $ sudo wget -O /usr/bin/docker-credential-ecr-login https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.5.0/linux-amd64/docker-credential-ecr-login 
+lima $ sudo wget -O /usr/bin/docker-credential-ecr-login https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.5.0/linux-amd64/docker-credential-ecr-login
 lima $ sudo chmod 755 /usr/bin/docker-credential-ecr-login
 ```
 

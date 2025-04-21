@@ -1,0 +1,15 @@
+{
+  "name": "ian-duffy-blog",
+  "version": "1.0.0",
+  "dependencies": {
+    "@tinacms/cli": "^1.9.5",
+    "tinacms": "^2.1.1"
+  },
+  "scripts": {
+    "dev": "tinacms dev -c \"hugo server -D\"",
+    "build": "tinacms build && hugo"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1"
+  }
+}

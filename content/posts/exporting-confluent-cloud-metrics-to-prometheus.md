@@ -30,8 +30,8 @@ $ docker run -p 9308:9308 -it imduffy15/kafka_exporter \
 --kafka.server=host.region.gcp.confluent.cloud:9092 \
 --sasl.enabled \
 --sasl.username=username \
---sasl.password="password" \ 
---sasl.handshake \ 
+--sasl.password="password" \
+--sasl.handshake \
 --tls.insecure-skip-tls-verify \
 --tls.enabled
 ```

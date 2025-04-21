@@ -114,7 +114,7 @@ Once configured, similarly to the DVB-T adapters, a DVB-S network can be created
 
 </center>
 
-## Viewing 
+## Viewing
 
 As described at the start of this post, I wanted the content to be available on all my different devices. TVHeadend does a fantastic job at providing interfaces to do this.
 
