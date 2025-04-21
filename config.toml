@@ -47,7 +47,7 @@ pygmentsuseclasses = true
     highlight = "sunburst"
 
     # Optional additional custom CSS file URL, will override other styles.
-    customCSS = ""
+    customCSS = "/css/custom.css"
 
     # Displays under the author name in the sidebar, keep it short.
     # You can use markdown here.
@@ -87,8 +87,66 @@ pygmentsuseclasses = true
     disable = true
     privacyEnhanced = true
 
-[markup.goldmark.renderer]
-unsafe= true
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Enable HTML in Markdown (like remarkHtml)
+      unsafe = true
+
+    [markup.goldmark.parser]
+      # Enable automatic header IDs (like remarkSlug and remarkAutolinkHeadings)
+      autoHeadingID = true
+      # Enable attributes on elements
+      attribute = true
+      # Enable GFM features (like remarkGfm)
+      [markup.goldmark.parser.gfm]
+        autolink = true
+        table = true
+        strikethrough = true
+        taskList = true
+      # Enable math (like remarkMath)
+      [markup.goldmark.parser.math]
+        enable = true
+
+    [markup.goldmark.extensions]
+      # Enable GitHub Flavored Markdown
+      gfm = true
+      # Enable emojis (like remarkEmoji)
+      emoji = true
+      # Enable typographer for smart quotes
+      typographer = true
+      # Enable footnotes
+      footnote = true
+      # Enable link references
+      linkify = true
+
+  [markup.highlight]
+    # Code syntax highlighting
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "dracula"
+
+  [markup.tableOfContents]
+    # Enable table of contents (like remarkToc)
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+
+  # Handle external links (like remarkExternalLinks)
+  [markup.goldmark.renderer.link]
+    rel = ["nofollow", "noopener", "noreferrer"]
+    target = "_blank"
+
+  # Add anchor links to headers (like remarkAutolinkHeadings)
+  [markup.goldmark.parser.heading]
+    linkIcon = "#"
+    linkIconPosition = "left"
+    linkClass = "header-link"
+
+  # Image processing (like remarkImages)
+  [markup.goldmark.parser.image]
+    titleAsCaption = true
 
 [module]
 [[module.mounts]]
