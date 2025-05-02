@@ -1,7 +1,7 @@
 +++
 title = "The Best Engineers Make Mistakes"
 date = 2025-05-01T23:00:00.000Z
-description = "The best engineers aren't perfect - they're resilient. Learn practical steps to handle mistakes, move from panic to problem-solving, and create a culture where engineering errors become valuable learning opportunities.RetryClaude can make mistakes. Please double-check responses."
+description = "Learn practical steps to handle mistakes, move from panic to problem-solving, and create a culture where engineering errors become valuable learning opportunities."
 keywords = [
   "",
   "Incident Response",
@@ -22,17 +22,17 @@ You've just pushed code that took down production. Your heart races as catastrop
 
 ## The Reality of Engineering Mistakes
 
-Engineering is a profession where we build complex systems with thousands of moving parts, often under time pressure, with incomplete information and questionable dependencies. The question isn't whether you'll make mistakes but how you'll respond.
+In Engineering, we build complex systems with thousands of moving parts, often under time pressure, with incomplete information and questionable dependencies. The question isn't whether you'll make mistakes but how you'll respond.
 
-What separates exceptional engineers isn't an absence of errors but how they handle these incidents and turn them into opportunities for growth. 
+What separates exceptional engineers isn't an absence of mistakes but how they handle these mistakes and turn them into learning opportunities.
 
-A mistake that leads to no change is your only actual failure.
+A mistake that leads to no learning is your only actual failure.
 
 ## The Psychological Journey
 
-The first challenge in addressing any engineering mistake is managing your mind. Your brain's immediate response to disaster is rarely at its best. The panic response, racing heart, tunnel vision, and catastrophic thinking work against clear thinking precisely when you need it most.
+The first challenge in addressing any mistake is managing your mind. Your brain's immediate response to disaster is rarely at its best. The panic response, racing heart, tunnel vision, and catastrophic thinking work against clear thinking precisely when you need it most.
 
-Recognise this state for what it is: a temporary condition triggered by your panic that does not reflect your worth as an engineer.
+Recognise this state for what it is: a temporary condition triggered by your panic.
 
 ## From Panic to Progress
 
@@ -48,7 +48,7 @@ Focus first on restoring service and then on understanding what happened. This m
 
 Once systems are stable, conduct a blameless postmortem. The goal isn't to assign fault but to understand contributing factors. What conditions made this mistake possible? What safeguards were missing? What assumptions proved incorrect? The answers to these questions are where the real value lies.
 
-## Common Engineering Mistakes and Better Responses
+## Common Mistakes and Better Responses
 
 ### When Security Vulnerabilities Are Introduced
 
@@ -93,12 +93,8 @@ Explicitly recognise and reward engineers who identify and address their own mis
 
 This approach helps counter the "perfectionism paralysis" discussed in [Troubleshooting the Engineer's Brain](https://ianduffy.ie/2025/04/15/troubleshooting-the-engineers-brain/), where engineers delay submitting work because it doesn't feel "ready" despite meeting all requirements.
 
-### Schedule Regular System Improvement Time
+## Reframe Mistakes into Learnings
 
-Allocate dedicated time for addressing issues identified during incidents. Without this commitment, the pressure to deliver new features will override fixing the underlying issues.
+The most powerful reframing for mistakes is seeing them as learnings.
 
-## Reframe Mistakes into Learnings 
-
-The most powerful reframing for mistakes is seeing them as learnings. 
-
-Mistakes are inevitable in engineering. Growth from those mistakes is optional. Choose growth.
+Mistakes are inevitable in engineering. Learning from those mistakes is optional. Choose Learning.
