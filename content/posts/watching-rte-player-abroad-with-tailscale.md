@@ -111,3 +111,7 @@ Then enable app connector mode on it, which is easiest in the admin console unde
 ## 4. The client
 
 Install Tailscale on the phone or laptop, sign in, and turn on using subnet routes (a toggle in the mobile apps, or `tailscale up --accept-routes` on the command line). Leave the exit node off, since that is the whole point. RTE bound traffic now goes through Ireland and everything else takes the local link.
+
+## That is it
+
+With the connector running and the client accepting routes, RTE Player works wherever I happen to be, and the rest of the connection carries on locally as if nothing had changed. My banking app, my email and everything else never leave the network I am actually on, which was the point from the start. If a video ever stops playing, it is almost always a new CDN address that needs adding to the list in step 2, and the same approach works for any other geo locked service you want to reach from home.
